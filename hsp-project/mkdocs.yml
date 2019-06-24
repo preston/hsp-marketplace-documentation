@@ -1,0 +1,11 @@
+site_name: Health Services Platform (HSP) Marketplace
+theme: readthedocs
+
+nav:
+- Health Services Platform (HSP) Marketplace : 'index.md'
+- License : 'license.md'
+- Executive Summary : 'ExecutiveSummary.md'
+- Core Concepts :  'CoreConcepts.md'      
+- Functional Infrastructure Model : 'FunctionalInfrastructureModel.md'  
+- Supplemental Information and Appendix : 'SupplementalAndAppendix.md'    
+- API : 'api.md'
