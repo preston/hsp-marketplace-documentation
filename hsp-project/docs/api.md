@@ -9,7 +9,7 @@ Figure 3 Platform independant model (PIM)
 
 A Marketplace MUST use OpenID Connect – part of the OAuth 2 family – for Marketplace user authentication using an external single sign-on (SSO) system. Implementations MAY provide support for other SSO protocols/systems including SAML 2.0 and CAS, but OpenID Connect is the required minimum. OAuth 2 enjoys broad mainstream support outside of healthcare, is familiar to enterprise architects, and works well for both mobile and headless clients.
 
-In addition to being a relatively simple specification to implement in most cases, OpenID Connect and OAuth 2 are the basis of SMART-on-FHIR (SoF) authentication and authorization. Marketplace use of OpenID Connect for authentication is not otherwise related to or dependent upon SoF nor FHIR. Likewise, the Marketplace is not a FHIR specification and does not provide APIs as FHIR resources. The specific selection of OpenID Connect is intended to enable new and creative means of supporting FHIR-focused Marketplace implementations, when applicable, by providing out-of-the-box compatible authentication against the same external identity provider(s) used for SoF authorization. To reiterate, however, FHIR-based Services or Builds are not required. It is no less valid to operate a Marketplace implementation supporting alternative or unrelated standards. The authentication and authorization objects discussed in subsequent sections are completely unrelated to any similar records that may be present in specific FHIR Services that happen to be published in a Marketplace.
+In addition to being a relatively simple specification to implement in most cases, OpenID Connect and OAuth 2 are the basis of SMART-on-FHIR (SoF) authentication and authorization. Marketplace use of OpenID Connect for authentication is not otherwise related to or dependent upon SoF nor FHIR. Likewise, the Marketplace is not a FHIR specification and does not provide APIs as FHIR resources. The specific selection of OpenID Connect is intended to enable new and creative means of supporting FHIR-focused Marketplace implementations, when applicable, by providing out-of-the-box compatible authentication against the same external identity provider(s) used for SoF authorization. To reiterate, however, FHIR-based Products or Builds are not required. It is no less valid to operate a Marketplace implementation supporting alternative or unrelated standards. The authentication and authorization objects discussed in subsequent sections are completely unrelated to any similar records that may be present in specific FHIR Products that happen to be published in a Marketplace.
 For web-based clients, this implies the use of RFC 7519 JSON Web Tokens (JWTs) within HTTP header bodies to establish the session upon each call. See the JTW/RFC 7519 specification3 for implementation and usage information.
 
 ##Role-Based Access Control
@@ -18,7 +18,7 @@ Each Role MUST provide a permissions object in the form of a JSON associative ar
 
 The permissions object MUST ONLY apply to globally-defined Roles. Implementers MUST allow a User to manage their own Identity, Platform, Instance, and other User-scoped resources without explicit permissions, as well as implicitly grant read access (without explicit permissions) for system objects required to log in via OpenID Connect, such as IdentityProvider. Implementers MAY provide global paths for querying sub-resources without reference to their naturally defined parent resource -- e.g. “GET <root>/platforms” in lieu of “GET <root>/users/:id/platforms” -- and in this case a permission set for “platforms”, “identities” etc would/will apply regardless of the ability to access the parent record.
 
-As a further example of implicit access, a Service MUST be readable, at minimum, by its owner. Management of sub-resources by the owner of the Service, notably Build, SHOULD also be deemed as manageable by the owner, but SHOULD NOT allow limitless control. In the case of Builds – nested within Services as “/services/:uuid/builds” – and other types in that tree, permission to access a sub-resource does not implicitly grant the ability to access the parent, and vice versa. Implementers MAY allow for adaptation, but implementers MUST take care to not inadvertently allow bypass of access controls by querying for related records that include the unauthorized resource.
+As a further example of implicit access, a Product MUST be readable, at minimum, by its owner. Management of sub-resources by the owner of the Product, notably Build, SHOULD also be deemed as manageable by the owner, but SHOULD NOT allow limitless control. In the case of Builds – nested within Products as “/products/:uuid/builds” – and other types in that tree, permission to access a sub-resource does not implicitly grant the ability to access the parent, and vice versa. Implementers MAY allow for adaptation, but implementers MUST take care to not inadvertently allow bypass of access controls by querying for related records that include the unauthorized resource.
 
 ###Administrator Shortcut
 A single special global-administrator privilege MUST be supported on the Role permissions field object. This implicitly grants unlimited access to the system for any Role(s) holding it.
@@ -29,20 +29,20 @@ Additional permission-level decisions are left to the discretion of the implemen
 ###Permission Conflict and Non-Revocation
 As the Marketplace RBAC operates on a strict deny-allow semantic, no mechanism is supported to permit “revocation” of privileges or anti-Roles. While defining a mechanism may be tempting to supporting Roles such as “suspended users” or “provisional accounts”, doing so would be overly complicated for most implementations. Setting the value of a permission to “false”, null, or any other non-true value SHALL NOT have any effect. For example, in cases where a permission is set to true in a Role and false in another, the values SHALL be “or’d” together. In other words, any true value in any Role grants the permission of interest.
 
-##Services, Builds, and Images
-A Service is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology service “ExampleService” developed by vendor “ExampleSoft”, for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields.
-Builds are concrete, versioned instances of a Service, and is the product versioning mechanism used by the Marketplace. As ExampleSoft provides ongoing development of ExampleService and is ready to release a new version for public deployments, a new Build resource is created under the existing Service declaration with a distinct version within the scope of that Service. Build versions SHOULD adhere to semver4 semantics. An additional “ordinal” field is provided for Builds that do not adhere to a lexicographically sortable versioning scheme such as hashes or code names. Informal automated Builds made on a recurring basis such as “latest” or “nightly” SHOULD NOT reuse an existing build definition, but MAY so long as this is clearly communicated to the user via other metadata. Distinct Builds are not assumed to be “rolling” or “rebuilt” on a recurring basis.
-To ease operational requirements for operating a Marketplace, the Marketplace does not include a mechanism for uploading software. Instead, these Images are declared by reference within the Build record. Images MUST be OCI compliant and be downloadable from the public Internet without special authentication, authorization, or human intervention. (See What is a “Health Service”? for Image packaging requirements.) Implementations MAY implement their own image hosting and management solutions, but this is neither necessary nor required. Numerous general-purpose solutions for management of OCI-compliant images are already available.
+##Products, Builds, and Images
+A Product is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology product “ExampleProduct” developed by vendor “ExampleSoft”, for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields.
+Builds are concrete, versioned instances of a Product, and is the product versioning mechanism used by the Marketplace. As ExampleSoft provides ongoing development of ExampleProduct and is ready to release a new version for public deployments, a new Build resource is created under the existing Product declaration with a distinct version within the scope of that Product. Build versions SHOULD adhere to semver4 semantics. An additional “ordinal” field is provided for Builds that do not adhere to a lexicographically sortable versioning scheme such as hashes or code names. Informal automated Builds made on a recurring basis such as “latest” or “nightly” SHOULD NOT reuse an existing build definition, but MAY so long as this is clearly communicated to the user via other metadata. Distinct Builds are not assumed to be “rolling” or “rebuilt” on a recurring basis.
+To ease operational requirements for operating a Marketplace, the Marketplace does not include a mechanism for uploading software. Instead, these Images are declared by reference within the Build record. Images MUST be OCI compliant and be downloadable from the public Internet without special authentication, authorization, or human intervention. (See What is a “Health Product”? for Image packaging requirements.) Implementations MAY implement their own image hosting and management solutions, but this is neither necessary nor required. Numerous general-purpose solutions for management of OCI-compliant images are already available.
 
 ##Standards Compliance Declarations
-To facilitate automated validation, automated deployment, and autowiring, the Marketplace declares a system-wide collection of standardized Interface types known and supported by the instance. Each Interface MUST have a distinct URI and name, MUST have a version, and MAY have an additional ordinal value. The ability of an Interface to subsume the capabilities of another Interface – for such cases where v2.1 is a superset of all v2.0 functions, for example – is provided via separate Surrogate records. In this example, v2.1 would be allowed to serve as a Surrogate for other Service Builds declaring a Dependency on v2.0.
+To facilitate automated validation, automated deployment, and autowiring, the Marketplace declares a system-wide collection of standardized Interface types known and supported by the instance. Each Interface MUST have a distinct URI and name, MUST have a version, and MAY have an additional ordinal value. The ability of an Interface to subsume the capabilities of another Interface – for such cases where v2.1 is a superset of all v2.0 functions, for example – is provided via separate Surrogate records. In this example, v2.1 would be allowed to serve as a Surrogate for other Product Builds declaring a Dependency on v2.0.
 
-When ExampleSoft submits a new build of ExampleService, they SHOULD declare adherence to each applicable Interface supported by the Marketplace instance. This declaration is made via 0..* Exposure records subordinate to the Build. Each Exposure thus makes a statement such as, “ExampleService build v1.2.3 provides XYZ API v4.5.6”. The exact meaning of this is naturally specific to the standard being supported by the Build. Enhancements to the Exposure resource are expected in the future to allow for more robust declaration of highly varied types of Interfaces. Healthcare’s widespread use of model “profiling” – a practice far less common in other domains -- makes defining a solution challenging up front. The Interface URI space is intentionally left undefined, though future definition of a global registry may also be warranted. Marketplace operators are encouraged to collaborate on common URIs to avoid Marketplace operator-specific URI declarations.
+When ExampleSoft submits a new build of ExampleProduct, they SHOULD declare adherence to each applicable Interface supported by the Marketplace instance. This declaration is made via 0..* Exposure records subordinate to the Build. Each Exposure thus makes a statement such as, “ExampleProduct build v1.2.3 provides XYZ API v4.5.6”. The exact meaning of this is naturally specific to the standard being supported by the Build. Enhancements to the Exposure resource are expected in the future to allow for more robust declaration of highly varied types of Interfaces. Healthcare’s widespread use of model “profiling” – a practice far less common in other domains -- makes defining a solution challenging up front. The Interface URI space is intentionally left undefined, though future definition of a global registry may also be warranted. Marketplace operators are encouraged to collaborate on common URIs to avoid Marketplace operator-specific URI declarations.
 
-When a build is deployed, it may set a number of instance-specific Parameters based on the declared Exposures. These are to be used for autowiring purposes, and let local Agents know which settings of the Build, if any, should be visible to other Services/Builds deployed in the future.
+When a build is deployed, it may set a number of instance-specific Parameters based on the declared Exposures. These are to be used for autowiring purposes, and let local Agents know which settings of the Build, if any, should be visible to other Products/Builds deployed in the future.
 
-Similarly, to support automated deployment, Builds MUST declare their external Service dependencies via Dependency resources if/when they are supported by that Marketplace instance. Dependencies, like Exposures, are specific to each Build, and will likely by refined with additional fields in the future to support more advanced use cases.
-The last sub-resource supported by Build is 0..* Configurations. A Configuration contains the runtime and Build entrypoint information essential for a local Agent to execute the Build according to ExampleSoft’s runtime requirements. To illustrate, say ExampleService requires a deployment consisting of:
+Similarly, to support automated deployment, Builds MUST declare their external Product dependencies via Dependency resources if/when they are supported by that Marketplace instance. Dependencies, like Exposures, are specific to each Build, and will likely by refined with additional fields in the future to support more advanced use cases.
+The last sub-resource supported by Build is 0..* Configurations. A Configuration contains the runtime and Build entrypoint information essential for a local Agent to execute the Build according to ExampleSoft’s runtime requirements. To illustrate, say ExampleProduct requires a deployment consisting of:
 2+ containers running a web server
 1+ background workers
 1 external database
@@ -50,15 +50,15 @@ The last sub-resource supported by Build is 0..* Configurations. A Configuration
 For autodeployment to be possible, this Configuration MUST contain a Task resource for each line item. Configurations MUST reference a single Build (and transitively exactly 1 Image). Therefore, Configurations and Tasks MUST ONLY require a single Build to operate. This may change in the future; however, it is not recommend as doing so complicates the entire functional model.
 
 ##Configuration State Tracking
-One of the more advanced use cases for a Marketplace is fully automated, autowired Service deployment from an external environment into a local platform environment. For a Marketplace to provide intelligent search and filter capabilities for users, it therefore must have some notion of what existing Services are present, regardless of the management system responsible for managing the hosting environment.
-Each User MAY declare 0..* Platforms that SHOULD correspond to the environments integrated with that Marketplace instance. Each Platform MUST have a distinct name (relative to that User), which in turn contains 0..* Instance resources. Each Instance refers to the specific Build of the Service running in that Platform environment and contains a JSON field for configuration information set by the Platform agent at runtime. In this initial version of the Marketplace API, there is no ability to define local Services that are not otherwise known to the Marketplace. This may change in the future.
+One of the more advanced use cases for a Marketplace is fully automated, autowired Product deployment from an external environment into a local platform environment. For a Marketplace to provide intelligent search and filter capabilities for users, it therefore must have some notion of what existing Products are present, regardless of the management system responsible for managing the hosting environment.
+Each User MAY declare 0..* Platforms that SHOULD correspond to the environments integrated with that Marketplace instance. Each Platform MUST have a distinct name (relative to that User), which in turn contains 0..* Instance resources. Each Instance refers to the specific Build of the Product running in that Platform environment and contains a JSON field for configuration information set by the Platform agent at runtime. In this initial version of the Marketplace API, there is no ability to define local Products that are not otherwise known to the Marketplace. This may change in the future.
 
 ##Endpoint Overview
 A complete list of endpoints defined by this specification, including all applicable noun/verb combinations, is provided in plaintext format within the accompanying ballot package. This “routes” file is useful for quickly understanding the scope of effort required for implementation and/or consumption.
 
 ##Resource Commonalities
 Please read and understand this section in entirety prior to the subsequent Endpoints section. It is required for successful implementation.
-The entire Marketplace API applies a consistent view of RESTful service design with a mission of optimizing ease of consumability for applications developers. A few general principles apply to all resource types.
+The entire Marketplace API applies a consistent view of RESTful product design with a mission of optimizing ease of consumability for applications developers. A few general principles apply to all resource types.
 
 4.1.4 Endpoint Noun-Verb Paths
 For a given resource “foo”, paths are always lowercase and plural. Table 1 shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
@@ -161,13 +161,13 @@ Template
 GET
 /
 Root path
-{"message": "This service provides an API only and does not offer a built-in graphical interface."}
+{"message": "This product provides an API only and does not offer a built-in graphical interface."}
 GET
 /status
 System availability and health.
 {
     "message": "This application server and underlying database connection appear to be healthy.",
-    "service": {
+    "product": {
         "datetime": "2018-11-27T21:30:05.967-07:00"
     },
     "database": {
@@ -205,8 +205,8 @@ An Identity contains the IdentityProvider-specific information for a given User 
 4.1.13 User Platforms (/users/:id/platforms)
 A Platform is a User declaration of a compatible local runtime environment, possibly managed by an automated Agent.
 
-4.1.14 User Platforms (Service) Instances (/users/:id/platforms/:id/instances)
-A Service Instance declares a running instance of a known Build on a specific User Platform.
+4.1.14 User Platforms (Product) Instances (/users/:id/platforms/:id/instances)
+A Product Instance declares a running instance of a known Build on a specific User Platform.
 
 4.1.15 Groups (/groups)
 A Group allows for batch assignment of Roles to a collection of Users.
@@ -224,90 +224,90 @@ A Role Appointment is a polymorphic type assigning a Role to single User or Grou
 A JsonWebToken is a stateful session identifying a User through an authorized Identity. Endpoints for the JsonWebToken type are purely OPTIONAL and SHALL NOT be required for API usage but may be useful for clients focused on operational tasks such as invaliding sessions of all currently-authenticated users. If present, they SHALL be exposed according to the same conventions of other resources.
 
 4.1.20 Licenses (/licenses)
-Licenses are globally declared terms of use, and MAY or MAY NOT be useful in all Marketplace operator contexts. As discussed in the For Providers and Software Vendors section, this is expected to be customized to the local sales and business model. Implementors and operators only focused on F/OSS Services MAY be satisfied by the barebones model.
+Licenses are globally declared terms of use, and MAY or MAY NOT be useful in all Marketplace operator contexts. As discussed in the For Providers and Software Vendors section, this is expected to be customized to the local sales and business model. Implementors and operators only focused on F/OSS Products MAY be satisfied by the barebones model.
 
-4.1.21 Services (/services)
-Service declarations contain the core metadata of a deployable package independent of any specific Build or other versioned release.
+4.1.21 Products (/products)
+Product declarations contain the core metadata of a deployable package independent of any specific Build or other versioned release.
 The logo_* fields are all set by the server automatically whenever “logo” binary field data are submitted to the server via a POST, PUT or PATCH. These generated fields SHOULD NOT be modifiable by the User/client directly.
 
 In addition to the conventional REST endpoints, several others are made available for logo rendering. Whether or not CORS must be enabled for these endpoints is left to the discretion of the implementor and operator, though it is recommend to allow CORS for their official clients, at minimum. MIME types returned by the server MUST match the content of the binary data.
-Table 3 Additional Services Endpoints
+Table 3 Additional Products Endpoints
 Verb
 Path
 Returns
 GET
-/services/:id/small_logo
+/products/:id/small_logo
 100x100 binary
 GET
-/services/:id/medium_logo
+/products/:id/medium_logo
 400x400 binary
 GET
-/services/:id/large_logo
+/products/:id/large_logo
 1600x1600 binary
 POST
-/services/:id/publish
+/products/:id/publish
 Resource JSON with published_at set to current datetime.
 POST
-/services/:id/publish
+/products/:id/publish
 Resource JSON with published_at set to null.
 
-4.1.22 Service Screenshots (/services/:id/screenshots)
-Screenshots are optional images provided by a Service developer previewing select aspects of the Service. For cases where a Service provides no visual components or GUI, it is suggested that developers SHOULD still submit images previewing meaningful interactions on the Exposed Interface(s).
-The binary image data associated with a screenshot is handled similarly to the Service logo and derivative fields: image_* fields are all set by the server automatically whenever “image” binary field data is submitted to the via a POST, PUT or PATCH. These generated fields SHOULD NOT be modifiable by the User/client directly.
+4.1.22 Product Screenshots (/products/:id/screenshots)
+Screenshots are optional images provided by a Product developer previewing select aspects of the Product. For cases where a Product provides no visual components or GUI, it is suggested that developers SHOULD still submit images previewing meaningful interactions on the Exposed Interface(s).
+The binary image data associated with a screenshot is handled similarly to the Product logo and derivative fields: image_* fields are all set by the server automatically whenever “image” binary field data is submitted to the via a POST, PUT or PATCH. These generated fields SHOULD NOT be modifiable by the User/client directly.
 
-Like the Service logo endpoints, Screenshots also provide direct binary access resources for direct client rendering. Whether or not CORS must be enabled for these endpoints is left to the discretion of the implementor and operator. MIME types returned by the server MUST match the content of the binary data.
-Table 4 Additional Service Screenshot Endpoints
+Like the Product logo endpoints, Screenshots also provide direct binary access resources for direct client rendering. Whether or not CORS must be enabled for these endpoints is left to the discretion of the implementor and operator. MIME types returned by the server MUST match the content of the binary data.
+Table 4 Additional Product Screenshot Endpoints
 Verb
 Path
 Returns
 GET
-/services/:id/screenshots/:id/small
+/products/:id/screenshots/:id/small
 100x binary (various height)
 GET
-/services/:id/ screenshots/:id/medium
+/products/:id/ screenshots/:id/medium
 400x binary (various height)
 GET
-/services/:id/ screenshots/:id/large
+/products/:id/ screenshots/:id/large
 1600x binary (various height)
 
 
-4.1.23 Service Builds (/services/:id/builds)
-A Build is a specific version release of a given Service. See Services, Builds, and Images.
+4.1.23 Product Builds (/products/:id/builds)
+A Build is a specific version release of a given Product. See Products, Builds, and Images.
 
 
 
-4.1.24 Service Build Dependencies (/services/:id/builds/:id/dependencies)
-A Build Dependency is a runtime requirement of a given Service. See Services, Builds, and Images.
+4.1.24 Product Build Dependencies (/products/:id/builds/:id/dependencies)
+A Build Dependency is a runtime requirement of a given Product. See Products, Builds, and Images.
 The “required” field defines whether or not the referenced Interface is mandatory at runtime. The “mappings” object is used for key/value pairs defining how an exposed parameter is mapped into the configuration of the referenced build at runtime. This capability is expected to expand significantly in future versions.
 
 
 
-4.1.25 Service Build Exposures (/services/:id/builds/:id/exposures)
-A Build Exposure declares that a given Service Build provides capabilities required of a known Interface. See Services, Builds, and Images.
+4.1.25 Product Build Exposures (/products/:id/builds/:id/exposures)
+A Build Exposure declares that a given Product Build provides capabilities required of a known Interface. See Products, Builds, and Images.
 
 
-4.1.26 Service Build Exposure Parameters (/services/:id/builds/:id/exposures/:id/parameters)
-A Build Exposure Parameter declares that a given Service Build Exposure (of an Interface) defines a named configuration parameter at runtime, and whether or not the Parameter is required to successfully expose the Interface. See Services, Builds, and Images.
+4.1.26 Product Build Exposure Parameters (/products/:id/builds/:id/exposures/:id/parameters)
+A Build Exposure Parameter declares that a given Product Build Exposure (of an Interface) defines a named configuration parameter at runtime, and whether or not the Parameter is required to successfully expose the Interface. See Products, Builds, and Images.
 
 
-4.1.27 Service Build Configurations  (/services/:id/builds/:id/configurations)
-A Service Build Configuration outlines the deployment profile of a running Instance in initial operating capacity. See Services, Builds, and Images.
+4.1.27 Product Build Configurations  (/products/:id/builds/:id/configurations)
+A Product Build Configuration outlines the deployment profile of a running Instance in initial operating capacity. See Products, Builds, and Images.
 
 
-4.1.28 Service Build Configuration Tasks (/services/:id/builds/:id/configurations/:id/tasks)
-A Service Build Configuration Task defines a container-based command needed to run the Configuration of the (transitively referenced) Build. See Services, Builds, and Images.
+4.1.28 Product Build Configuration Tasks (/products/:id/builds/:id/configurations/:id/tasks)
+A Product Build Configuration Task defines a container-based command needed to run the Configuration of the (transitively referenced) Build. See Products, Builds, and Images.
 
 
 4.1.29 Interfaces (/interfaces)
 An Interface declares system-wide knowledge of a standardized – or the least conventionalized – computational interface. See Standards Compliance Declarations.
 
 
-4.1.30 Interface Surrogates (/services/:id/surrogates)
+4.1.30 Interface Surrogates (/products/:id/surrogates)
 An Interface Surrogate declares that the reference substitute provides compatible capabilities of the given Interface. See Standards Compliance Declarations.
 
 
 4.1.31 WebSockets (/websockets)
 The WebSockets interface is an experimental bidirectional TCP channel established between a client, such as an Agent, to receive push notifications around Marketplace activity. This is an OPTIONAL feature and no strict protocol exists at this time for implementation. This area of the specification is expected to expand greatly in future revisions to standardize the message format, subscription mechanism, and scope of function.
-See notes in Marketplace Service for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
+See notes in Marketplace Product for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
 
 
