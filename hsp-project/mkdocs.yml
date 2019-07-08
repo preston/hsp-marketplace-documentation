@@ -6,6 +6,7 @@ nav:
 - License : 'license.md'
 - Executive Summary : 'ExecutiveSummary.md'
 - Core Concepts :  'CoreConcepts.md'      
+- Digital Rights Management :  'DigitalRightsManagement.md'      
 - Functional Infrastructure Model : 'FunctionalInfrastructureModel.md'  
 - Reference implementation : 'referenceimplementation.md'
 - Standards : 'referenceStandards.md'    
