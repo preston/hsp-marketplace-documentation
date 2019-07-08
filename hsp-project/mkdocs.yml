@@ -3,7 +3,7 @@ theme: readthedocs
 
 nav:
 - Health Services Platform (HSP) Marketplace : 'index.md'
-- License : 'license.md'
+- License Information : 'license.md'
 - Executive Summary : 'ExecutiveSummary.md'
 - Core Concepts :  'CoreConcepts.md'      
 - Digital Rights Management :  'DigitalRightsManagement.md'      

@@ -28,42 +28,23 @@ When a user acquires a License to a Product, that record constitutes an "Entitle
 All marketplace operators need to decide if using entitlement management applies to their use cases. For national-level resources, the recommendation is to support the most diverse set of licensing models as possible for both F/OSS and commercial works. The specification supports all of the following revenue models:
 
 
-Business Model
-Revenue Centers
-Example
 
-Service & Support (e.g., for publicly supported offerings)
-Support tickets, custom development
-Red Hat, MITRE
-
-Subscription
-Recurring
-MS Office, Netflix
-
-Freemium/Pro
-Advanced features, plugins, SLAs
-GitHub, Dropbox, Skype
-
-Upfront
-1-time charge per major version
-Kindle books, Physical/Immutable goods, mobile apps
-
-Usage
-Per utility unit: e.g. CPU-hour, transaction, user, object etc
-Amazon, Google, Azure, Oracle
-
-Advertising
-3rd-party ad views, pay-per-click
-Google search, “free” games
+| <content id="table">Business Model Revenue Centers<content>        | Example           |
+| ------------------ |:-----------------------|
+|Service & Support (e.g., for publicly supported offerings) Support tickets, custom development|Red Hat, MITRE
+|Subscription Recurring | MS Office, Netflix
+| Freemium/Pro Advanced features, plugins, SLAs |GitHub, Dropbox, Skype
+| Upfront 1-time charge per major version | Kindle books, Physical/Immutable goods, mobile apps
+| Usage Per utility unit: e.g. CPU-hour, transaction, user, object etc | Amazon, Google, Azure, Oracle
+| Advertising 3rd-party ad views, pay-per-click | Google search, “free” games
 
 ## Dynamic Authorization
 Marketplaces implementing the Entitlement portion of the API carry several functions for both (1) local clients/platforms and (2) products themselves to check for valid entitlement. This authorization mechanic is referred to as "claiming" an Entitlement. Marketplaces may provide the baseline simple verification that the Entitlement is valid, or complex enhancements for directly handling financial transactions if needed.
 
-Marketplaces that support diverse usage-based or metered business monetization models (as described in PREVIOUS_TABLE, above) may use the entitlement and claim capabilities to implement technical solutions corresponding to the business models identitied in (ABOVE TABLE X). For example, to:
-Inject raw object data when products are deployed.
-Create time-based constraints.
-Meter for certain parameters periodically, such as local user count, local CPU count etc.
-Monitor for possible abuse, such as account sharing and/or excessive claims.
+Marketplaces that support diverse usage-based or metered business monetization models (as described in the [Business Model Revenue Table](DigitalRightsManagement.md#table) above) may use the entitlement and claim capabilities to implement technical solutions corresponding to the business models identified in  [Business Model Revenue Table](DigitalRightsManagement.md#table). 
+
+For example, to: Inject raw object data when products are deployed. Create time-based constraints.
+Meter for certain parameters periodically, such as local user count, local CPU count etc. Monitor for possible abuse, such as account sharing and/or excessive claims.
 
 This simple mechanism aims to provide the core capabilities for F/OSS and commercial products to co-exist under the same set of operational principles.
 

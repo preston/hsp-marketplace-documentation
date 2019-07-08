@@ -18,12 +18,14 @@ Portions of this document have been taken from Automated Injection of Curated Kn
 
 * Core Concepts
 
-* Functional Infrastructural Model
+* Digital Rights Management
+
+* Functional Infrastructure Model
+
+* Reference implementation
+
+* Standards
+
+* Model Quck Reference
 
 * API
-
-* Supplementary Reference Implementation
-
-* Appendix A: Model Quick Reference
-
-* Appendix B: Referenced Standards
