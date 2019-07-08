@@ -102,7 +102,3 @@ For Platform environments implemented using cloud resources, Figure 2 illustrate
 ###Cloud-based Platform implementation using Amazon Web Services.
 ![Cloud-based Platform implementation using Amazon Web Services](Image2.png "Cloud-based Platform implementation using Amazon Web Services")
 
-##Health Services Platform Agent
-
-An Agent is a minimalistic service running on the local Platform listening for state changes in target platform state, as perceived by all configured Marketplace(s) as well as the local orchestration system. The Agent process shown in both Figure 1 and Figure 2 is intended to be minimalistic in nature, only bridging the Marketplace API with the native platform orchestration system. It is completely optional and not part of the Marketplace API specification, but the most significant consumer of the push portion of the API. IT professionals are welcome to use a Marketplace without automated deployment capabilities if desired.
-The Agent proof of concept in Supplementary Reference Implementation does very little, only showing how push messages sent from a reference Marketplace may be translated into action by the container platform. More sophisticated deployment profiles are the responsibility of the orchestration system and Platform operator. In any case, implementers are encouraged to use a stateful system for HSP management to match the stateful nature of the Marketplace’s synopsis of local capabilities.

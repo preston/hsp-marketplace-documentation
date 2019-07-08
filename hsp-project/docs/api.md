@@ -3,11 +3,13 @@ The Marketplace API is designed as a medium-weight, conventional specification t
 1.7 Platform Independent Model
 The core resources managed by the API are shown in the logical model illustrated in Figure 3, and will be discussed in subsequent subsections.
 
-Figure 3 Platform independant model (PIM)
+![ Platform independant model (PIM)](Image5.png " Platform independant model (PIM)")
+ 
 
 ##User Identity & Authentication
 
 A Marketplace MUST use OpenID Connect – part of the OAuth 2 family – for Marketplace user authentication using an external single sign-on (SSO) system. Implementations MAY provide support for other SSO protocols/systems including SAML 2.0 and CAS, but OpenID Connect is the required minimum. OAuth 2 enjoys broad mainstream support outside of healthcare, is familiar to enterprise architects, and works well for both mobile and headless clients.
+
 
 In addition to being a relatively simple specification to implement in most cases, OpenID Connect and OAuth 2 are the basis of SMART-on-FHIR (SoF) authentication and authorization. Marketplace use of OpenID Connect for authentication is not otherwise related to or dependent upon SoF nor FHIR. Likewise, the Marketplace is not a FHIR specification and does not provide APIs as FHIR resources. The specific selection of OpenID Connect is intended to enable new and creative means of supporting FHIR-focused Marketplace implementations, when applicable, by providing out-of-the-box compatible authentication against the same external identity provider(s) used for SoF authorization. To reiterate, however, FHIR-based Products or Builds are not required. It is no less valid to operate a Marketplace implementation supporting alternative or unrelated standards. The authentication and authorization objects discussed in subsequent sections are completely unrelated to any similar records that may be present in specific FHIR Products that happen to be published in a Marketplace.
 For web-based clients, this implies the use of RFC 7519 JSON Web Tokens (JWTs) within HTTP header bodies to establish the session upon each call. See the JTW/RFC 7519 specification3 for implementation and usage information.
@@ -60,254 +62,137 @@ A complete list of endpoints defined by this specification, including all applic
 Please read and understand this section in entirety prior to the subsequent Endpoints section. It is required for successful implementation.
 The entire Marketplace API applies a consistent view of RESTful product design with a mission of optimizing ease of consumability for applications developers. A few general principles apply to all resource types.
 
-4.1.4 Endpoint Noun-Verb Paths
+###Endpoint Noun-Verb Paths
 For a given resource “foo”, paths are always lowercase and plural. Table 1 shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
 Table 1 Resource paths and permissions
-HTTP Verb
-Path
-Semantic
-Required
-Requried Role Permission
-GET
-/foos
-Paginated and filtered index of Foos
-Yes
-{"foos" : {"read" : true }}
-POST
-/foos
-Create a new Foo, automatically assigning a valid UUID if not provided.
-Yes
-{"foos" : {"create" : true }}
-GET
-/foos/:uuid
-Read the specified Foo
-Yes
-{"foos" : {"read" : true }}
-PUT or PATCH
-/foos/:uuid
-Update the specified Foo
-Yes
-{"foos" : {"update" : true }}
-DELETE
-/foos/:uuid
-Delete the specified Foo
-Yes
-{"foos" : {"delete" : true }}
-POST
-/foos/search
-Create a paginated list of Foos functionally beyond “GET /foos”
-No
-{"foos" : {"read" : true }}
+
+| HTTP Verb        | Path           |Semantic           |Required           |Requried Role Permission           |
+|------------------ |-----------------------|-----------------------|-----------------------|-----------------------|
+|GET|/foos|Paginated and filtered index of Foos|Yes|{"foos" : {"read" : true }}|
+|POST|/foos|Create a new Foo, automatically assigning a valid UUID if not provided.|Yes|{"foos" : {"create" : true }}|
+|GET|/foos/:uuid|Read the specified Foo|Yes|{"foos" : {"read" : true }}|
+|PUT or PATCH|/foos/:uuid|Update the specified Foo|Yes|{"foos" : {"update" : true }}|
+|DELETE|/foos/:uuid|Delete the specified Foo|Yes|{"foos" : {"delete" : true }}|
+|POST|/foos/search|Create a paginated list of Foos functionally beyond “GET /foos”|No|{"foos" : {"read" : true }}|
+
  
 For nested resources (aka sub-resources or container resources), the relative path is always appended to the path of the parent it which it is contained. For example, if Foo contains Bar resources, Bars would be located at “/foos/:uuid/bars”. Semantically, this relationship MUST imply a specific composition structure binding the lifecycles of the parent and child.
 When the parent is deleted, all children MUST be deleted unless otherwise specified.
 When a child is deleted, the parent MUST NOT be automatically deleted.
 
-4.1.5 UUIDs
+###UUIDs
 All ID types are non-sequential, 128-bit UUIDv4 unless otherwise specified. These are well supported by databases and may also be easily generated using off the shelf libraries available for all popular programming languages. All fields with an “id” in the name are of a UUID type.
 
-4.1.6 Timestamps
+###Timestamps
 All resources instances have “created_at” and “updated_at” datetimes that are maintained by the system. They MUST NOT be modifiable by a client/User, regardless of permissions. These and other datetime types MUST be exposed via the ISO 8601 standard, selected due to globally common use, ease of integration with other systems, and consumability by all common programming languages without custom parsers both inside and outside of healthcare. Any datetime value presented without an explicit time zone MUST be interpreted to be in UTC.
 ISO 8601 allows for time zones to be serialized with a datetime string. For datetime fields settable by clients, implementations MUST accept any/all valid embedded time zone values. Regardless of submitted time zone value, implementations SHOULD normalize internally to Universal Time Coordinated (UTC) for database operations and MUST expose them in UTC form back to clients. Clients are responsible for apply any offsets for display purposes based on client-side locale settings. Alternatively, Marketplace implementations MAY provide support for customizable “default” client time zones, but this is discouraged as application of client time zone offsets is generally better handled on the client side and can complicate database implementation operations on the server side. 
 
-4.1.7 Paths and URLs
+###Paths and URLs
 Similar to timestamps, all resource instances also have “path” and “url” fields automatically generated and managed by the server. These fields MUST NOT be modifiable by a client, regardless of permissions. A “path” MUST be a path relative to the detected root URL of the deployed implementation, e.g. “/foos”.
 A “url” is a full, valid URL of the resource, e.g. “https://marketplace.example.com/foos”. The protocol portion of the URL SHOULD match that of the request; implementations MAY force this value to be “https” if automatic http->https redirection is not present in the environmental configuration.
 
-4.1.8 Index Pagination & Filtering
+###Index Pagination & Filtering
 Performing a GET operation at a resource’s base path (“/foos”) always retrieves a paginated index of the resource, subject to Role-Based Access Control. Pagination support MUST be implemented for all resource indexes. Filtering is optional.
 Pagination and filtering are controlled using two query parameters:
 
 Table 2 Index pagination and filter parameters
-Parameter
-Default
-Constraints
-Example
-page
-1
-1-based positive integer
-42
-per_page
-10
-Positive integer 1 or greater
-50
-<field_name>
-ignored
-MUST be coercible into the correct type. Non-strings MUST be matched exactly. Strings SHOULD be fuzzy matched.
-name=preston
-version=1.0.0
-sort
-<field_name>
-Must be a valid, accessible field if provided. Otherwise, implementations may select the default field for sorting, if any.
-name
-order
-undefined
-Must be “ascending” or “descending” if present. Otherwise, implementation may provide any ordering.
-ascending
+
+| Parameter        | Default           |Constraints           |Example           |
+|------------------ |-----------------------|-----------------------|-----------------------|
+|page|1|1-based positive integer|42|
+|per_page|10|Positive integer 1 or greater|50|
+|field_name|ignored|MUST be coercible into the correct type. Non-strings MUST be matched exactly. Strings SHOULD be fuzzy matched.|name=preston <br> version=1.0.0 |
+|sort|field_name|Must be a valid, accessible field if provided. Otherwise, implementations may select the default field for sorting, if any.|name|
+|order|undefined|Must be “ascending” or “descending” if present. Otherwise, implementation may provide any ordering.|ascending|
 
 Implementers MAY allow pageless “dumps” of a resource by providing a per_page of 0, though this is not recommended for types expected to have a large number of underlying collections to avoid “N+1” and similar performance issues.
 The response to an index operation MUST follow the below template, created to provide the easiest possible path for client developers to navigate the paginated results. This is based on real-world usage within hundreds of existing applications.
 
 
-4.1.9 Search
+### Search
 Performing a GET operation at a resource’s base path (“/foos”) retrieves a filtered index according to Index Pagination & Filtering. Implementors MAY provide an additional “POST /foos/search” with the same parameters if POSTing is required by client code.
  
 ##Special Endpoints
 Several one-off endpoints differ from the conventions defined in Resource Commonalities. These are listed below.
-HTTP Verb
-Path
-Purpose
-Template
-GET
-/
-Root path
-{"message": "This product provides an API only and does not offer a built-in graphical interface."}
-GET
-/status
-System availability and health.
-{
-    "message": "This application server and underlying database connection appear to be healthy.",
-    "product": {
-        "datetime": "2018-11-27T21:30:05.967-07:00"
-    },
-    "database": {
-        "datetime": "2018-11-28T04:30:05.967+00:00"
-    }
-}
-GET
-/sessions
-OAuth 2 callback after authentication
-Redirect to client URL with "jwt=…" parameter or return JWT: {"jwt": "…", "authorization": "Bearer …"} 
-POST
-/session
-Begin OAuth2 authentication for given provider_id
-Redirect to IDP corresponding to provider_id (See additional option in )
-DELETE
-/session
-Invalidates given JWT authentication header
-{"message": "Logged out."}
+
+| HTTP Verb        | Path           |Purpose           |Template           |
+|------------------ |-----------------------|-----------------------|-----------------------|
+|GET|/|Root path|{"message": "This product provides an API only and does not offer a built-in graphical interface."}
+|GET|/status|System availability and health.|{    "message": "This application server and underlying database connection appear to be healthy.",    "product": {        "datetime": "2018-11-27T21:30:05.967-07:00"    },    "database": {        "datetime": "2018-11-28T04:30:05.967+00:00"    }}|
+|GET|/sessions|OAuth 2 callback after authentication|Redirect to client URL with "jwt=…" parameter or return JWT: {"jwt": "…", "authorization": "Bearer …"} 
+|POST|/session|Begin OAuth2 authentication for given provider_id|Redirect to IDP corresponding to provider_id (See additional option in )
+|DELETE|/session|Invalidates given JWT authentication header|{"message": "Logged out."}
 
 
 
 ##Endpoints
 Resource templates and resource-specific notes for all supported types are provided in the following sections. Please read sections on Resource Commonalities prior to endpoint-specific sections, as only resource-specific data structures are covered here.
 
-4.1.10 IdentityProviders (/identity_providers)
+For a complete definition of the available API see  [Marketplace API](https://www.google.com "Marketplace API") 
+
+ 
+###IdentityProviders (/identity_providers)
 An IdentityProvider is a deployment-specific resource containing client configuration information for a resource OpenID Connect authentication/authorization server. This information changes very infrequently.
 Of special note is the “public_keys” field, which SHOULD be polled and updated automatically. Issuers typically cycle through keys pairs frequently and failing to update them will result in failed User authentication flows.
 
-4.1.11 Users (/users)
+### Users (/users)
 Users resources represent the individuals or applications making Marketplace API requests.
 
-4.1.12 User Identities (/users/:id/identities)
+##### Identities (/users/{userId}/identities)
 An Identity contains the IdentityProvider-specific information for a given User that has authenticated against the supported IdentityProvider. Most of the fields are provided from the IdentityProvider during authentication.
 
-4.1.13 User Platforms (/users/:id/platforms)
+##### User Platforms (/users/{userId}/platforms)
 A Platform is a User declaration of a compatible local runtime environment, possibly managed by an automated Agent.
 
-4.1.14 User Platforms (Product) Instances (/users/:id/platforms/:id/instances)
+##### User Platforms (Product) Instances (/users/:id/platforms/:id/instances)
 A Product Instance declares a running instance of a known Build on a specific User Platform.
 
-4.1.15 Groups (/groups)
+### Groups (/groups)
 A Group allows for batch assignment of Roles to a collection of Users.
 
-4.1.16 Group Members (/groups/:id/members)
+##### Members (/groups/{groupId}/members)
 A Member resource assigns a given user to a group.
 
-4.1.17 Roles (/roles)
+### Roles (/roles)
 A Role is a declaration of a fine-grained set of permissions. The “default” Boolean field MUST specify whether or not the Role will be automatically Appointed to new User/Group resources from this point in time at which it is set to true and forward.
 
-4.1.18 Role Appointments (/roles/:id/appointments)
+##### Appointments (/roles/{roleId}/appointments)
 A Role Appointment is a polymorphic type assigning a Role to single User or Group.
 
-4.1.19 JsonWebToken (/json_web_tokens)
-A JsonWebToken is a stateful session identifying a User through an authorized Identity. Endpoints for the JsonWebToken type are purely OPTIONAL and SHALL NOT be required for API usage but may be useful for clients focused on operational tasks such as invaliding sessions of all currently-authenticated users. If present, they SHALL be exposed according to the same conventions of other resources.
+### Licenses (/licenses)
+A known software or content license type, required to create Product records.
 
-4.1.20 Licenses (/licenses)
-Licenses are globally declared terms of use, and MAY or MAY NOT be useful in all Marketplace operator contexts. As discussed in the For Providers and Software Vendors section, this is expected to be customized to the local sales and business model. Implementors and operators only focused on F/OSS Products MAY be satisfied by the barebones model.
+### Products (/products)
+Declaration of a Platform-compatible executable in the form of key metadata. Does not directly provide a reference to an executable image.
 
-4.1.21 Products (/products)
-Product declarations contain the core metadata of a deployable package independent of any specific Build or other versioned release.
-The logo_* fields are all set by the server automatically whenever “logo” binary field data are submitted to the server via a POST, PUT or PATCH. These generated fields SHOULD NOT be modifiable by the User/client directly.
+#### Builds (/products/{productId}/builds)
+Defines the reference to a specific versioned image of a given Product. Images must be hosted such that the Marketplace and its Users have read-only network access, at minimum.
 
-In addition to the conventional REST endpoints, several others are made available for logo rendering. Whether or not CORS must be enabled for these endpoints is left to the discretion of the implementor and operator, though it is recommend to allow CORS for their official clients, at minimum. MIME types returned by the server MUST match the content of the binary data.
-Table 3 Additional Products Endpoints
-Verb
-Path
-Returns
-GET
-/products/:id/small_logo
-100x100 binary
-GET
-/products/:id/medium_logo
-400x400 binary
-GET
-/products/:id/large_logo
-1600x1600 binary
-POST
-/products/:id/publish
-Resource JSON with published_at set to current datetime.
-POST
-/products/:id/publish
-Resource JSON with published_at set to null.
+##### Dependencies (/products/{productId}/builds/{buildId}/dependencies)
+A Build Dependency is a runtime requirement of a given Product. 
 
-4.1.22 Product Screenshots (/products/:id/screenshots)
-Screenshots are optional images provided by a Product developer previewing select aspects of the Product. For cases where a Product provides no visual components or GUI, it is suggested that developers SHOULD still submit images previewing meaningful interactions on the Exposed Interface(s).
-The binary image data associated with a screenshot is handled similarly to the Product logo and derivative fields: image_* fields are all set by the server automatically whenever “image” binary field data is submitted to the via a POST, PUT or PATCH. These generated fields SHOULD NOT be modifiable by the User/client directly.
+##### Exposures (/products/{productId}/builds/{buildId}/exposures)
+A Build Exposure declares that a given Product Build provides capabilities required of a known Interface. 
 
-Like the Product logo endpoints, Screenshots also provide direct binary access resources for direct client rendering. Whether or not CORS must be enabled for these endpoints is left to the discretion of the implementor and operator. MIME types returned by the server MUST match the content of the binary data.
-Table 4 Additional Product Screenshot Endpoints
-Verb
-Path
-Returns
-GET
-/products/:id/screenshots/:id/small
-100x binary (various height)
-GET
-/products/:id/ screenshots/:id/medium
-400x binary (various height)
-GET
-/products/:id/ screenshots/:id/large
-1600x binary (various height)
+#####  Configurations  (/products/{productId}/builds/{buildId}/configurations)
+A Product Build Configuration outlines the deployment profile of a running Instance in initial operating capacity. 
 
+##### Tasks (/products/{productId}/builds/{buildId}/configurations/{configurationId}/tasks)
+A Product Build Configuration Task defines a container-based command needed to run the Configuration of the (transitively referenced) Build.
 
-4.1.23 Product Builds (/products/:id/builds)
-A Build is a specific version release of a given Product. See Products, Builds, and Images.
-
-
-
-4.1.24 Product Build Dependencies (/products/:id/builds/:id/dependencies)
-A Build Dependency is a runtime requirement of a given Product. See Products, Builds, and Images.
-The “required” field defines whether or not the referenced Interface is mandatory at runtime. The “mappings” object is used for key/value pairs defining how an exposed parameter is mapped into the configuration of the referenced build at runtime. This capability is expected to expand significantly in future versions.
-
-
-
-4.1.25 Product Build Exposures (/products/:id/builds/:id/exposures)
-A Build Exposure declares that a given Product Build provides capabilities required of a known Interface. See Products, Builds, and Images.
-
-
-4.1.26 Product Build Exposure Parameters (/products/:id/builds/:id/exposures/:id/parameters)
-A Build Exposure Parameter declares that a given Product Build Exposure (of an Interface) defines a named configuration parameter at runtime, and whether or not the Parameter is required to successfully expose the Interface. See Products, Builds, and Images.
-
-
-4.1.27 Product Build Configurations  (/products/:id/builds/:id/configurations)
-A Product Build Configuration outlines the deployment profile of a running Instance in initial operating capacity. See Products, Builds, and Images.
-
-
-4.1.28 Product Build Configuration Tasks (/products/:id/builds/:id/configurations/:id/tasks)
-A Product Build Configuration Task defines a container-based command needed to run the Configuration of the (transitively referenced) Build. See Products, Builds, and Images.
-
-
-4.1.29 Interfaces (/interfaces)
-An Interface declares system-wide knowledge of a standardized – or the least conventionalized – computational interface. See Standards Compliance Declarations.
-
-
-4.1.30 Interface Surrogates (/products/:id/surrogates)
+##### Surrogates (/products/:id/surrogates)
 An Interface Surrogate declares that the reference substitute provides compatible capabilities of the given Interface. See Standards Compliance Declarations.
 
+#### Logos (/products/{productId}/logos)
+Optional graphical images for identifying products
 
-4.1.31 WebSockets (/websockets)
+#### Screenshots (/products/{productId}/screenshots)
+Optional graphical images for illustrating Product features to Users.
+
+### Interfaces (/interfaces)
+An Interface declares system-wide knowledge of a standardized – or the least conventionalized – computational interface. See Standards Compliance Declarations.
+
+###WebSockets (/websockets)
 The WebSockets interface is an experimental bidirectional TCP channel established between a client, such as an Agent, to receive push notifications around Marketplace activity. This is an OPTIONAL feature and no strict protocol exists at this time for implementation. This area of the specification is expected to expand greatly in future revisions to standardize the message format, subscription mechanism, and scope of function.
 See notes in Marketplace Product for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
-
 

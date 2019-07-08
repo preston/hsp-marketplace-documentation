@@ -24,11 +24,11 @@ Following is a non-exhaustive list of third-party terminologies that may require
 
 | Terminology        | Owner/Contact           |
 | ------------------ |:-----------------------|
-| Current Procedures Terminology (CPT) code set | American Medical Association -- https://www.ama-assn.org/practice-management/cpt-licensing |
-| SNOMED CT | SNOMED International   http://www.snomed.org/snomed-ct/get-snomed-ct or info@ihtsdo.org | 
+| Current Procedures Terminology (CPT) code set | American Medical Association<br>https://www.ama-assn.org/practice-management/cpt-licensing |
+| SNOMED CT | SNOMED International  <br> http://www.snomed.org/snomed-ct/get-snomed-ct <br> info@ihtsdo.org | 
 | Logical Observation Identifiers Names & Codes (LOINC) | Regenstrief Institute |
 | International Classification of Diseases (ICD) codes | World Health Organization (WHO) |
-| NUCC Health Care Provider Taxonomy code set | American Medical Association. Please see www.nucc.org. AMA licensing contact: 312-464-5022 (AMA IP services) |
+| NUCC Health Care Provider Taxonomy code set | American Medical Association. <br>  Please see www.nucc.org. <br> AMA licensing contact: 312-464-5022 (AMA IP services) |
 
 
 

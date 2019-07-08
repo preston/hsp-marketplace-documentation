@@ -9,13 +9,13 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-host: http://hspc.org
+host: hspc.org
 basePath: /hspm
 tags:
 - name: licenses
   description: Licenses are globally declared terms of use, and MAY or MAY NOT be useful in all contexts. As discussed in , this is expected to be customized to the local sales and business model. Implementors and operators only focused on F/OSS Services may be satisfied by the barebones model.
 - name: services
-  description: Service declarations contain the core metadata of a deployable package independent of any specific Build or other versioned release.
+  description: A Service is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology service “ExampleService” developed by vendor “ExampleSoft”, for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields.
 - name: interfaces
   description: interfaces
 - name: users
@@ -179,7 +179,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addService
       consumes:
       - application/json
       - application/xml
@@ -212,7 +212,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getService
       consumes:
       - application/json
       - application/xml
@@ -244,7 +244,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: updateLicense
+      operationId: updateService
       consumes:
       - application/json
       - application/xml
@@ -274,7 +274,7 @@ paths:
         required: false
         description: format
       description: ''
-      operationId: deleteLicense
+      operationId: deleteService
       consumes:
       - application/json
       - application/xml
@@ -307,7 +307,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: publishService
       consumes:
       - application/json
       - application/xml
@@ -340,7 +340,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: unpublishService
       consumes:
       - application/json
       - application/xml
@@ -354,12 +354,17 @@ paths:
       - licensestore_auth:
         - write:licenses
         - read:licenses
-  /services/{serviceId}/build:
+  /services/{serviceId}/builds:
     post:
       tags:
       - services
-      summary: Add a new service to the marketplace
+      summary: Add a new build to the marketplace
       parameters:
+      - in: path
+        name: serviceId
+        type: string
+        required: true
+        description: Id of the services to retrieve
       - in: query
         name: format
         type: string
@@ -374,7 +379,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addBuild
       consumes:
       - application/json
       - application/xml
@@ -388,7 +393,7 @@ paths:
       - licensestore_auth:
         - write:licenses
         - read:licenses
-  /services/{serviceId}/build/{id}:
+  /services/{serviceId}/builds/{buildId}:
     get:
       tags:
       - services
@@ -400,7 +405,7 @@ paths:
         required: true
         description: Id of the services to retrieve
       - in: path
-        name: id
+        name: buildId
         type: string
         required: true
         description: Id of the services to retrieve
@@ -412,7 +417,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getBuild
       consumes:
       - application/json
       - application/xml
@@ -432,19 +437,17 @@ paths:
       summary: Updates services by Id
       parameters:
       - in: path
-        name: id
+        name: serviceId
         type: string
         required: true
-        description: Id of the services to update
-      - in: query
-        name: format
+        description: Id of the services to retrieve
+      - in: path
+        name: buildId
         type: string
-        enum:
-          - xml
-          - json
-        description: format
+        required: true
+        description: Id of the services to retrieve
       description: ''
-      operationId: updateLicense
+      operationId: updateBuild
       consumes:
       - application/json
       - application/xml
@@ -464,17 +467,17 @@ paths:
       summary: Deletes a services by Id
       parameters:
       - in: path
-        name: id
+        name: serviceId
         type: string
         required: true
-        description: Id of the services to delete
-      - in: query
-        name: format
+        description: Id of the services to retrieve
+      - in: path
+        name: buildId
         type: string
-        required: false
-        description: format
+        required: true
+        description: Id of the services to retrieve
       description: ''
-      operationId: deleteLicense
+      operationId: deleteBuild
       consumes:
       - application/json
       - application/xml
@@ -508,7 +511,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addInterface
       consumes:
       - application/json
       - application/xml
@@ -519,7 +522,7 @@ paths:
         '405':
           description: Invalid input
       security:
-      - licensestore_auth:
+      - interfacestore_auth:
         - write:interfaces
         - read:interfaces
   /interfaces/{id}:
@@ -541,7 +544,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getInterface
       consumes:
       - application/json
       - application/xml
@@ -573,7 +576,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: updateLicense
+      operationId: updateInterface
       consumes:
       - application/json
       - application/xml
@@ -603,7 +606,7 @@ paths:
         required: false
         description: format
       description: ''
-      operationId: deleteLicense
+      operationId: deleteInterface
       consumes:
       - application/json
       - application/xml
@@ -637,7 +640,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addUser
       consumes:
       - application/json
       - application/xml
@@ -645,6 +648,9 @@ paths:
       - application/xml
       - application/json
       responses:
+        '200':
+          description: A list of users
+ 
         '405':
           description: Invalid input
       security:
@@ -670,7 +676,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getUser
       consumes:
       - application/json
       - application/xml
@@ -678,6 +684,12 @@ paths:
       - application/xml
       - application/json
       responses:
+        '200':
+          description: User
+          schema:
+              type: array
+              items:
+                $ref: "#/definitions/User"
         '405':
           description: Invalid input
       security:
@@ -702,7 +714,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: updateLicense
+      operationId: updateUser
       consumes:
       - application/json
       - application/xml
@@ -732,7 +744,33 @@ paths:
         required: false
         description: format
       description: ''
-      operationId: deleteLicense
+      operationId: deleteUser
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/xml
+      - application/json
+      responses:
+        '405':
+          description: Invalid input
+      security:
+      - licensestore_auth:
+        - write:licenses
+        - read:licenses
+  /users/{userId}/identities:
+    get:
+      tags:
+      - users
+      summary: get user identities
+      parameters:
+      - in: path
+        name: userId
+        type: string
+        required: true
+        description: returns a list of user identities
+      description: ''
+      operationId: getUserIdentities
       consumes:
       - application/json
       - application/xml
@@ -766,7 +804,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addGroup
       consumes:
       - application/json
       - application/xml
@@ -799,7 +837,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getGroup
       consumes:
       - application/json
       - application/xml
@@ -831,7 +869,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: updateLicense
+      operationId: updateGroup
       consumes:
       - application/json
       - application/xml
@@ -861,7 +899,7 @@ paths:
         required: false
         description: format
       description: ''
-      operationId: deleteLicense
+      operationId: deleteGroup
       consumes:
       - application/json
       - application/xml
@@ -895,7 +933,7 @@ paths:
         schema:
           $ref: '#/definitions/License'
       description: ''
-      operationId: addLicense
+      operationId: addRole
       consumes:
       - application/json
       - application/xml
@@ -928,7 +966,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: getLicense
+      operationId: getRole
       consumes:
       - application/json
       - application/xml
@@ -960,7 +998,7 @@ paths:
           - json
         description: format
       description: ''
-      operationId: updateLicense
+      operationId: updateRole
       consumes:
       - application/json
       - application/xml
@@ -990,7 +1028,7 @@ paths:
         required: false
         description: format
       description: ''
-      operationId: deleteLicense
+      operationId: deleteRole
       consumes:
       - application/json
       - application/xml
@@ -1012,6 +1050,13 @@ securityDefinitions:
     scopes:
       write:licenses: modify licenses in your account
       read:licenses: read your licenses
+  interfacestore_auth:
+    type: oauth2
+    authorizationUrl: https://interfacestore.swagger.io/oauth/authorize
+    flow: implicit
+    scopes:
+      write:interfaces: modify interfaces in your account
+      read:interfaces: read your interfaces
   api_key:
     type: apiKey
     name: api_key
@@ -1053,9 +1098,9 @@ definitions:
       url:
         type: string
       created_at:
-        type: date
+        type: string
       updated_at:
-        type: date
+        type: string
       path:
         type: string
   Service:
@@ -1070,9 +1115,9 @@ definitions:
       url:
         type: string
       created_at:
-        type: date
+        type: string
       updated_at:
-        type: date
+        type: string
       path:
         type: string
   Build:
@@ -1087,9 +1132,9 @@ definitions:
       url:
         type: string
       created_at:
-        type: date
+        type: string
       updated_at:
-        type: date
+        type: string
       path:
         type: string
   Exposure:
@@ -1104,9 +1149,9 @@ definitions:
       url:
         type: string
       created_at:
-        type: date
+        type: string
       updated_at:
-        type: date
+        type: string
       path:
         type: string
   ApiResponse:
