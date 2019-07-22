@@ -1,3 +1,6 @@
+
+pip install -r requirements.txt
+
 Install MkDocs
 
 https://www.mkdocs.org/

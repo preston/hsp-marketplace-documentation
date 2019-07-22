@@ -1,14 +1,18 @@
 site_name: Health Services Platform (HSP) Marketplace
-theme: readthedocs
+
+theme:
+  name: 'material'
+  logo: 'images/logo-square.png'
+  favicon: 'images/favicon.png'
 
 nav:
 - Health Services Platform (HSP) Marketplace : 'index.md'
 - License Information : 'license.md'
 - Executive Summary : 'ExecutiveSummary.md'
-- Core Concepts :  'CoreConcepts.md'      
+- Concepts :  'CoreConcepts.md'      
 - Digital Rights Management :  'DigitalRightsManagement.md'      
 - Functional Infrastructure Model : 'FunctionalInfrastructureModel.md'  
 - Reference implementation : 'referenceimplementation.md'
 - Standards : 'referenceStandards.md'    
-- Model Quck Reference : 'modelquickreference.md'        
+- Model Quick Reference : 'modelquickreference.md'        
 - API : 'api.md'

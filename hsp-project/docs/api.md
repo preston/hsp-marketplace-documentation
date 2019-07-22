@@ -63,20 +63,20 @@ Please read and understand this section in entirety prior to the subsequent Endp
 The entire Marketplace API applies a consistent view of RESTful product design with a mission of optimizing ease of consumability for applications developers. A few general principles apply to all resource types.
 
 ###Endpoint Noun-Verb Paths
-For a given resource “foo”, paths are always lowercase and plural. Table 1 shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
+For a given *Market Place Resource* “mpresource”, paths are always lowercase and plural. Table 1 shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
 Table 1 Resource paths and permissions
 
 | HTTP Verb        | Path           |Semantic           |Required           |Requried Role Permission           |
 |------------------ |-----------------------|-----------------------|-----------------------|-----------------------|
-|GET|/foos|Paginated and filtered index of Foos|Yes|{"foos" : {"read" : true }}|
-|POST|/foos|Create a new Foo, automatically assigning a valid UUID if not provided.|Yes|{"foos" : {"create" : true }}|
-|GET|/foos/:uuid|Read the specified Foo|Yes|{"foos" : {"read" : true }}|
-|PUT or PATCH|/foos/:uuid|Update the specified Foo|Yes|{"foos" : {"update" : true }}|
-|DELETE|/foos/:uuid|Delete the specified Foo|Yes|{"foos" : {"delete" : true }}|
-|POST|/foos/search|Create a paginated list of Foos functionally beyond “GET /foos”|No|{"foos" : {"read" : true }}|
+|GET|/mpresources|Paginated and filtered index of mpresources|Yes|{"mpresources" : {"read" : true }}|
+|POST|/mpresources|Create a new mpresources, automatically assigning a valid UUID if not provided.|Yes|{"mpresources" : {"create" : true }}|
+|GET|/mpresources/:uuid|Read the specified mpresource|Yes|{"mpresources" : {"read" : true }}|
+|PUT or PATCH|/mpresources/:uuid|Update the specified mpresource|Yes|{"mpresources" : {"update" : true }}|
+|DELETE|/mpresources/:uuid|Delete the specified mpresource|Yes|{"mpresources" : {"delete" : true }}|
+|POST|/mpresources/search|Create a paginated list of mpresources functionally beyond “GET /mpresources”|No|{"mpresources" : {"read" : true }}|
 
  
-For nested resources (aka sub-resources or container resources), the relative path is always appended to the path of the parent it which it is contained. For example, if Foo contains Bar resources, Bars would be located at “/foos/:uuid/bars”. Semantically, this relationship MUST imply a specific composition structure binding the lifecycles of the parent and child.
+For nested resources (aka sub-resources or container resources), the relative path is always appended to the path of the parent it which it is contained. For example, if mpresources contains Bar resources, Bars would be located at “/mpresources/:uuid/bars”. Semantically, this relationship MUST imply a specific composition structure binding the lifecycles of the parent and child.
 When the parent is deleted, all children MUST be deleted unless otherwise specified.
 When a child is deleted, the parent MUST NOT be automatically deleted.
 
@@ -88,11 +88,11 @@ All resources instances have “created_at” and “updated_at” datetimes tha
 ISO 8601 allows for time zones to be serialized with a datetime string. For datetime fields settable by clients, implementations MUST accept any/all valid embedded time zone values. Regardless of submitted time zone value, implementations SHOULD normalize internally to Universal Time Coordinated (UTC) for database operations and MUST expose them in UTC form back to clients. Clients are responsible for apply any offsets for display purposes based on client-side locale settings. Alternatively, Marketplace implementations MAY provide support for customizable “default” client time zones, but this is discouraged as application of client time zone offsets is generally better handled on the client side and can complicate database implementation operations on the server side. 
 
 ###Paths and URLs
-Similar to timestamps, all resource instances also have “path” and “url” fields automatically generated and managed by the server. These fields MUST NOT be modifiable by a client, regardless of permissions. A “path” MUST be a path relative to the detected root URL of the deployed implementation, e.g. “/foos”.
-A “url” is a full, valid URL of the resource, e.g. “https://marketplace.example.com/foos”. The protocol portion of the URL SHOULD match that of the request; implementations MAY force this value to be “https” if automatic http->https redirection is not present in the environmental configuration.
+Similar to timestamps, all resource instances also have “path” and “url” fields automatically generated and managed by the server. These fields MUST NOT be modifiable by a client, regardless of permissions. A “path” MUST be a path relative to the detected root URL of the deployed implementation, e.g. “/mpresources”.
+A “url” is a full, valid URL of the resource, e.g. “https://marketplace.example.com/mpresources”. The protocol portion of the URL SHOULD match that of the request; implementations MAY force this value to be “https” if automatic http->https redirection is not present in the environmental configuration.
 
 ###Index Pagination & Filtering
-Performing a GET operation at a resource’s base path (“/foos”) always retrieves a paginated index of the resource, subject to Role-Based Access Control. Pagination support MUST be implemented for all resource indexes. Filtering is optional.
+Performing a GET operation at a resource’s base path (“/mpresources”) always retrieves a paginated index of the resource, subject to Role-Based Access Control. Pagination support MUST be implemented for all resource indexes. Filtering is optional.
 Pagination and filtering are controlled using two query parameters:
 
 Table 2 Index pagination and filter parameters
@@ -110,7 +110,7 @@ The response to an index operation MUST follow the below template, created to pr
 
 
 ### Search
-Performing a GET operation at a resource’s base path (“/foos”) retrieves a filtered index according to Index Pagination & Filtering. Implementors MAY provide an additional “POST /foos/search” with the same parameters if POSTing is required by client code.
+Performing a GET operation at a resource’s base path (“/mpresources”) retrieves a filtered index according to Index Pagination & Filtering. Implementors MAY provide an additional “POST /mpresources/search” with the same parameters if POSTing is required by client code.
  
 ##Special Endpoints
 Several one-off endpoints differ from the conventions defined in Resource Commonalities. These are listed below.

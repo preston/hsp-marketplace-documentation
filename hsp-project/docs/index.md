@@ -1,6 +1,6 @@
 # HL7 Standard: Health Services Platform (HSP) Marketplace 
-## Release 1, January 2019
-### HL7 Informative Ballot
+## Release 1.1, September 2019
+### HL7 STU Ballot
 
 #### Sponsored by:
 ##### Service Oriented Architecture Work Group
@@ -16,7 +16,7 @@ Portions of this document have been taken from Automated Injection of Curated Kn
 
 * Executive Summary 
 
-* Core Concepts
+* Concepts
 
 * Digital Rights Management
 
