@@ -2,17 +2,28 @@ site_name: Health Services Platform (HSP) Marketplace
 
 theme:
   name: 'material'
-  logo: 'images/logo-square.png'
-  favicon: 'images/favicon.png'
+  logo: 'images/old-hspc-logo.png'
+  favicon: 'images/old-hspc-logo.png'
+  palette:
+    primary: 'grey'
+    accent: 'red'
+    
+   
 
 nav:
-- Health Services Platform (HSP) Marketplace : 'index.md'
-- License Information : 'license.md'
-- Executive Summary : 'ExecutiveSummary.md'
-- Concepts :  'CoreConcepts.md'      
-- Digital Rights Management :  'DigitalRightsManagement.md'      
-- Functional Infrastructure Model : 'FunctionalInfrastructureModel.md'  
-- Reference implementation : 'referenceimplementation.md'
-- Standards : 'referenceStandards.md'    
-- Model Quick Reference : 'modelquickreference.md'        
-- API : 'api.md'
+- Home: 'splash.md'
+- Ballots:
+  - 1.0: 'ballots/HL7_V3_HSP_R1_I1_2019JAN/index.md'
+  - 1.1: 
+    - Health Services Platform Marketplace : 'ballots/HL7_V3_HSP_R2_2019SEP/index.md'
+    - License Information : 'ballots/HL7_V3_HSP_R2_2019SEP/license.md'
+    - Executive Summary : 'ballots/HL7_V3_HSP_R2_2019SEP/ExecutiveSummary.md'
+    - Concepts :  'ballots/HL7_V3_HSP_R2_2019SEP/CoreConcepts.md'      
+    - Digital Rights Management :  'ballots/HL7_V3_HSP_R2_2019SEP/DigitalRightsManagement.md'      
+    - Functional Infrastructure Model : 'ballots/HL7_V3_HSP_R2_2019SEP/FunctionalInfrastructureModel.md'  
+    - Reference implementation : 'ballots/HL7_V3_HSP_R2_2019SEP/referenceimplementation.md'
+    - Standards : 'ballots/HL7_V3_HSP_R2_2019SEP/referenceStandards.md'    
+    - Model Quick Reference : 'ballots/HL7_V3_HSP_R2_2019SEP/modelquickreference.md'        
+    - API : 'ballots/HL7_V3_HSP_R2_2019SEP/api.md'
+
+copyright: © 2019 HL7 & HSPC <p></p>  <img  align="left" alt="HL7 International" src="/images/hl7-logo.png" />  <img  align="right" alt="HSPC" src="/images/old-hspc-logo.png" />    
