@@ -1,11 +1,13 @@
 
-pip install -r requirements.txt
-
 Install MkDocs
 
-https://www.mkdocs.org/
+pip install mkdocs
 
-Run mkdocs serve in project directory
+Install Material
 
+pip install mkdocs-material
 
+Run 'mkdocs serve' in project directory
+
+Serving on http://127.0.0.1:8000
 

@@ -11,7 +11,7 @@ theme:
    
 
 nav:
-- Home: 'splash.md'
+- Home: 'index.md'
 - Ballots:
   - 1.0: 'ballots/HL7_V3_HSP_R1_I1_2019JAN/index.md'
   - 1.1: 

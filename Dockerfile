@@ -1,10 +1,10 @@
-FROM nginx
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends mkdocs
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
-RUN mkdir /project
-COPY . /project
-WORKDIR /project/hsp-project/
-RUN mkdocs build --clean
-RUN rm /usr/share/nginx/html && mv /project/hsp-project/site /usr/share/nginx/html
+FROM python:2.7
+COPY ./hsp-project /hsp-project/
+WORKDIR /hsp-project/
+RUN pip install mkdocs
+RUN pip install mkdocs-material
+CMD ["mkdocs", "gh-deploy"]
+
+FROM nginx:alpine
+COPY default.conf /etc/nginx/conf.d/default.conf
+ADD hsp-project/site /usr/share/nginx/html/
