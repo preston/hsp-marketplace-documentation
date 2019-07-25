@@ -2,8 +2,6 @@
 
 This repo contains the artifacts used to build the Health Services Platform Marketplace and the Health Services Platform Marketplace Swagger  
 
-docker run -itd --name hspmig201909 --publish 8080:80 hpsmig
-
 To build a Docker image from the Dockerfile, run the following command from inside this directory
 
 docker build -t hpsmig .
