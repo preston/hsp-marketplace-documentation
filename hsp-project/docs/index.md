@@ -13,20 +13,8 @@ Ballot versions are the precursors to a released version and go through a period
 
 **Version History**
 
-TODO ADD HSPM HISTORY
 
 | Version                    | Date       | Description |
 | -------------------------- | ---------- | ----------- |
- 
-**Change Log**
-
-**1.0 Release**
-
-Changes since the xxx  Ballot Version:
-
-TODO ADD HSPM CHANGES
-  
-**2018May Ballot**
-
-TODO ADD BALLOTS
- 
+| 2 STU 1	| 2019 September	| Specification-wide renaming of "service" renamed to "product"; product aggregation; product-license relationship made many-to-many; digital rights management types; entitlement tracking and group support; channel partner "voucher" type; dynamic entitlement claim and authorization support.	|
+| 1.0		| 2019 January		| Initial release.

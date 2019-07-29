@@ -1,5 +1,5 @@
 # HL7 Standard: Health Services Platform (HSP) Marketplace 
-## Release 1.1, September 2019
+## Release 2 STU 1, September 2019
 ### HL7 STU Ballot
 
 #### Sponsored by:
