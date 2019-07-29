@@ -20,7 +20,7 @@ To make automated health Product provisioning possible, all Products MUST meet a
 The name “Health Services Platform Marketplace” was chosen to imply that a formal definition of a service (“Product”) is the focal currency of an implementation. It is thus necessary to provide criteria for what does/does not constitute a Product in the Service Functional Model (SFM) prior to defining the Marketplace API.
 Products are declared to the Marketplace via a client such as the reference web UI, other compatible application, or script. Each “Product” instance is primarily a metadata declaration of human-readable fields, and references 0..* Builds that in turn point to versioned, executable images. These Builds – or more accurately the remote images they point to – are the meat of what is programmatically bootstrapped into a Platform environment and MAY be subject to additional validation per policies defined by the Marketplace operator, and based on declared capabilities.
 
-## Health Services SHOULD be:
+## Executable Health Services SHOULD be:
 * __SSO Aware__ using OpenID Connect and/or SAML 2.0. If a service requires user logins, it should be declared as needing an SSO IDP such that configuration can be provided at run-time.
 
 * __Provisionable__ via IETF SCIM 2 API implementations for individual and batch user and group management. This is a computing standard supported by ActiveDirectory and other identity management systems for synchronization of User and Group records.

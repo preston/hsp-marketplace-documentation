@@ -3,29 +3,9 @@
 ### HL7 STU Ballot
 
 #### Sponsored by:
-##### Service Oriented Architecture Work Group
-##### Implementable Technical Specifications Work Group
+* [Service Oriented Architecture Work Group](http://www.hl7.org/Special/committees/soa/)
+* [Implementable Technical Specifications Work Group](http://www.hl7.org/special/committees/xml/)
 
 ##Acknowledgments
-*The authors wish to recognize the Health Services Platform Consortium (HSPC) for their contributions leading to the publication of this document, making infrastructure resources available for the associated reference implementation of the Marketplace API specification and exemplar web client referenced in Supplementary Reference Implementation.
+*The authors wish to recognize the Healthcare Services Platform Consortium (HSPC) for their contributions leading to the publication of this document, making infrastructure resources available for the associated reference implementation of the Marketplace API specification and exemplar web client referenced in Supplementary Reference Implementation.
 Portions of this document have been taken from Automated Injection of Curated Knowledge Into Real-Time Clinical Systems: CDS Architecture for the 21st Century by Preston Lee for standardization. The concepts herein are a culmination of works by the authors, HSPC community, and stakeholder organizations.*
-
-## Implementation Guide layout
-
-* License Information 
-
-* Executive Summary 
-
-* Concepts
-
-* Digital Rights Management
-
-* Functional Infrastructure Model
-
-* Reference implementation
-
-* Standards
-
-* Model Quck Reference
-
-* API
