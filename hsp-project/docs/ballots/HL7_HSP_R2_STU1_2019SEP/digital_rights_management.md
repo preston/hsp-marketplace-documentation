@@ -10,7 +10,7 @@ Almost all daily consumer interactions with digital content are licensed. Many e
 
 In the world of "closed source" digital content, license rights tend to be temporary. For example, renting a movie for online play may only allow for playback within 24 hours from start of play, 1 week from time of rental, 2 restarts, during a special promotional period, or other complex terms. Materials for trial use or demonstration purposes may have similar restrictions, while access to software applications is enforced in more diverse ways. Clinical content -- especially terminology systems -- are typically made available under custom licenses with less regard for international compatibility and legal robustness than most assume.
 
-The Marketplace defines an Entitlement as an acquired instance of a given Product under an available License. (Details follow.)
+Marketplace 2 introduces a new concept of Product _Entitlement_: an acquired instance of a given Product under an available License. (Details in following sections.)
 
 ## Product Families
 Products are often released in functional collections, hierarchical "families", promotional groupings, domain bundles, or en masse under subscription-type license. The API allows arbitrary parent-child nesting of products to support automatic child authorizations without needing to explicitly grant sub-Product Entitlements to every layer in a product tree. This mechanism also functionally permits users to authorize their use of a Product without needing to know exactly how permission was obtained: critical for volume licensing scenios common for enterprise products.
