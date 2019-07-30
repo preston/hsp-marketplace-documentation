@@ -1,7 +1,7 @@
 # Digital Rights Management
 
 ## Product Rights
-The architecture of a Marketplace product licensing model adopt several IP rights concepts friendly to both open access and Open Source-licensed products as well as commercial developers. While Digital Rights Management (DRM) considerations are debatedly optional in the former cases, they are necessary for commercial ISVs and content vendors to have reasonable protections and insights surrounding their work.
+The architecture of the Marketplace product licensing model adopts several IP rights concepts friendly to both open access and Open Source-licensed products as well as commercial developers. While Digital Rights Management (DRM) considerations are debatedly optional in the former cases, they are necessary for commercial ISVs and content vendors to have reasonable protections and insights surrounding their work.
 
 To provide concrete support for the most common payment models, several models related to product-level DRM are provided to form the basis of dynamic product authorization tracking and operations.
 
