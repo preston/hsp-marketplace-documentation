@@ -1,2 +1,6 @@
+# macOS crap
+.DS_Store
+
+# Builds
 hsp-project/site
 /.project
