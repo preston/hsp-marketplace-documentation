@@ -3,7 +3,7 @@
 
 # HL7 Health Services Platform Marketplace 
 
-The HL7 Health Services Platform Marketplace (HSPM or “Marketplace”) is an HL7/HSPC published specification for publication, cataloging, discovering, and deployment of products and executable knowledge.
+The HL7 Health Services Platform Marketplace (HSPM or "Marketplace") is an HL7/HSPC published specification for publication, cataloging, discovering, and deployment of products and executable knowledge.
 
 This site contains the various published versions of the specification. If you're looking for more general information on Marketplace reference _implementations_, you can find those at [Logica Health (formerly HSPC)](https://www.logicahealth.org).
 

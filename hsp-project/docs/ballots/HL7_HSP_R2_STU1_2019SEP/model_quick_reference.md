@@ -9,7 +9,7 @@ The following table provides a quick overview of all types supported by the Mark
 |(User) Identity|IdentityProvider-specific information pertaining to a given User.
 |(User) Platform|Declaration of a compatible external Service runtime environment maintained by the User.
 |Group|A named collection of Users for purposes of batch Role assignment.
-|(Group) Member|Essentially a “join” record signifying a given User’s placement within a Group.
+|(Group) Member|Essentially a "join" record signifying a given User’s placement within a Group.
 |Role|A named set of permissions.
 |(Role) Appointment|The granting of a single Role to a single User or Group. (It is a polymorphic type.)
 |JsonWebToken|An RFC 7519 JSON Web Token issued to permit access by a given Identity to a Marketplace instance as a bearer token.

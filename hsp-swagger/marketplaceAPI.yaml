@@ -15,7 +15,7 @@ tags:
 - name: licenses
   description: Licenses are globally declared terms of use, and MAY or MAY NOT be useful in all contexts. As discussed in , this is expected to be customized to the local sales and business model. Implementors and operators only focused on F/OSS Services may be satisfied by the barebones model.
 - name: services
-  description: A Service is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology service “ExampleService” developed by vendor “ExampleSoft”, for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields.
+  description: A Service is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology service "ExampleService" developed by vendor "ExampleSoft", for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields.
 - name: interfaces
   description: interfaces
 - name: users

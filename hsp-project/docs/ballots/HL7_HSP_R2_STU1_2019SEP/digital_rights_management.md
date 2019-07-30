@@ -6,9 +6,9 @@ The architecture of a Marketplace product licensing model adopt several IP right
 To provide concrete support for the most common payment models, several models related to product-level DRM are provided to form the basis of dynamic product authorization tracking and operations.
 
 ## Entitlements
-Almost all daily consumer interactions with digital content are licensed. Many exceptions exist, such as for Government works and public domain materials outside of copyright, but the average person interacts primarily with copyrighted, licensed digital assets. “Open Source” software under Apache 2.0, MIT, BSD license etc is still licensed for use, even though it is “free”. In order words, lack of financial transaction does not imply lack of copyright nor binding legal obligations.
+Almost all daily consumer interactions with digital content are licensed. Many exceptions exist, such as for Government works and public domain materials outside of copyright, but the average person interacts primarily with copyrighted, licensed digital assets. "Open Source" software under Apache 2.0, MIT, BSD license etc is still licensed for use, even though it is "free". In order words, lack of financial transaction does not imply lack of copyright nor binding legal obligations.
 
-In the world of “closed source” digital content, license rights tend to be temporary. For example, renting a movie for online play may only allow for playback within 24 hours from start of play, 1 week from time of rental, 2 restarts, during a special promotional period, or other complex terms. Materials for trial use or demonstration purposes may have similar restrictions, while access to software applications is enforced in more diverse ways. Clinical content -- especially terminology systems -- are typically made available under custom licenses with less regard for international compatibility and legal robustness than one would assume.
+In the world of "closed source" digital content, license rights tend to be temporary. For example, renting a movie for online play may only allow for playback within 24 hours from start of play, 1 week from time of rental, 2 restarts, during a special promotional period, or other complex terms. Materials for trial use or demonstration purposes may have similar restrictions, while access to software applications is enforced in more diverse ways. Clinical content -- especially terminology systems -- are typically made available under custom licenses with less regard for international compatibility and legal robustness than one would assume.
 
 The Marketplace defines an Entitlement as an acquired instance of a given Product under an available License. (Details follow.)
 
@@ -43,7 +43,7 @@ All marketplace operators will to decide if robust entitlement management applie
 ## Dynamic Authorization
 Marketplaces implementing the Entitlement portion of the API carry several functions for both (1) local clients/platforms and (2) products themselves to check for valid entitlement. This authorization mechanic, when restricted  by user limits, should verify both time-based criteria and net "claims" to available Entitlements. Marketplaces may provide the baseline simple verification that Entitlements are present and valid, or complex enhancements for directly integrating with financial systems.
 
-Marketplaces that support diverse usage-based or metered business monetization models (as described in the [Business Model Revenue Table](DigitalRightsManagement.md#table) above) may use the entitlement and claim capabilities to implement technical solutions corresponding to the business models identified in  [Business Model Revenue Table](DigitalRightsManagement.md#table). For example, to:
+Marketplaces that support diverse usage-based or metered business monetization models (as described in the [Business Model Revenue Table](digital_rights_management.md#table) above) may use the entitlement and claim capabilities to implement technical solutions corresponding to the business models identified in  [Business Model Revenue Table](digital_rights_management.md#table). For example, to:
 
 * Inject raw object data when products are deployed.
 * Create time-based constraints.
@@ -51,7 +51,7 @@ Marketplaces that support diverse usage-based or metered business monetization m
 
 This simple mechanism aims to provide the core capabilities for F/OSS and commercial products to co-exist under the same set of operational principles.
 
-The distinction is not as simple as “F/OSS vs commercial”, with exception cases and a broad grey area. For example, consider the less common licensing cases:
+The distinction is not as simple as "F/OSS vs commercial", with exception cases and a broad grey area. For example, consider the less common licensing cases:
 
 * F/OSS works that require upstream reporting. This may require entitlement management even though the upstream vendor does not require an external financial transaction to have taken place.
 * Entitlements to commercial works that cannot be purchased, and must be granted by the vendor. This may occur when a vendor:
@@ -75,7 +75,7 @@ Vendors often distribute evaluation copies of products via digital codes. Each c
 
 
 ### External Transactions
-Early feedback on the concept of an ecosystem of compatible marketplaces revealed inconsistent perspectives for incorporating payment processing directly into this specification. Not all operators are capable of providing (let alone interested in) “checkout” processes often present in commercial platforms; however, commercial vendors may find it absolutely critical. For this reason, the approach of allowing, but not requiring, an ordering process has been adopted.
+Early feedback on the concept of an ecosystem of compatible marketplaces revealed inconsistent perspectives for incorporating payment processing directly into this specification. Not all operators are capable of providing (let alone interested in) "checkout" processes often present in commercial platforms; however, commercial vendors may find it absolutely critical. For this reason, the approach of allowing, but not requiring, an ordering process has been adopted.
 
 For products requiring an explicit ordering/checkout process for Entitlement, end users should be redirected to an external ordering URL provided by the ISV. If/When the user completes that external checkout flow, the ISV creates an Entitlement via marketplace API prior to redirecting them back to the marketplace. The allows for extremely flexible sales processes while preserving a marketplace's ability to manage and authorize Entitlement use.
 
@@ -85,7 +85,7 @@ The ability to to externalize payment processing allows for operators to optiona
 ## Dependencies and Sublicensure
 Interoperable, computable clinical content is enabled by common underlying terminology systems and information models. Presence of required dependencies unfortunately does not imply the consumer holds the right to use those dependencies.
 
-This is further complicated by a jungle of terminology-level licensing models. NLM’s UMLS license defines a tiered class system of licensing terms based on the nature of a work, and is used by RxNorm, VSAC, and many others. US users may only acquire SNOMED CT through UMLS license. Under their model, no means of organization-level licensing is provided, nor a means of redistributing UMLS content: not even for Government organizations. It is woefully inadequate and presents significant headaches for content producers wanting to publish computable content with “plug ‘n’ play” ease. Unfortunately, most informaticians seem to ignore the issue. Violations are commonplace.
+This is further complicated by a jungle of terminology-level licensing models. NLM’s UMLS license defines a tiered class system of licensing terms based on the nature of a work, and is used by RxNorm, VSAC, and many others. US users may only acquire SNOMED CT through UMLS license. Under their model, no means of organization-level licensing is provided, nor a means of redistributing UMLS content: not even for Government organizations. It is woefully inadequate and presents significant headaches for content producers wanting to publish computable content with "plug ‘n’ play" ease. Unfortunately, most informaticians seem to ignore the issue. Violations are commonplace.
 
 The API does not attempt to model all underlying dependency licenses, as it is an implausable task at this time. Rather, operators should establish clear submission policies to set expectations for what is/isn't permissable to embed within submitted assets.
 
