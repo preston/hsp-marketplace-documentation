@@ -21,7 +21,7 @@ nav:
     - Digital Rights Management :  'ballots/HL7_HSP_R2_STU1_2019SEP/digital_rights_management.md'      
     - Functional Infrastructure Model : 'ballots/HL7_HSP_R2_STU1_2019SEP/functional_infrastructure_model.md'  
     - Reference implementation : 'ballots/HL7_HSP_R2_STU1_2019SEP/reference_implementation.md'
-    - Standards : 'ballots/HL7_HSP_R2_STU1_2019SEP/reference_standards.md'    
+    - Reference Standards : 'ballots/HL7_HSP_R2_STU1_2019SEP/reference_standards.md'    
     - Model Quick Reference : 'ballots/HL7_HSP_R2_STU1_2019SEP/model_quick_reference.md'        
     - API : 'ballots/HL7_HSP_R2_STU1_2019SEP/api.md'
   - 1.0 Informative: 'ballots/HL7_V3_HSP_R1_I1_2019JAN/index.md'
