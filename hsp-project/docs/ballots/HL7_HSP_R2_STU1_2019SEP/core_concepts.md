@@ -2,7 +2,7 @@
 
 ## Overview
 
-**The HL7 Health Services Platform Marketplace (HSPM or "Marketplace") specification is a REST API for publication, cataloging, discovering, and deployment of products and executable knowledge into any compliant IT environment in an automated manner.** It is similar to an "app store" for health products in that it manages deployment to a users local infrastructural "Platform" environment and data context. It is not a flat directory of SMART-on-FHIR and other UI-only applications, but MAY be used for this purpose. A Marketplace can be implemented by vendors, providers, standards developing organizations (SDOs), consortiums, and all manner of parties interested in interoperable services.
+**The HL7 Health Services Platform Marketplace (HSPM or "Marketplace") specification is a REST API for publication, cataloging, discovering, and deployment of products and executable knowledge into any compliant IT environment in an automated manner.** It is similar to an "app store" for health products in that it manages deployment to a users local infrastructure "Platform" environment and data context. It is not a flat directory of SMART-on-FHIR and other UI-only applications, but MAY be used for this purpose. A Marketplace can be implemented by vendors, providers, standards developing organizations (SDOs), consortiums, and all manner of parties interested in interoperable services.
 
 The concept of an application "marketplace" or "app store" is nothing new. This HL7 Marketplace specification, in particular, addresses the problem of exchanging computing health artifacts themselves in a vendor-neutral manner, which is necessary to move executable artifacts across SOAs with plug-n-play interoperability. A Marketplace implementation is a hosted service, operated by any interested party, where executable artifacts are published for exchange and governance policies are defined. This includes backend CDS Hooks implementations, runnable ECA rules/Order Sets/Documentation Templates derived from HL7 CDS Knowledge Artifacts, HL7 CQL, clinical models, raw FHIR resource servers with known capabilities statements, persistent data stores, and effectively any other product-ized capability that is packaged according to requirements herein.
 
@@ -28,7 +28,7 @@ The Marketplace specification also provides an "app store"-like experience for H
 
 * Auditors to collect reporting data on the licensed usage of published products.
 
-An additional benefit of the specification is a complete agnosticism to programming language, frameworks, database, I/O technologies, and most notably, EHR vendor. It permits more architectural flexibility for  SMART-on-FHIR clients, CDS Hooks services, and executable knowledge that requires on-site deployment, but does not require implementors to use any of those specifications.
+An additional benefit of the specification is a complete agnostic to the programming language, frameworks, database, I/O technologies, and most notably, EHR vendor. It permits more architectural flexibility for  SMART-on-FHIR clients, CDS Hooks services, and executable knowledge that requires on-site deployment, but does not require implementors to use any of those specifications.
 
 ## For Providers and Software Vendors
 
@@ -46,6 +46,6 @@ Compliance and quality assurance organizations may also take interest in the ser
 
 ## Health Services Platform Agent
 
-An Agent is a minimalistic service running on the local Platform listening for state changes in target platform state, as perceived by all configured Marketplace(s) as well as the local orchestration system. The Agent process is intended to be minimalistic in nature, only bridging the Marketplace API with the native platform orchestration system. It is completely optional and not part of the Marketplace API specification, but the most significant consumer of any push events send by a Marketplace server. IT professionals are welcome to use a Marketplace without automated deployment capabilities if desired.
+An Agent is a minimal service running on the local Platform listening for state changes in target platform state, as perceived by all configured Marketplace(s) as well as the local orchestration system. The Agent process is intended to be minimal in nature, only bridging the Marketplace API with the native platform orchestration system. It is completely optional and not part of the Marketplace API specification, but the most significant consumer of any push events send by a Marketplace server. IT professionals are welcome to use a Marketplace without automated deployment capabilities if desired.
 
 The Agent proof of concept referenced in supplementary sections does very little, only showing how push messages sent from a reference Marketplace may be translated into action by the container platform. More sophisticated deployment profiles are the responsibility of the orchestration system and Platform operator. In any case, implementers are encouraged to use a stateful system for HSP management to match the stateful nature of the Marketplace’s synopsis of local capabilities.

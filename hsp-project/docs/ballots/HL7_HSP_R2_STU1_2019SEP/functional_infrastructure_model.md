@@ -63,7 +63,7 @@ We refers to _runnable_ assets as "executable", whereas macine-friendly content 
 
 1. __Unencrypted__ HTTP Products MUST assume that transport encryption is handled at a separate layer. SSL/TLS and reverse proxy load balancing is the responsibility of a target Platform, not the Product Build.
 
-1. __Compute constrained__ Images must define the maximum per-task RAM requirement at image publication time, and manage use of memory internally to prevent exceeding this boundary. Platforms MUST guarantee that these resources will be available, even if overprovisioning virtual environments, and MAY reactively kill Products violating declared constraints.
+1. __Compute constrained__ Images must define the maximum per-task RAM requirement at image publication time, and manage use of memory internally to prevent exceeding this boundary. Platforms MUST guarantee that these resources will be available, even if over provisioning virtual environments, and MAY reactively kill Products violating declared constraints.
 
 1. __x86-64__. 32-bit binaries are also allowed, but other CPU architectures are not currently supported.
 
@@ -78,7 +78,7 @@ We refers to _runnable_ assets as "executable", whereas macine-friendly content 
 1. __Logged__ Products MUST log to standard out/error, and MUST NOT be written to the file system. PHI/PII MAY be logged but SHOULD be toggle-able by the local administrator via injected configuration flags.
 
 ## What is a compatible "Platform"?
-A Health Services Platform is any infrastructural fabric capable of running service containers packaged distributed according to Marketplace requirements and compatible with the Service Functional Model (SFM). Due to the close relationship between Marketplace functions and Platform capabilities they are two sides of the same coin, though there is no presumption of a "Platform API". While a Platform MAY fully operate without any automated Marketplace integration, and vice versa, doing so limits the potential of automating deployment of knowledge-based (and traditional) services acquired from external parties.
+A Health Services Platform is any structured architecture capable of running service containers packaged distributed according to Marketplace requirements and compatible with the Service Functional Model (SFM). Due to the close relationship between Marketplace functions and Platform capabilities they are two sides of the same coin, though there is no presumption of a "Platform API". While a Platform MAY fully operate without any automated Marketplace integration, and vice versa, doing so limits the potential of automating deployment of knowledge-based (and traditional) services acquired from external parties.
 
 A Marketplace operator's perception of a Platform specification is thus not as a strict specification, per se, but a profile of how to use existing technologies in an interoperable way with the ultimate vision of full-stack interoperability and automatability. This stance is necessary because enterprise IT environments already have strategic directions on how core virtualization infrastructure is managed, and a prescriptive enterprise architecture strictly prohibiting deviations would not make traction in existing real-world organizations.
 

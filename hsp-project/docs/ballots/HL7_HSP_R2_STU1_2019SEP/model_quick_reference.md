@@ -19,7 +19,7 @@ The following table provides a quick overview of all persistent types supported 
 | Product					| Declaration of a Platform-compatible executable in the form of key metadata. Does not directly provide a reference to an executable image.
 | (Product) License			| The offering of a given Product via the terms of a specific License. 
 | (Product) Screenshot		| Optional graphical images for illustrating Product features to Users.
-| (Product) Build			| Defines the reference to a specific versioned image of a given Product. Images must be hosted such that the Marketplace and its Users have read-only network access, at minimum.
+| (Product) Build			| Defines the reference to a specific version of an image of a given Product. Images must be hosted such that the Marketplace and its Users have read-only network access, at minimum.
 | (Product Build) Dependency			| Known dependencies that are needed to run a given Build of a service. 
 | (Product Build) Exposure				| The standardized Interfaces capabilities provided by a given Product Build.
 | (Product Build Exposure) Parameter | States that configuration parameter of the given name is required at runtime to successfully provide the Interface of the Exposure.
@@ -29,7 +29,7 @@ The following table provides a quick overview of all persistent types supported 
 | (Interface) Surrogate					| Marketplace-wide statement that the referenced substitute Interface provides compatible capabilities of the given base Interface. Useful for defining new versions of an Interface that are backwards compatible with older versions.
 | Entitlement							| An user-acquired/owned instance of a ProductLicense, also defining activation data specific to the instance. (Note: Groups may _not_ own Entitlements, but may Claim them.)
 | Claim									| Polymorphic type representing a user or group usage of an Entitlement against the limits of the underlying License.
-| Voucher								| A uniqiue bearer token that may be redeemed for an Entitlement to a defined ProductLicense. The redeeming party may keep the Entitlement for themselves, or assigned it to another User. 
+| Voucher								| A unique bearer token that may be redeemed for an Entitlement to a defined ProductLicense. The redeeming party may keep the Entitlement for themselves, or assigned it to another User. 
 | Attempt								| Audit record of a User or Group trying to authorize usage of given Product. Used for reporting and fraud detection.
 
 ## Non-Persistant Resources

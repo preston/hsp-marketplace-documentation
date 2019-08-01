@@ -4,12 +4,12 @@ The Marketplace API is designed as a medium-weight, conventional specification t
 ## Platform Independent Model
 The core resources managed by the API are shown in the logical model illustrated in Figure 3, and will be discussed in subsequent subsections.
 
-![ Platform independant model (PIM)](Image5.png " Platform independant model (PIM)")
+![ Platform independent model (PIM)](Image5.png " Platform independent model (PIM)")
  
 
 ## User Identity & Authentication
 
-A Marketplace MUST use OpenID Connect – part of the OAuth 2 family – for Marketplace user authentication using an external single sign-on (SSO) system. Implementations MAY provide support for other SSO protocols/systems including SAML 2.0 and CAS, but OpenID Connect is the required minimum. OAuth 2 enjoys broad mainstream support outside of healthcare, is familiar to enterprise architects, and works well for both mobile and headless clients.
+A Marketplace MUST use OpenID Connect – part of the OAuth 2 family – for Marketplace user authentication using an external single sign-on (SSO) system. Implementations MAY provide support for other SSO protocols/systems including SAML 2.0 and CAS, but OpenID Connect is the required minimum. OAuth 2 enjoys broad main stream support outside of healthcare, is familiar to enterprise architects, and works well for both mobile and headless clients.
 
 
 In addition to being a relatively simple specification to implement in most cases, OpenID Connect and OAuth 2 are the basis of SMART-on-FHIR (SoF) authentication and authorization. Marketplace use of OpenID Connect for authentication is not otherwise related to or dependent upon SoF nor FHIR. Likewise, the Marketplace is not a FHIR specification and does not provide APIs as FHIR resources. Philosophically, the Marketplace API loosely follows the REST principle of Hypertext as the Engine of Application Status (HATEOAS), with the aim of making application usage consistent and easy to navigate across resource types.
@@ -26,7 +26,7 @@ The permissions object MUST ONLY apply to globally-defined Roles. Implementers M
 
 As a further example of implicit access, a Product MUST be readable, at minimum, by its owner. Management of sub-resources by the owner of the Product, notably Build, SHOULD also be deemed as manageable by the owner, but SHOULD NOT allow limitless control. In the case of Builds – nested within Products as "/products/:uuid/builds" – and other types in that tree, permission to access a sub-resource does not implicitly grant the ability to access the parent, and vice versa. Implementers MAY allow for adaptation, but implementers MUST take care to not inadvertently allow bypass of access controls by querying for related records that include the unauthorized resource.
 
-### Administrative Permission Shortcircuiting
+### Administrative Permission Short Circuiting
 A single special global-administrator privilege MUST be supported on the Role permissions field object. This implicitly grants unlimited access to the system for any Role(s) holding it.
 
 	{"everything" : {
@@ -36,7 +36,7 @@ A single special global-administrator privilege MUST be supported on the Role pe
 	}`
 
 ### Permission Semantics
-Additional permission-level decisions are left to the discretion of the implementer, as are any notion of "built in" or "default" Roles. A Role may be assigned to any combination of User or Group types via a polymorphic Assignment. Permissions across all roles and MUST be unionable and in a "deny-allow" semantic. That is, a User or Group is assumed to not hold a permission until/unless it is explicitly granted by an assigned Role. Users/Groups may hold an Assignment to 0..* Roles, and vice versa, and special semantics SHALL NOT be given to the order in which Assignments have been made. A given User or Group SHALL NOT be allowed to hold multiple Assignments to the same Role.
+Additional permission-level decisions are left to the discretion of the implementer, as are any notion of "built in" or "default" Roles. A Role may be assigned to any combination of User or Group types via a polymorphic Assignment. The set of permissions defined across all roles must support arbitrary unions of the various permissions while still supporting clear "deny-allow" semantics. That is, a User or Group is assumed to not hold a permission until/unless it is explicitly granted by an assigned Role. Users/Groups may hold an Assignment to 0..* Roles, and vice versa, and special semantics SHALL NOT be given to the order in which Assignments have been made. A given User or Group SHALL NOT be allowed to hold multiple Assignments to the same Role.
 
 ### Permission Conflict and Non-Revocation
 As the Marketplace RBAC operates on a strict deny-allow semantic, no mechanism is supported to permit "revocation" of privileges or anti-Roles. While defining a mechanism may be tempting to supporting Roles such as "suspended users" or "provisional accounts", doing so would be overly complicated for most implementations. Setting the value of a permission to "false", null, or any other non-true value SHALL NOT have any effect. For example, in cases where a permission is set to true in a Role and false in another, the values SHALL be "or’d" together. In other words, any true value in any Role grants the permission of interest.
@@ -72,16 +72,16 @@ One of the more advanced use cases for a Marketplace is fully automated, autowir
 Each User MAY declare 0..* Platforms that SHOULD correspond to the environments integrated with that Marketplace instance. Each Platform MUST have a distinct name (relative to that User), which in turn contains 0..* Instance resources. Each Instance refers to the specific Build of the Product running in that Platform environment and contains a JSON field for configuration information set by the Platform agent at runtime. In this initial version of the Marketplace API, there is no ability to define local Products that are not otherwise known to the Marketplace. This may change in the future.
 
 ## Endpoint Overview
-A complete list of endpoints defined by this specification, including all applicable noun/verb combinations, is provided in plaintext format within the accompanying ballot package. This "routes" file is useful for quickly understanding the scope of effort required for implementation and/or consumption.
+A complete list of endpoints defined by this specification, including all applicable noun/verb combinations, is provided in plain text format within the accompanying ballot package. This "routes" file is useful for quickly understanding the scope of effort required for implementation and/or consumption.
 
 ## Resource Commonalities
 Please read and understand this section in entirety prior to the subsequent Endpoints section. It is required for successful implementation.
 The entire Marketplace API applies a consistent view of RESTful product design with a mission of optimizing ease of consumability for applications developers. A few general principles apply to all resource types.
 
 ### Endpoint Noun-Verb Paths
-For a example resource type "resource", paths are always lowercase and plural. The following table shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
+For a example resource type "resource", paths are always lower case and plural. The following table shows the way resource paths are constructed and the Role permission required to use it. This pattern is repeated for every type of resource unless otherwise noted.
 
-| HTTP Verb        | Path     |Semantic           |Required        |Requried Role Permission           |
+| HTTP Verb        | Path     |Semantic           |Required        |Required Role Permission           |
 |-------- |-------- |-------- |-------- |-------- |
 | GET		| /resources				| Paginated and filtered index of resources	| Yes	| {"resources" : {"read" : true }}|
 | POST		| /resources				| Create a new resources, automatically assigning a valid UUID if not provided.	| Yes	| {"resources" : {"create" : true }}|
@@ -116,11 +116,11 @@ Table 2 Index pagination and filter parameters
 |------------------ |-----------------------|-----------------------|-----------------------|
 | page			| 1			| 1-based positive integer	| 42	|
 | per_page		| 10		| Positive integer 1 or greater	| 50	|
-| field_name	| ignored	| MUST be coercible into the correct type. Non-strings MUST be matched exactly. Strings SHOULD be fuzzy matched. |	name=preston <br> version=1.0.0 |
+| field_name	| ignored	| MUST be imply into the correct type. Non-strings MUST be matched exactly. Strings SHOULD be fuzzy matched. |	name=preston <br> version=1.0.0 |
 | sort			| field_name	| Must be a valid, accessible field if provided. Otherwise, implementations may select the default field for sorting, if any.	| name |
 | order			| undefined	| Must be "ascending" or "descending" if present. Otherwise, implementation may provide any ordering.| ascending	|
 
-Implementers MAY allow pageless "dumps" of a resource by providing a per_page of 0, though this is not recommended for types expected to have a large number of underlying collections to avoid "N+1" and similar performance issues.
+Implementers MAY allow empty "dumps" of a resource by providing a per_page of 0, though this is not recommended for types expected to have a large number of underlying collections to avoid "N+1" and similar performance issues.
 The response to an index operation MUST follow the below template, created to provide the easiest possible path for client developers to navigate the paginated results. This is based on real-world usage within hundreds of existing applications.
 
 
@@ -181,7 +181,7 @@ Declaration of a Platform-compatible executable in the form of key metadata. Doe
 The Licenses under which a given Product is made available for Entitlement. 
 
 ### Builds (/products/{productId}/builds)
-Defines the reference to a specific versioned image of a given Product. Images must be hosted such that the Marketplace and its Users have read-only network access, at minimum.
+Defines the reference to a specific version of the image of a given Product. Images must be hosted such that the Marketplace and its Users have read-only network access, at minimum.
 
 ### Dependencies (/products/{productId}/builds/{buildId}/dependencies)
 A Build Dependency is a runtime requirement of a given Product. 
