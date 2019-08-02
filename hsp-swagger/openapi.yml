@@ -14,14 +14,13 @@ info:
   version: 2.0.0
   title: Health Services Platform Marketplace Specification
   termsOfService: 'https://www.logicahealth.org'
+  contact:
+    - name: HSPC
+    - url: https://www.hspconsortium.org/developers/marketplace/
+    - email: membership@HSPConsortium.org
 tags:
-  - name: licenses
-    description: >-
-      Licenses are globally declared terms of use, and MAY or MAY NOT be useful
-      in all contexts. As discussed in , this is expected to be customized to
-      the local sales and business model. Implementors and operators only
-      focused on F/OSS Services may be satisfied by the barebones model.
-  - name: products
+ 
+  - name: Product Services
     description: >-
       A Product is a structured declaration of capabilities for a package of
       executable or consumable content, with release managed in a discrete
@@ -30,18 +29,32 @@ tags:
       Marketplace instance prior to actual release of the software to establish
       descriptive text, create screenshots, set standards-related declarations,
       and other fields.
-  - name: interfaces
+
+  
+  - name: Product Operations
+
+  - name: Product Build Services
+  - name: Product Build Dependency Services
+  - name: Product Build Configuration Services
+  - name: Product Build Configuration Task Services
+  - name: Product Build Exposure Services
+  - name: Product License Services
+  - name: Product Logo Services
+  - name: Product Screenshot Services
+  - name: Platform Services
+  - name: Interface Services
+
     description: >-
       Marketplace-wide declaration of a standardized – or at least
       conventionalized – computational integration point. They are not
-      constraints to HL7 standards.
-  - name: users
+      constraints to HL7 standards.  
+  - name: License Services
     description: >-
-      A distinct person or system with some degree of access or interest to a
-      Marketplace instance.
-  - name: groups
-    description: A named collection of Users for purposes of batch Role assignment.
-  - name: identity_providers
+      Licenses are globally declared terms of use, and MAY or MAY NOT be useful
+      in all contexts. As discussed in , this is expected to be customized to
+      the local sales and business model. Implementors and operators only
+      focused on F/OSS Services may be satisfied by the barebones model.
+  - name: Identity Provider Services
     description: >-
       An IdentityProvider is a deployment-specific resource containing client
       configuration information for a resource OpenID Connect
@@ -49,17 +62,27 @@ tags:
       infrequently. Of special note is the “public_keys” field, which SHOULD be
       polled and updated automatically. Issuers typically cycle through keys
       pairs frequently and failing to update them will result in failed User
-      authentication flows.
-  - name: roles
+      authentication flows.      
+
+  - name: User Services
+    description: >-
+      A distinct person or system with some degree of access or interest to a
+      Marketplace instance.
+  - name: Group Services
+    description: A named collection of Users for purposes of batch Role assignment.
+  - name: Role Services
     description: A named set of permissions.
-  - name: logos
-    description: Logo services
+  - name: Role Appointment Services
+  - name: Entitlement Services
+  - name: Entitlement Claim Services
+  - name: Attempt Services
+  
 paths:
   /licenses:
     get:
       tags:
-        - licenses
-      summary: Return the logos of licenses currently supported by the marketplace
+        - License Services
+      summary: Returns the list of licenses available in the marketplace
       parameters:
         - in: query
           name: format
@@ -85,31 +108,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/License'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - licenses
+        - License Services
       summary: Adds a new license to the marketplace
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/requestBodies/License'
-            examples:
-              License:
-                value:
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
           application/xml:
             schema:
               $ref: '#/components/requestBodies/License'
-            examples:
-              License:
-                value:
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
         description: License to be added to the marketplace
         required: true
       operationId: createLicense
@@ -121,15 +134,52 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - License Services
+      summary: Updates the license
+      parameters:
+        - in: path
+          name: licenseId
+          required: true
+          description: Id of the license to retrieve
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/License'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/License'
+        description: License to be added to the marketplace
+        required: true
+      operationId: updateLicense
+      responses:
+        '200':
+          description: True for updated
+     
+        
+            
+                        
   '/licenses/{licenseId}':
     get:
       tags:
-        - licenses
-      summary: Retrieve license by Id
+        - License Services
+      summary: Retrieves the license based on license id
       parameters:
         - in: path
           name: licenseId
@@ -154,77 +204,19 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/License'
-              examples:
-                LicenseXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: License For Product 12345
-                    url: 'http://www.companyurl/license/12345'
+
             application/json:
               schema:
                 $ref: '#/components/schemas/License'
-              examples:
-                LicenseJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: License For Product 12345
-                    url: 'http://www.companyurl/license/12345'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
-    put:
-      tags:
-        - licenses
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: licenseId
-          required: true
-          description: Id of the license to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/License'
-            examples:
-              License:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/License'
-            examples:
-              License:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-        description: License to be added to the marketplace
-        required: true
-      operationId: updateLicense
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+ 
+     
+        
+            
+
     delete:
       tags:
-        - licenses
-      summary: Deletes a license by Id
+        - License Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: licenseId
@@ -236,15 +228,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /products:
     get:
       tags:
-        - products
-      summary: Return the list of products currently supported by the marketplace
+        - Product Services
+      summary: Returns the list of products available in marketplace
       parameters:
         - in: query
           name: format
@@ -262,21 +254,21 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/License'
+                  $ref: '#/components/schemas/Product'
                 xml:
                   name: licenses
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/License'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+                  $ref: '#/components/schemas/Product'
+     
+        
+            
     post:
       tags:
-        - products
-      summary: Add a new product to the marketplace
+        - Product Services
+      summary: Adds a new product to the marketplace
       parameters:
         - in: query
           name: format
@@ -291,22 +283,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Product'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+ 
           application/xml:
             schema:
               $ref: '#/components/schemas/Product'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      description: Add a new product to the marketplace
+  
+      description: Adds a new product to the marketplace
       operationId: addProduct
       responses:
         '200':
@@ -316,15 +298,47 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:product'
-            - 'read:product'
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Services
+      summary: Updates the product
+      parameters:
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: Update a product to the marketplace
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Product'
+ 
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Product'
+ 
+      operationId: updateService
+      responses:
+        '200':
+          description: Update Product was successful
+     
+        
+            
+                        
   '/products/{productId}/licenses':
     get:
       tags:
-        - products
-      summary: Returns product by Id
+        - Product License Services
+      summary: Returns the list of licenses based on product id
       parameters:
         - in: path
           name: productId
@@ -358,14 +372,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/License'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
     post:
       tags:
-        - products
-      summary: Add a new license to the marketplace
+        - Product License Services
+      summary: Adds a new license based on product id
       parameters:
         - in: path
           name: productId
@@ -379,7 +393,7 @@ paths:
           schema:
             type: string
             format: uuid
-      description: Add a new license to the product
+      description: Adds a new license to the product identified by id
       operationId: addProductlicense
       responses:
         '200':
@@ -389,15 +403,15 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:product'
-            - 'read:product'
+     
+        
+            
+            
   '/products/{productId}':
     get:
       tags:
-        - products
-      summary: Returns product by Id
+        - Product Services
+      summary: Retrieves the product based on product id
       parameters:
         - in: path
           name: productId
@@ -425,62 +439,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Product'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - products
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Product'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Product'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateService
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+ 
     delete:
       tags:
-        - products
-      summary: Deletes a product by Id
+        - Product Services
+      summary: Deletes the product based on product id
       parameters:
         - in: path
           name: productId
@@ -499,15 +466,15 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/products/{productId}/publish':
     post:
       tags:
-        - products
-      summary: Publishes product based on the product Id
+        - Product Operations
+      summary: Publishes product based on product Id
       parameters:
         - in: path
           name: productId
@@ -520,14 +487,14 @@ paths:
       responses:
         '200':
           description: Publish Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/products/{productId}/unpublish':
     post:
       tags:
-        - products
+        - Product Operations
       summary: Unpublishes the product base on the product Id
       parameters:
         - in: path
@@ -549,15 +516,15 @@ paths:
       responses:
         '200':
           description: Unpublish Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/products/{productId}/builds':
     get:
       tags:
-        - builds
-      summary: Return the list of builds currently supported by the marketplace
+        - Product Build Services
+      summary: Returns the list of builds based on product id
       parameters:
         - in: path
           name: productId
@@ -589,13 +556,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/License'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - builds
-      summary: Add a new build to the marketplace
+        - Product Build Services
+      summary: Adds a new build based on product id
       parameters:
         - in: path
           name: productId
@@ -617,21 +584,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Build'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+ 
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Build'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+  
       operationId: addBuild
       responses:
         '200':
@@ -641,15 +598,61 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
+    put:
+      tags:
+        - Product Build Services
+      summary: Updates the build based on product id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product to update
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Build'
+  
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Build'
+ 
+      operationId: updateBuild
+      responses:
+        '200':
+          description: Update Succesful
+     
+        
+            
+                        
+            
   '/products/{productId}/builds/{buildId}':
     get:
       tags:
-        - builds
-      summary: Retrieves the build based on Build Id and Product Id
+        - Product Build Services
+      summary: Retrieves the build based on build and product id
       parameters:
         - in: path
           name: productId
@@ -683,68 +686,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Build'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - builds
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: path
-          name: buildId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Build'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Build'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateBuild
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - builds
-      summary: Deletes a product by Id
+        - Product Build Services
+      summary: Deletes the product based on product id
       parameters:
         - in: path
           name: productId
@@ -769,15 +719,15 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /interfaces:
     post:
       tags:
-        - interfaces
-      summary: Add a new interface to the marketplace
+        - Interface Services
+      summary: Adds a new interface to the marketplace
       parameters:
         - in: query
           name: format
@@ -789,7 +739,7 @@ paths:
               - json
       requestBody:
         $ref: '#/components/requestBodies/Interface'
-      description: Add a new interface to the marketplace
+      description: Adds a new interface to the marketplace
       operationId: addInterface
       responses:
         '200':
@@ -799,15 +749,39 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - interfacestore_auth:
-            - 'write:interfaces'
-            - 'read:interfaces'
+     
+        
+           
+            
+    put:
+      tags:
+        - Interface Services
+      summary: Updates the interface
+      parameters:
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      requestBody:
+        $ref: '#/components/requestBodies/Interface'
+      description: ''
+      operationId: updateInterface
+      responses:
+        '200':
+          description: Update Succesful
+     
+        
+            
+                        
   '/interfaces/{interfaceId}':
     get:
       tags:
-        - interfaces
-      summary: Returns license by Id
+        - Interface Services
+      summary: Retrieves the interface based on interface id
       parameters:
         - in: path
           name: interfaceId
@@ -835,44 +809,15 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Interface'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - interfaces
-      summary: Updates interface by Id
-      parameters:
-        - in: path
-          name: interfaceId
-          required: true
-          description: Id of the license to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      requestBody:
-        $ref: '#/components/requestBodies/Interface'
-      description: ''
-      operationId: updateInterface
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - interfaces
-      summary: Deletes a interface by Id
+        - Interface Services
+      summary: Deletes the interface based on interface id
       parameters:
         - in: path
           name: interfaceId
@@ -891,15 +836,44 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /users:
+    get:
+      tags:
+        - User Services
+      summary: Returns the list of users
+      parameters:
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: getUsers
+      responses:
+        '200':
+          description: User located using id
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+     
+        
+            
+              
     post:
       tags:
-        - users
-      summary: Add a new user
+        - User Services
+      summary: Adds a new user
       parameters:
         - in: query
           name: format
@@ -911,7 +885,7 @@ paths:
               - json
       requestBody:
         $ref: '#/components/requestBodies/User'
-      description: Add a new User
+      description: Adds a new User
       operationId: addUser
       responses:
         '200':
@@ -921,15 +895,43 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - User Services
+      summary: Updates the user
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: Id of the user to update
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: updateUser
+      responses:
+        '200':
+          description: Update User was succesful
+     
+        
+            
+                        
   '/users/{userId}':
     get:
       tags:
-        - users
-      summary: Returns user by Id
+        - User Services
+      summary: Retrieves the user based on user id
       parameters:
         - in: path
           name: userId
@@ -957,42 +959,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - users
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: userId
-          required: true
-          description: Id of the user to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      operationId: updateUser
-      responses:
-        '200':
-          description: Update User was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+ 
     delete:
       tags:
-        - users
-      summary: Deletes a license by Id
+        - User Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: userId
@@ -1011,15 +986,15 @@ paths:
       responses:
         '200':
           description: Delete User was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/users/{userId}/identities':
     get:
       tags:
-        - users
-      summary: get user identities
+        - User Services
+      summary: Returns the list of identities based on user id
       parameters:
         - in: path
           name: userId
@@ -1045,15 +1020,15 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Identity'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/users/{userId}/platforms':
     get:
       tags:
-        - platforms
-      summary: Return the list of platforms currently supported by the marketplace
+        - Platform Services
+      summary: Returns the list of platforms based on user id
       parameters:
         - in: path
           name: userId
@@ -1085,13 +1060,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Platform'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - platforms
-      summary: Adds platfor for user
+        - Platform Services
+      summary: Adds new platform based on user id
       parameters:
         - in: path
           name: userId
@@ -1118,15 +1093,49 @@ paths:
       responses:
         '200':
           description: Update User was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Platform Services
+      summary: Updates the license
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: Id of the user to update
+          schema:
+            type: string
+        - in: path
+          name: platformId
+          required: true
+          description: Id of the platform to update
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: updateUserPlatform
+      responses:
+        '200':
+          description: Update User was succesful
+     
+        
+            
+                        
   '/users/{userId}/platforms/{platformId}':
     get:
       tags:
-        - platforms
-      summary: Returns platform by user by Id and platform Id
+        - Platform Services
+      summary: Retrieves the platform based on user and platform id
       parameters:
         - in: path
           name: userId
@@ -1160,48 +1169,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Platform'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - platforms
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: userId
-          required: true
-          description: Id of the user to update
-          schema:
-            type: string
-        - in: path
-          name: platformId
-          required: true
-          description: Id of the platform to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      operationId: updateUserPlatform
-      responses:
-        '200':
-          description: Update User was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - platforms
-      summary: Deletes a license by Id
+        - Platform Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: userId
@@ -1226,16 +1202,16 @@ paths:
       responses:
         '200':
           description: Delete User was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /identity_providers:
     get:
       tags:
-        - identity_providers
+        - Identity Provider Services
       summary: >-
-        Return the list of Identity Providers currently supported by the
+        Returns the list of Identity Providers currently available in marketplace
         marketplace
       parameters:
         - in: query
@@ -1262,13 +1238,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/IdentityProvider'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - identity_providers
-      summary: Add a new Identity Provider to the marketplace
+        - Identity Provider Services
+      summary: Adds a new Identity Provider to the marketplace
       parameters:
         - in: query
           name: format
@@ -1285,15 +1261,43 @@ paths:
       responses:
         '200':
           description: Add Identity Provider was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Identity Provider Services
+      summary: Updates license by Id
+      parameters:
+        - in: path
+          name: identityProviderId
+          required: true
+          description: Id of the Identity Provider to update
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: updateIdentityProvider
+      responses:
+        '200':
+          description: Update Identity Provider was succesful
+     
+        
+            
+                        
   '/identity_providers/{identityProviderId}':
     get:
       tags:
-        - identity_providers
-      summary: Returns license by Id
+        - Identity Provider Services
+      summary: Retrieves the identity provider based on identity provider id
       parameters:
         - in: path
           name: identityProviderId
@@ -1321,42 +1325,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityProvider'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - identity_providers
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: identityProviderId
-          required: true
-          description: Id of the Identity Provider to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      operationId: updateIdentityProvider
-      responses:
-        '200':
-          description: Update Identity Provider was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - identity_providers
-      summary: Deletes a license by Id
+        - Identity Provider Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: identityProviderId
@@ -1375,15 +1352,15 @@ paths:
       responses:
         '200':
           description: Delete Identity Provider was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /groups:
     get:
       tags:
-        - groups
-      summary: Return the list of groups currently supported by the marketplace
+        - Group Services
+      summary: Returns the list of groups currently available in the marketplace
       parameters:
         - in: query
           name: format
@@ -1409,13 +1386,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Group'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - groups
-      summary: Add a new group to the marketplace
+        - Group Services
+      summary: Adds a new group to the marketplace
       parameters:
         - in: query
           name: format
@@ -1432,15 +1409,43 @@ paths:
       responses:
         '200':
           description: Add Group was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Group Services
+      summary: Updates license by Id
+      parameters:
+        - in: path
+          name: groupId
+          required: true
+          description: Id of the license to update
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: updateGroup
+      responses:
+        '200':
+          description: Update Group was succesful
+     
+        
+            
+                        
   '/groups/{groupId}':
     get:
       tags:
-        - groups
-      summary: Returns group by Id
+        - Group Services
+      summary: Retrieves the group based on group id
       parameters:
         - in: path
           name: groupId
@@ -1468,42 +1473,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Group'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - groups
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: groupId
-          required: true
-          description: Id of the license to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      operationId: updateGroup
-      responses:
-        '200':
-          description: Update Group was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - groups
-      summary: Deletes a license by Id
+        - Group Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: groupId
@@ -1522,15 +1500,15 @@ paths:
       responses:
         '200':
           description: Delete Group was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /roles:
     get:
       tags:
-        - roles
-      summary: Return the list of roles currently supported by the marketplace
+        - Role Services
+      summary: Returns the list of roles currently available in the marketplace
       parameters:
         - in: query
           name: format
@@ -1556,13 +1534,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Role'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - roles
-      summary: Add a new Role to the marketplace
+        - Role Services
+      summary: Adds a new Role to the marketplace
       parameters:
         - in: query
           name: format
@@ -1579,15 +1557,44 @@ paths:
       responses:
         '200':
           description: Add Role was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Role Services
+      summary: Updates license by Id
+      parameters:
+        - in: path
+          name: roleId
+          required: true
+          description: Id of the license to update
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      operationId: updateRole
+      responses:
+        '200':
+          description: Update Role was succesful
+     
+        
+            
+            
+           
   '/roles/{roleId}':
     get:
       tags:
-        - roles
-      summary: Returns role by Id
+        - Role Services
+      summary: Retrieves the role based on role id
       parameters:
         - in: path
           name: roleId
@@ -1615,42 +1622,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Role'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
+     
+        
+            
+            
+    delete:    
       tags:
-        - roles
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: roleId
-          required: true
-          description: Id of the license to update
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      operationId: updateRole
-      responses:
-        '200':
-          description: Update Role was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    delete:
-      tags:
-        - roles
-      summary: Deletes a license by Id
+        - Role Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: roleId
@@ -1669,15 +1648,15 @@ paths:
       responses:
         '200':
           description: Delete Role was succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/products/{productId}/logos':
     get:
       tags:
-        - logos
-      summary: Return the list of logos based on the product Id currently
+        - Product Logo Services
+      summary: Returns the list of logos based on the product id
       parameters:
         - in: path
           name: productId
@@ -1709,9 +1688,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Logo'
-      security:
-        - licensestore_auth:
-            - 'read:products'
+     
+        
+            
     post:
       parameters:
         - in: path
@@ -1721,26 +1700,18 @@ paths:
           schema:
             type: string
       tags:
-        - logos
-      summary: Adds a new logo to the marketplace
+        - Product Logo Services
+      summary: Adds a new logo based on product id
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Logo'
-            examples:
-              Logo:
-                value:
-                  name: Logo For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+ 
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Logo'
-            examples:
-              Logo:
-                value:
-                  name: Logo For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+  
         description: Logo to be added to the marketplace
         required: true
       operationId: createLogo
@@ -1752,15 +1723,52 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:products'
-            - 'read:products'
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Logo Services
+      summary: Updates logo by Id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product
+          schema:
+            type: string
+        - in: path
+          name: logoId
+          required: true
+          description: Id of the logo to update
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Logo'
+ 
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Logo'
+ 
+        description: Logo to be added to the marketplace
+        required: true
+      operationId: updateLogo
+      responses:
+        '200':
+          description: True for updated
+     
+        
+            
+                        
   '/products/{productId}/logos/{logoId}':
     get:
       tags:
-        - logos
-      summary: Retrieve license by Id
+        - Product Logo Services
+      summary: Retrieves the logo based on product and logo id
       parameters:
         - in: path
           name: productId
@@ -1791,75 +1799,19 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Logo'
-              examples:
-                LogoXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Logo For Product 12345
-                    url: 'http://www.companyurl/license/12345'
+ 
             application/json:
               schema:
                 $ref: '#/components/schemas/Logo'
-              examples:
-                LogoJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Logo For Product 12345
-                    url: 'http://www.companyurl/license/12345'
-      security:
-        - licensestore_auth:
-            - 'read:products'
-    put:
-      tags:
-        - logos
-      summary: Updates logo by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product
-          schema:
-            type: string
-        - in: path
-          name: logoId
-          required: true
-          description: Id of the logo to update
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Logo'
-            examples:
-              Logo:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Logo For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Logo'
-            examples:
-              Logo:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Logo For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-        description: Logo to be added to the marketplace
-        required: true
-      operationId: updateLogo
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - licensestore_auth:
-            - 'write:products'
-            - 'read:products'
+  
+     
+        
+            
+
     delete:
       tags:
-        - logos
-      summary: Deletes a logo by Id
+        - Product Logo Services
+      summary: Deletes the logo by Id
       parameters:
         - in: path
           name: productId
@@ -1877,15 +1829,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - licensestore_auth:
-            - 'write:license'
-            - 'read:license'
+     
+        
+            
+            
   '/products/{productId}/screenshots':
     get:
       tags:
-        - screenshots
-      summary: Return the list of products currently supported by the marketplace
+        - Product Screenshot Services
+      summary: Returns the list of screenshots based on product id
       parameters:
         - in: path
           name: productId
@@ -1917,9 +1869,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Screenshot'
-      security:
-        - licensestore_auth:
-            - 'read:products'
+     
+        
+            
     post:
       parameters:
         - in: path
@@ -1929,26 +1881,18 @@ paths:
           schema:
             type: string
       tags:
-        - screenshots
-      summary: Adds a new screenshot
+        - Product Screenshot Services
+      summary: Adds a new screenshots based on product id
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Screenshot'
-            examples:
-              Screenshot:
-                value:
-                  name: Screenshot For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+ 
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Screenshot'
-            examples:
-              Screenshot:
-                value:
-                  name: Screenshot For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+    
         description: Screenshot to be added to the marketplace
         required: true
       operationId: createScreenshot
@@ -1960,15 +1904,14 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:products'
-            - 'read:products'
-  '/products/{productId}/screenshots/{logoId}':
-    get:
+     
+        
+            
+            
+    put:
       tags:
-        - screenshots
-      summary: Retrieve license by Id
+        - Product Screenshot Services
+      summary: Updates license by Id
       parameters:
         - in: path
           name: productId
@@ -1977,11 +1920,53 @@ paths:
           schema:
             type: string
         - in: path
+          name: screenshotId
+          required: true
+          description: Id of the screenshot to retrieve
+          schema:
+            type: string            
+        - in: path
           name: logoId
           required: true
           description: Id of the license to retrieve
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Screenshot'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Screenshot'
+        description: Screenshot to be added to the marketplace
+        required: true
+      operationId: updateScreenshot
+      responses:
+        '200':
+          description: True for updated
+     
+        
+            
+                        
+  '/products/{productId}/screenshots/{screenshotId}':
+    get:
+      tags:
+        - Product Screenshot Services
+      summary: Retrieves the screenshot based on product and screenshot id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the license to retrieve
+          schema:
+            type: string
+        - in: path
+          name: screenshotId
+          required: true
+          description: Id of the screenshot to retrieve
+          schema:
+            type: string            
         - in: query
           name: format
           description: format
@@ -1999,75 +1984,21 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Screenshot'
-              examples:
-                LogoXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Screenshot For Product 12345
-                    url: 'http://www.companyurl/license/12345'
+  
+  
             application/json:
               schema:
                 $ref: '#/components/schemas/Screenshot'
-              examples:
-                LogoJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Screenshot For Product 12345
-                    url: 'http://www.companyurl/license/12345'
-      security:
-        - licensestore_auth:
-            - 'read:products'
-    put:
-      tags:
-        - screenshots
-      summary: Updates license by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the license to retrieve
-          schema:
-            type: string
-        - in: path
-          name: logoId
-          required: true
-          description: Id of the license to retrieve
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Screenshot'
-            examples:
-              Screenshot:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Screenshot For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Screenshot'
-            examples:
-              Screenshot:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Screenshot For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-        description: Screenshot to be added to the marketplace
-        required: true
-      operationId: updateScreenshot
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - licensestore_auth:
-            - 'write:products'
-            - 'read:products'
+     
+ 
+     
+        
+            
+
     delete:
       tags:
-        - screenshots
-      summary: Deletes a license by Id
+        - Product Screenshot Services
+      summary: Deletes the license by Id
       parameters:
         - in: path
           name: productId
@@ -2075,6 +2006,12 @@ paths:
           description: Id of the license to delete
           schema:
             type: string
+        - in: path
+          name: screenshotId
+          required: true
+          description: Id of the screenshot to retrieve
+          schema:
+            type: string            
         - in: path
           name: logoId
           required: true
@@ -2085,15 +2022,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - licensestore_auth:
-            - 'write:license'
-            - 'read:license'
+     
+        
+            
+            
   '/products/{productId}/builds/{buildId}/configurations':
     get:
       tags:
-        - configurations
-      summary: Return the list of builds currently supported by the marketplace
+        - Product Build Configuration Services
+      summary: Returns the list of configurations based on product and build id
       parameters:
         - in: path
           name: productId
@@ -2131,13 +2068,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Configuration'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - configurations
-      summary: Add a new build to the marketplace
+        - Product Build Configuration Services
+      summary: Adds a new configuration based on prodcut and build id
       parameters:
         - in: path
           name: productId
@@ -2165,21 +2102,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Configuration'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+           
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Configuration'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
       operationId: addConfiguration
       responses:
         '200':
@@ -2189,15 +2115,63 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Build Configuration Services
+      summary: Updates product by Id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product to update
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: path
+          name: configurationId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: Configuration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Configuration'
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Configuration'
+      operationId: updateConfiguration
+      responses:
+        '200':
+          description: Update Succesful
+     
+        
+            
+                        
   '/products/{productId}/builds/{buildId}/configurations/{configurationId}':
     get:
       tags:
-        - configurations
-      summary: Retrieves the build based on Configuration Id and Product Id
+        - Product Build Configuration Services
+      summary: Retrieves the configuration based on product, build, configuration id
       parameters:
         - in: path
           name: productId
@@ -2237,74 +2211,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Configuration'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - configurations
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: path
-          name: buildId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: path
-          name: configurationId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Configuration'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Configuration'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateConfiguration
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - configurations
-      summary: Deletes a Configuration by Id
+        - Product Build Configuration Services
+      summary: Deletes the Configuration by Id
       parameters:
         - in: path
           name: productId
@@ -2335,15 +2250,15 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-  '/products/{productId}/builds/{buildId}/configurations/tasks':
+     
+        
+            
+            
+  '/products/{productId}/builds/{buildId}/configurations/{configurationId}/tasks':
     get:
       tags:
-        - tasks
-      summary: Return the list of builds currently supported by the marketplace
+        - Product Build Configuration Task Services
+      summary: Returns the list of tasks based on product, build, configuration id
       parameters:
         - in: path
           name: productId
@@ -2357,6 +2272,12 @@ paths:
           description: Id of the products to add build to
           schema:
             type: string
+        - in: path
+          name: configurationId
+          required: true
+          description: Id of the products to add build to
+          schema:
+            type: string            
         - in: query
           name: format
           schema:
@@ -2381,13 +2302,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - tasks
-      summary: Add a new build to the marketplace
+        - Product Build Configuration Task Services
+      summary: Adds a new task based on product, build, and configuration id
       parameters:
         - in: path
           name: productId
@@ -2399,6 +2320,71 @@ paths:
           name: buildId
           required: true
           description: Id of the products to add build to
+          schema:
+            type: string
+        - in: path
+          name: configurationId
+          required: true
+          description: Id of the products to add build to
+          schema:
+            type: string              
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Task'
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Task'
+      operationId: addConfigurationTask
+      responses:
+        '200':
+          description: Add Configuration Succesful
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 245b3a76-9768-48ac-907f-0dc45174515f
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Build Configuration Task Services
+      summary: Updates product by Id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product to update
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: path
+          name: configurationId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: path
+          name: taskId
+          required: true
+          description: Id of the products to retrieve
           schema:
             type: string
         - in: query
@@ -2415,39 +2401,22 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Task'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Task'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: addConfigurationTask
+      operationId: updateConfigurationTask
       responses:
         '200':
-          description: Add Configuration Succesful
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+          description: Update Succesful
+     
+        
+            
+                        
   '/products/{productId}/builds/{buildId}/configurations/{configurationId}/task/{taskId}':
     get:
       tags:
-        - tasks
-      summary: Retrieves the build based on Configuration Id and Product Id
+        - Product Build Configuration Task Services
+      summary: Retrieves the task based on product, build, configuration, task id
       parameters:
         - in: path
           name: productId
@@ -2493,80 +2462,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - tasks
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: path
-          name: buildId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: path
-          name: configurationId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: path
-          name: taskId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Task'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Task'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateConfigurationTask
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+ 
     delete:
       tags:
-        - tasks
-      summary: Deletes a Configuration by Id
+        - Product Build Configuration Task Services
+      summary: Deletes the Configuration by Id
       parameters:
         - in: path
           name: productId
@@ -2603,22 +2507,28 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-  '/products/{productId}/builds/dependencies':
+     
+        
+            
+            
+  '/products/{productId}/builds/{buildId}/dependencies':
     get:
       tags:
-        - dependencies
-      summary: Return the list of builds currently supported by the marketplace
+        - Product Build Dependency Services
+      summary: Returns the list of dependencies based on product and build id
       parameters:
         - in: path
           name: productId
           required: true
-          description: Id of the products to add build to
+          description: Id of the products to add dependency
           schema:
             type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the build to add dependency
+          schema:
+            type: string            
         - in: query
           name: format
           schema:
@@ -2643,18 +2553,71 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Dependency'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - dependencies
-      summary: Add a new build to the marketplace
+        - Product Build Dependency Services
+      summary: Adds a new dependency based on product and build id
       parameters:
         - in: path
           name: productId
           required: true
-          description: Id of the products to add build to
+          description: Id of the product to update dependency
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the build to update dependency
+          schema:
+            type: string                        
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Dependency'
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Dependency'
+      operationId: addDependency
+      responses:
+        '200':
+          description: Add Dependency Succesful
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 245b3a76-9768-48ac-907f-0dc45174515f
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Build Dependency Services
+      summary: Updates dependency based on product and build id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product to update dependency
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the build to update dependency
           schema:
             type: string
         - in: query
@@ -2671,39 +2634,22 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Dependency'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Dependency'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: addDependency
+      operationId: updateDepenedency
       responses:
         '200':
-          description: Add Dependency Succesful
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+          description: Update Succesful
+     
+        
+            
+                        
   '/products/{productId}/builds/{buildId}/dependencies/{dependencyId}':
     get:
       tags:
-        - dependencies
-      summary: Retrieves the build based on Dependency Id and Product Id
+        - Product Build Dependency Services
+      summary: Retrieves the dependency based on product, build and dependency id
       parameters:
         - in: path
           name: productId
@@ -2743,74 +2689,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dependency'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - dependencies
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: path
-          name: buildId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: path
-          name: dependencyId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Dependency'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Dependency'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateDepenedency
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - dependencies
-      summary: Deletes a Dependency by Id
+        - Product Build Dependency Services
+      summary: Deletes dependency based on product, build and dependency id
       parameters:
         - in: path
           name: productId
@@ -2841,15 +2728,15 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-  '/products/{productId}/builds/exposures':
+     
+        
+            
+            
+  '/products/{productId}/builds/{buildId}/exposures':
     get:
       tags:
-        - exposures
-      summary: Return the list of builds currently supported by the marketplace
+        - Product Build Exposure Services
+      summary: Returns the list of exposures based on product and build id
       parameters:
         - in: path
           name: productId
@@ -2857,6 +2744,12 @@ paths:
           description: Id of the products to add build to
           schema:
             type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string            
         - in: query
           name: format
           schema:
@@ -2881,18 +2774,78 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Exposure'
-      security:
-        - licensestore_auth:
-            - 'read:licenses'
+     
+        
+            
     post:
       tags:
-        - exposures
-      summary: Add a new build to the marketplace
+        - Product Build Exposure Services
+      summary: Adds a new exposures based on product and build id
       parameters:
         - in: path
           name: productId
           required: true
           description: Id of the products to add build to
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string            
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/Exposure'
+          application/xml:
+            schema:
+              $ref: '#/components/requestBodies/Exposure'
+ 
+      operationId: addExposure
+      responses:
+        '200':
+          description: Add Dependency Succesful
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 245b3a76-9768-48ac-907f-0dc45174515f
+     
+        
+            
+            
+    put:
+      tags:
+        - Product Build Exposure Services
+      summary: Updates product by Id
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: Id of the product to update
+          schema:
+            type: string
+        - in: path
+          name: buildId
+          required: true
+          description: Id of the products to retrieve
+          schema:
+            type: string
+        - in: path
+          name: exposureId
+          required: true
+          description: Id of the products to retrieve
           schema:
             type: string
         - in: query
@@ -2909,39 +2862,24 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Exposure'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
+  
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Exposure'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: addExposure
+           
+      operationId: updateExposure
       responses:
         '200':
-          description: Add Dependency Succesful
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+          description: Update Succesful
+     
+        
+            
+                        
   '/products/{productId}/builds/{buildId}/exposures/{exposureId}':
     get:
       tags:
-        - exposures
-      summary: Retrieves the build based on Dependency Id and Product Id
+        - Product Build Exposure Services
+      summary: Retrieves the exposure based on product and build id
       parameters:
         - in: path
           name: productId
@@ -2981,74 +2919,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Exposure'
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
-    put:
-      tags:
-        - exposures
-      summary: Updates product by Id
-      parameters:
-        - in: path
-          name: productId
-          required: true
-          description: Id of the product to update
-          schema:
-            type: string
-        - in: path
-          name: buildId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: path
-          name: exposureId
-          required: true
-          description: Id of the products to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/Exposure'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/requestBodies/Exposure'
-            examples:
-              Product:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: License For Product 12345
-                  url: 'http://www.companyurl/license/12345'
-      operationId: updateExposure
-      responses:
-        '200':
-          description: Update Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+
     delete:
       tags:
-        - exposures
-      summary: Deletes a Dependency by Id
+        - Product Build Exposure Services
+      summary: Deletes the Dependency by Id
       parameters:
         - in: path
           name: productId
@@ -3079,15 +2958,15 @@ paths:
       responses:
         '200':
           description: Delete Succesful
-      security:
-        - licensestore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /entitlements:
     get:
       tags:
-        - entitlements
-      summary: Return the list of entitlements currently supported by the marketplace
+        - Entitlement Services
+      summary: Returns the list of entitlements currently available by the marketplace
       parameters:
         - in: query
           name: format
@@ -3113,31 +2992,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Entitlement'
-      security:
-        - entitlementstore_auth:
-            - 'read:entitlements'
+     
+        
+            
     post:
       tags:
-        - entitlements
+        - Entitlement Services
       summary: Adds a new entitlement to the marketplace
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Entitlement'
-            examples:
-              Entitlement:
-                value:
-                  name: Entitlement For Product 12345
-                  url: 'http://www.companyurl/entitlement/12345'
+     
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Entitlement'
-            examples:
-              Entitlement:
-                value:
-                  name: Entitlement For Product 12345
-                  url: 'http://www.companyurl/entitlement/12345'
+     
         description: Entitlement to be added to the marketplace
         required: true
       operationId: createEntitlement
@@ -3149,15 +3020,15 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - entitlementstore_auth:
-            - 'write:entitlements'
-            - 'read:entitlements'
+     
+        
+            
+            
   '/entitlements/{entitlementId}':
     get:
       tags:
-        - entitlements
-      summary: Retrieve entitlement by Id
+        - Entitlement Services
+      summary: Retrieves the entitlement based on entitlement id 
       parameters:
         - in: path
           name: entitlementId
@@ -3182,27 +3053,17 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Entitlement'
-              examples:
-                EntitlementXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Entitlement For Product 12345
-                    url: 'http://www.companyurl/entitlement/12345'
+   
             application/json:
               schema:
                 $ref: '#/components/schemas/Entitlement'
-              examples:
-                EntitlementJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Entitlement For Product 12345
-                    url: 'http://www.companyurl/entitlement/12345'
-      security:
-        - entitlementstore_auth:
-            - 'read:entitlements'
+         
+     
+        
+            
     put:
       tags:
-        - entitlements
+        - Entitlement Services
       summary: Updates entitlement by Id
       parameters:
         - in: path
@@ -3216,35 +3077,25 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Entitlement'
-            examples:
-              Entitlement:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Entitlement For Product 12345
-                  url: 'http://www.companyurl/entitlement/12345'
+          
           application/xml:
             schema:
               $ref: '#/components/schemas/Entitlement'
-            examples:
-              Entitlement:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Entitlement For Product 12345
-                  url: 'http://www.companyurl/entitlement/12345'
+           
         description: Entitlement to be added to the marketplace
         required: true
       operationId: updateEntitlement
       responses:
         '200':
           description: True for updated
-      security:
-        - entitlementstore_auth:
-            - 'write:entitlements'
-            - 'read:entitlements'
+     
+        
+            
+            
     delete:
       tags:
-        - entitlements
-      summary: Deletes a entitlement by Id
+        - Entitlement Services
+      summary: Deletes the entitlement by Id
       parameters:
         - in: path
           name: entitlementId
@@ -3256,15 +3107,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - entitlementstore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   /attempts:
     get:
       tags:
-        - attempts
-      summary: Return the list of attempts currently supported by the marketplace
+        - Attempt Services
+      summary: Returns the list of attempts currently available in the marketplace
       parameters:
         - in: query
           name: format
@@ -3290,31 +3141,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Attempt'
-      security:
-        - attemptstore_auth:
-            - 'read:attempts'
+     
+        
+          
     post:
       tags:
-        - attempts
+        - Attempt Services
       summary: Adds a new attempt to the marketplace
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Attempt'
-            examples:
-              Attempt:
-                value:
-                  name: Attempt For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
+           
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Attempt'
-            examples:
-              Attempt:
-                value:
-                  name: Attempt For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
+            
         description: Attempt to be added to the marketplace
         required: true
       operationId: createAttempt
@@ -3326,15 +3169,53 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - attemptstore_auth:
+     
+        
+          
+    put:
+      tags:
+        - Attempt Services
+      summary: Updates attempt by Id
+      parameters:
+        - in: path
+          name: attemptId
+          required: true
+          description: Id of the attempt to retrieve
+          schema:
+            type: string
+        - in: query
+          name: format
+          description: format
+          schema:
+            type: string
+            enum:
+              - xml
+              - json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attempt'
+            
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Attempt'
+             
+        description: Attempt to be added to the marketplace
+        required: true
+      operationId: updateAttempt
+      responses:
+        '200':
+          description: True for updated
+     
+        
             - 'write:attempts'
-            - 'read:attempts'
+            - 'read:attempts'            
   '/attempts/{attemptId}':
     get:
       tags:
-        - attempts
-      summary: Retrieve attempt by Id
+        - Attempt Services
+      summary: Retrieves the attempt based on attempt id
       parameters:
         - in: path
           name: attemptId
@@ -3359,77 +3240,19 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Attempt'
-              examples:
-                AttemptXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Attempt For Product 12345
-                    url: 'http://www.companyurl/attempt/12345'
+              
             application/json:
               schema:
                 $ref: '#/components/schemas/Attempt'
-              examples:
-                AttemptJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Attempt For Product 12345
-                    url: 'http://www.companyurl/attempt/12345'
-      security:
-        - attemptstore_auth:
-            - 'read:attempts'
-    put:
-      tags:
-        - attempts
-      summary: Updates attempt by Id
-      parameters:
-        - in: path
-          name: attemptId
-          required: true
-          description: Id of the attempt to retrieve
-          schema:
-            type: string
-        - in: query
-          name: format
-          description: format
-          schema:
-            type: string
-            enum:
-              - xml
-              - json
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Attempt'
-            examples:
-              Attempt:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Attempt For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Attempt'
-            examples:
-              Attempt:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Attempt For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
-        description: Attempt to be added to the marketplace
-        required: true
-      operationId: updateAttempt
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - attemptstore_auth:
-            - 'write:attempts'
-            - 'read:attempts'
+              
+     
+        
+            
+
     delete:
       tags:
-        - attempts
-      summary: Deletes a attempt by Id
+        - Attempt Services
+      summary: Deletes the attempt by Id
       parameters:
         - in: path
           name: attemptId
@@ -3441,15 +3264,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - attemptstore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/roles/{roleId}/appointments':
     get:
       tags:
-        - appointments
-      summary: Return the list of appointments currently supported by the marketplace
+        - Role Appointment Services
+      summary: Returns the list of appointments based on role id
       parameters:
         - in: path
           name: roleId
@@ -3481,13 +3304,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Appointment'
-      security:
-        - appointmentstore_auth:
-            - 'read:appointments'
+     
+        
+            
     post:
       tags:
-        - appointments
-      summary: Adds a new attempt to the marketplace
+        - Role Appointment Services
+      summary: Adds a new appointments based on role id
       parameters:
         - in: path
           name: roleId
@@ -3500,19 +3323,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Appointment'
-            examples:
-              Appointment:
-                value:
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
+         
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Appointment'
-            examples:
-              Appointment:
-                value:
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
+           
         description: Appointment to be added to the marketplace
         required: true
       operationId: createAppointment
@@ -3524,15 +3339,52 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - appointmentstore_auth:
-            - 'write:appointments'
-            - 'read:appointments'
+     
+        
+            
+            
+    put:
+      tags:
+        - Role Appointment Services
+      summary: Updates appointment specified by role id and appointment id
+      parameters:
+        - in: path
+          name: roleId
+          required: true
+          description: Id of the attempt to retrieve
+          schema:
+            type: string
+        - in: path
+          name: appointmentId
+          required: true
+          description: Id of the attempt to retrieve
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+       
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+           
+        description: Appointment to be added to the marketplace
+        required: true
+      operationId: updateAppointment
+      responses:
+        '200':
+          description: True for updated
+     
+        
+            
+                        
   '/roles/{roleId}/appointments/{appointmentId}':
     get:
       tags:
-        - appointments
-      summary: Retrieve attempt by Id
+        - Role Appointment Services
+      summary: Retrieves the appointment based on role and appointment id
       parameters:
         - in: path
           name: roleId
@@ -3563,75 +3415,19 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Appointment'
-              examples:
-                AppointmentXML:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Appointment For Product 12345
-                    url: 'http://www.companyurl/attempt/12345'
+           
             application/json:
               schema:
                 $ref: '#/components/schemas/Appointment'
-              examples:
-                AppointmentJSON:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-                    name: Appointment For Product 12345
-                    url: 'http://www.companyurl/attempt/12345'
-      security:
-        - appointmentstore_auth:
-            - 'read:appointments'
-    put:
-      tags:
-        - appointments
-      summary: Updates attempt by Id
-      parameters:
-        - in: path
-          name: roleId
-          required: true
-          description: Id of the attempt to retrieve
-          schema:
-            type: string
-        - in: path
-          name: appointmentId
-          required: true
-          description: Id of the attempt to retrieve
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Appointment'
-            examples:
-              Appointment:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Appointment'
-            examples:
-              Appointment:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/attempt/12345'
-        description: Appointment to be added to the marketplace
-        required: true
-      operationId: updateAppointment
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - appointmentstore_auth:
-            - 'write:appointments'
-            - 'read:appointments'
+             
+     
+        
+            
+
     delete:
       tags:
-        - appointments
-      summary: Deletes a attempt by Id
+        - Role Appointment Services
+      summary: Deletes the appointment specified by role id and appointment id
       parameters:
         - in: path
           name: roleId
@@ -3649,15 +3445,15 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - appointmentstore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
   '/entitlements/{entitlementId}/claims':
     get:
       tags:
-        - claims
-      summary: Return the list of claims currently supported by the marketplace
+        - Entitlement Claim Services
+      summary: Returns the list of claims based on entitlement id
       parameters:
         - in: path
           name: entitlementId
@@ -3689,13 +3485,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Appointment'
-      security:
-        - appointmentstore_auth:
-            - 'read:appointments'
+     
+        
+            
     post:
       tags:
-        - claims
-      summary: Adds a new claim to the marketplace
+        - Entitlement Claim Services
+      summary: Adds a new claim based on entitlement id
       parameters:
         - in: path
           name: entitlementId
@@ -3708,19 +3504,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/requestBodies/Claim'
-            examples:
-              Appointment:
-                value:
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/claim/12345'
+           
           application/xml:
             schema:
               $ref: '#/components/requestBodies/Claim'
-            examples:
-              Appointment:
-                value:
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/claim/12345'
+          
         description: Appointment to be added to the marketplace
         required: true
       operationId: createClaim
@@ -3732,15 +3520,52 @@ paths:
               schema:
                 type: string
                 example: 245b3a76-9768-48ac-907f-0dc45174515f
-      security:
-        - appointmentstore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
+    put:
+      tags:
+        - Entitlement Claim Services
+      summary: Updates claim specified by entitlement id and claim id
+      parameters:
+        - in: path
+          name: entitlementId
+          required: true
+          description: Id of the claim to retrieve
+          schema:
+            type: string
+        - in: path
+          name: claimId
+          required: true
+          description: Id of the claim to retrieve
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Claim'
+            
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Claim'
+            
+        description: Appointment to be added to the marketplace
+        required: true
+      operationId: updateClaim
+      responses:
+        '200':
+          description: True for updated
+     
+        
+            
+                        
   '/entitlements/{entitlementId}/claims/{claimId}':
     get:
       tags:
-        - claims
-      summary: Retrieve claim by Id
+        - Entitlement Claim Services
+      summary: Retrieves the claim based on entitlement and claim id
       parameters:
         - in: path
           name: entitlementId
@@ -3771,71 +3596,19 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Claim'
-              examples:
-                CLaim:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
+             
             application/json:
               schema:
                 $ref: '#/components/schemas/Claim'
-              examples:
-                Claim:
-                  value:
-                    id: 22fa67be-338a-42d4-88e4-4116a9848602
-      security:
-        - appointmentstore_auth:
-            - 'read:appointments'
-    put:
-      tags:
-        - claims
-      summary: Updates claim by Id
-      parameters:
-        - in: path
-          name: entitlementId
-          required: true
-          description: Id of the claim to retrieve
-          schema:
-            type: string
-        - in: path
-          name: claimId
-          required: true
-          description: Id of the claim to retrieve
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Claim'
-            examples:
-              Appointment:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/claim/12345'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Claim'
-            examples:
-              Appointment:
-                value:
-                  id: 22fa67be-338a-42d4-88e4-4116a9848602
-                  name: Appointment For Product 12345
-                  url: 'http://www.companyurl/claim/12345'
-        description: Appointment to be added to the marketplace
-        required: true
-      operationId: updateClaim
-      responses:
-        '200':
-          description: True for updated
-      security:
-        - appointmentstore_auth:
-            - 'write:appointments'
-            - 'read:appointments'
+            
+     
+        
+            
+
     delete:
       tags:
-        - claims
-      summary: Deletes a claim by Id
+        - Entitlement Claim Services
+      summary: Deletes claim specified by entitlement id and claim id
       parameters:
         - in: path
           name: entitlementId
@@ -3853,10 +3626,10 @@ paths:
       responses:
         '200':
           description: True if delete was successful
-      security:
-        - appointmentstore_auth:
-            - 'write:licenses'
-            - 'read:licenses'
+     
+        
+            
+            
 externalDocs:
   description: Find out more about Health Services Platform Marketplace
   url: 'https://www.logicahealth.org'

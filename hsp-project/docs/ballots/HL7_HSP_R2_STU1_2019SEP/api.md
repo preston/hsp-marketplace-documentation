@@ -229,3 +229,5 @@ A service health check providing the server datetime, session status, and other 
 The WebSockets interface is an experimental bidirectional TCP channel established between a client, such as an Agent, to receive push notifications around Marketplace activity. This is an OPTIONAL feature and no strict protocol exists at this time for implementation. This area of the specification is expected to expand greatly in future revisions to standardize the message format, subscription mechanism, and scope of function.
 See notes in Marketplace Product for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
 
+### Swagger API
+The following is a complete description of the Marketplace APIs using Open API <a href="swaggerapi.html">Click here for Marketplace Open API</a>
