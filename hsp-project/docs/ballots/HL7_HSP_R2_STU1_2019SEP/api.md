@@ -20,7 +20,35 @@ For web-based clients, this implies the use of RFC 7519 JSON Web Tokens (JWTs) w
 
 ## Role-Based Access Control
 The PIM establishes role-based access control (RBAC) at the User and Group levels using a small number of types. Of particular note is a separation of the User from that of an Identity. A User is an individual or client actor, whereas an Identity is an issuer-specific credential establishing authentication information about a User according to the remote authority. Rights are assigned at the Role level via a fine-grained "permissions" field that is recommended (but not required) to be represented internally as JSON to match the JSON format exposed by the Role API. (See Table 1 for an example.)
+
 Each Role MUST provide a permissions object in the form of a JSON associative array, which defaults to an empty "{}". This object MAY grant any number of permissions based on the resource type (noun) and operation (verb) of interest. For example:
+
+	{"everything" : {
+		"manage": true
+		},
+	"users": {
+        "create": false,
+        "read": false,
+        "update": false,
+        "delete": false,
+		"update_self": false,
+        "read_self": false
+    	},
+    "groups": {
+        "create": false,
+        "read": false,
+        "update": false,
+        "delete": false
+        },
+    "products": {
+        "publish": false,
+        "create": false,
+        "read": false,
+        "update": false,
+        "delete": false
+        }
+		...
+	}
 
 The permissions object MUST ONLY apply to globally-defined Roles. Implementers MUST allow a User to manage their own Identity, Platform, Instance, and other User-scoped resources without explicit permissions, as well as implicitly grant read access (without explicit permissions) for system objects required to log in via OpenID Connect, such as IdentityProvider. Implementers MAY provide global paths for querying sub-resources without reference to their naturally defined parent resource -- e.g. "GET <root>/platforms" in lieu of "GET <root>/users/:id/platforms" -- and in this case a permission set for "platforms", "identities" etc would/will apply regardless of the ability to access the parent record.
 
@@ -30,7 +58,7 @@ As a further example of implicit access, a Product MUST be readable, at minimum,
 A single special global-administrator privilege MUST be supported on the Role permissions field object. This implicitly grants unlimited access to the system for any Role(s) holding it.
 
 	{"everything" : {
-		"manage: <true|false>
+		"manage": <true|false>
 		},
 		...
 	}`
@@ -46,7 +74,7 @@ A Product is a structured declaration of capabilities for a package of executabl
 
 Builds are concrete, versioned instances of a Product, and is the product versioning mechanism used by the Marketplace. As ExampleSoft provides ongoing development of ExampleProduct and is ready to release a new version for public deployments, a new Build resource is created under the existing Product declaration with a distinct version within the scope of that Product. Build versions SHOULD adhere to semver4 semantics. An additional "ordinal" field is provided for Builds that do not adhere to a lexicographically sortable versioning scheme such as hashes or code names. Informal automated Builds made on a recurring basis such as "latest" or "nightly" SHOULD NOT reuse an existing build definition, but MAY so long as this is clearly communicated to the user via other metadata. Distinct Builds are not assumed to be "rolling" or "rebuilt" on a recurring basis.
 
-To ease operational requirements for operating a Marketplace, the Marketplace does not include a mechanism for uploading software executables. Instead, these Images are declared by reference within the Build record. Images MUST be OCI compliant and be downloadable from the public Internet without special authentication, authorization, or human intervention. (See What is a "Health Product"? for Image packaging requirements. TODO LINK) Implementations MAY implement their own image hosting and management solutions, but this is neither necessary nor required. Numerous general-purpose solutions for management of OCI-compliant images are already available.
+To ease operational requirements for operating a Marketplace, the Marketplace does not include a mechanism for uploading software executables. Instead, these Images are declared by reference within the Build record. Images MUST be OCI compliant and be downloadable from the public Internet without special authentication, authorization, or human intervention. (See What is a "Health Product"? for Image packaging requirements. Implementations MAY implement their own image hosting and management solutions, but this is neither necessary nor required. Numerous general-purpose solutions for management of OCI-compliant images are already available.
 
 ## Standards Compliance Declarations
 To facilitate automated validation, automated deployment, and autowiring, the Marketplace declares a system-wide collection of standardized Interface types known and supported by the instance. Each Interface MUST have a distinct URI and name, MUST have a version, and MAY have an additional ordinal value. The ability of an Interface to subsume the capabilities of another Interface – for such cases where v2.1 is a superset of all v2.0 functions, for example – is provided via separate Surrogate records. In this example, v2.1 would be allowed to serve as a Surrogate for other Product Builds declaring a Dependency on v2.0.
@@ -91,7 +119,7 @@ For a example resource type "resource", paths are always lower case and plural. 
 | POST		| /resources/search		| Create a paginated list of resources functionally beyond "GET /resources"	| No	| {"resources" : {"read" : true }}|
 
  
-For nested resources (aka sub-resources or container resources), the relative path is always appended to the path of the parent it which it is contained. For example, if resources contains Bar resources, Bars would be located at `/resources/:uuid/bars`. Semantically, this relationship MUST imply a specific composition structure binding the lifecycles of the parent and child.
+For nested resources (aka sub-resources or container resources), the relative path is always appended to the path of the parent in which it is contained. For example, if resources contains Bar resources, Bars would be located at `/resources/:uuid/bars`. Semantically, this relationship MUST imply a specific composition structure binding the lifecycles of the parent and child.
 When the parent is deleted, all children MUST be deleted unless otherwise specified.
 When a child is deleted, the parent MUST NOT be automatically deleted.
 

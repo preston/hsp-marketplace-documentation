@@ -42,7 +42,7 @@ Products are declared to the Marketplace via a client such as the reference web 
 
 ## Product Builds and Packaging
 
-We refers to _runnable_ assets as "executable", whereas macine-friendly content requiring some for of runtime for use is "computable". That is, all executable products are computable, but not all computable products are executable. Executables, due to their OS-dependent nature, have stricter packaging guidelines than simply needing to be declare the specific standards with which is complies. The are based on "12 factor" principles.
+We refer to _runnable_ assets as "executable", whereas machine-friendly content requiring some form of runtime for use is "computable". That is, all executable products are computable, but not all computable products are executable. Executables, due to their OS-dependent nature, have stricter packaging guidelines than simply needing to declare the specific standards with which it complies. The are based on "12 factor" principles.
 
 ### Executable Product Build images MUST be:
 1. __Containerized__ into a single, OCI-compatible image. Docker Community Edition has been used as the gold standard and runtime verification tool and is recommended, but not required.
@@ -73,7 +73,7 @@ We refers to _runnable_ assets as "executable", whereas macine-friendly content 
 
 1. __Good citizens__ executing in good faith that they do exactly what they say within the environment (e.g. disclosure of operations being performed, data being stored etc), and do not perform other operations that would not be reasonably expected by a Platform operator.
 
-1. __Traceable__ Health via process monitoring internal to the container should support prevailing standards of practice for the applicable software language/framework in use.
+1. __Traceable__ Health via process monitoring internal to the container should support prevailing standards of practice for the applicable software language/framework in use and local architectural policy. _Some_ approach to detailed, cross-product auditing is necessary. Consider a conventionalized (if not standardized) approach such as OpenTracing, Audit Trail and Node Auditing (ATNA) etc.
 
 1. __Logged__ Products MUST log to standard out/error, and MUST NOT be written to the file system. PHI/PII MAY be logged but SHOULD be toggle-able by the local administrator via injected configuration flags.
 

@@ -26,4 +26,4 @@ nav:
     - API : 'ballots/HL7_HSP_R2_STU1_2019SEP/api.md'
   - 1.0 Informative: 'ballots/HL7_V3_HSP_R1_I1_2019JAN/index.md'
 
-copyright: © 2019 HL7 & HSPC <p></p>  <img  align="left" alt="HL7 International" src="/images/hl7-logo.png" />  <img  align="right" alt="HSPC" src="/images/old-hspc-logo.png" />    
+copyright: © 2019 HL7 & HSPC <p>  <img height="60" align="left" alt="HL7 International" src="/images/hl7-logo.png" />&nbsp;<img height="60" align="right" alt="HSPC" src="/images/old-hspc-logo.png" /> </p><br/> 
