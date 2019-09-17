@@ -258,4 +258,4 @@ The WebSockets interface is an experimental bidirectional TCP channel establishe
 See notes in Marketplace Product for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
 
 ### Swagger API
-The following is a complete description of the Marketplace APIs using Open API <a href="swaggerapi.html">Click here for Marketplace Open API</a>
+The following is a complete description of the Marketplace APIs using Open API: [JSON](./openapi.json) [YML](./openapi.yml)

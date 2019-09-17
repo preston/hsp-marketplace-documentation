@@ -1,15 +1,34 @@
-# Health Services Platform Marketplace Documentation Repository
+# Health Services Platform (HSP) Marketplace Documentation
 
-This repo contains the artifacts used to build the Health Services Platform Marketplace and the Health Services Platform Marketplace Swagger  
+This repository contains content and build configuration for the Health Services Platform Marketplace specification as co-developed by Logica Health and HL7, formally balloted by HL7. The computable version of the Marketplace is included in OpenAPI format, and may be edit by Swagger Editor and other tools.
 
-To build a Docker image from the Dockerfile, run the following command from inside this directory
+If you plan on editing the computable OpenAPI documents, we recommend using [Swagger Editor](https://swagger.io/tools/swagger-editor/).
 
-docker build -t hpsmig .
+## Building
 
-This will produce the following output
+The official official build is distributed as a Docker image. To build your own:
 
-To run the image in a Docker container, use the following command
+	docker build -t p3000/marketplace-documentation:latest .
 
-docker run -itd --name hspmig201909 --publish 8080:80 hpsmig
+To run your image:
 
-This will start serving the static site on port 8080. If you visit `http://localhost:8080` in your browser, you should be able to see our static site!
+	docker run -it --rm --name marketplace-documentation -p 8080:80 p3000/marketplace-documentation:latest
+
+This will start serving the static HTML site at `http://localhost:8080`.
+
+
+## Building Manually
+
+
+Install MkDocs
+
+pip install mkdocs
+
+Install Material
+
+pip install mkdocs-material
+
+Run 'mkdocs serve' in project directory
+
+Serving on http://127.0.0.1:8000
+
