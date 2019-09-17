@@ -1,11 +1,12 @@
 # API
 The Marketplace API is designed as a medium-weight, conventional specification that is straightforward to implement using any number of common-off-the-shelf (COTS) Open Source technologies, and is easy to understand for simple use cases. Additional considerations have been made for current trends in standards and interoperability.
 
+**Swagger API**: The following OpenAPI documents capture descriptions of the Marketplace APIs in machine-readable format: **[JSON](./openapi.json) [YML](./openapi.yml)**
+
 ## Platform Independent Model
 The core resources managed by the API are shown in the logical model illustrated in Figure 3, and will be discussed in subsequent subsections.
 
-![ Platform independent model (PIM)](Image5.png " Platform independent model (PIM)")
- 
+![ Platform independent model (PIM)](Image5.png " Platform independent model (PIM)") 
 
 ## User Identity & Authentication
 
@@ -256,6 +257,3 @@ A service health check providing the server datetime, session status, and other 
 ### WebSockets (/websockets)
 The WebSockets interface is an experimental bidirectional TCP channel established between a client, such as an Agent, to receive push notifications around Marketplace activity. This is an OPTIONAL feature and no strict protocol exists at this time for implementation. This area of the specification is expected to expand greatly in future revisions to standardize the message format, subscription mechanism, and scope of function.
 See notes in Marketplace Product for starting points and exploration of the proof-of-concept pub/sub mechanism used by external reference materials.
-
-### Swagger API
-The following is a complete description of the Marketplace APIs using Open API: [JSON](./openapi.json) [YML](./openapi.yml)
