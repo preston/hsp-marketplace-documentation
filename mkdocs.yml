@@ -3,7 +3,7 @@ site_name: Health Services Platform (HSP) Marketplace
 theme:
   name: 'material'
   logo: 'images/LOGICA_MARK_NOBCKGRND.png'
-  favicon: 'images/favicon.png'
+  favicon: 'images/favicon.ico'
   palette:
     primary: 'grey'
     accent: 'red'
