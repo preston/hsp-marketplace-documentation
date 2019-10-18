@@ -1,6 +1,8 @@
 # API
 The Marketplace API is designed as a medium-weight, conventional specification that is straightforward to implement using any number of common-off-the-shelf (COTS) Open Source technologies, and is easy to understand for simple use cases. Additional considerations have been made for current trends in standards and interoperability.
 
+## Machine-Readable Format
+
 **Swagger API**: The following OpenAPI documents capture descriptions of the Marketplace APIs in machine-readable format: **[JSON](./openapi.json) [YML](./openapi.yml)**
 
 ## Platform Independent Model

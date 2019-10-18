@@ -1,8 +1,8 @@
 # Health Services Platform (HSP) Marketplace Documentation
 
-This repository contains content and build configuration for the Health Services Platform Marketplace specification as co-developed by Logica Health and HL7, formally balloted by HL7. The computable version of the Marketplace is included in OpenAPI format, and may be edit by Swagger Editor and other tools.
+This repository contains content and build configuration for the Health Services Platform Marketplace specification as co-developed by Logica Health and HL7, formally balloted by HL7. The computable version of the Marketplace is included in OpenAPI format.
 
-If you plan on editing the computable OpenAPI documents, we recommend using [Swagger Editor](https://swagger.io/tools/swagger-editor/).
+If you plan on editing the computable OpenAPI documents, we recommend using [Swagger Editor](https://swagger.io/tools/swagger-editor/). Compatible alternatives are available, as well.
 
 ## Building
 
