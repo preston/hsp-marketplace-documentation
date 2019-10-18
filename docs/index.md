@@ -1,7 +1,8 @@
-<img style="float: left;padding-right: 5px;" src="/images/hl7-logo.png" width=90px" />
+<img style="float: left;padding-right: 5px;" src="/images/hl7-logo.png" height=80px" />
+<img style="float: left;padding-right: 5px;" src="/images/LOGICA LOGO COLOR.png" height=80px" />
 
 
-# HL7 Health Services Platform Marketplace 
+# Health Services Platform Marketplace 
 
 The HL7 Health Services Platform Marketplace (HSPM or "Marketplace") is an HL7/Logica Health (formerly HSPC) specification for publication, cataloging, discovering, and deployment of computable healthcare products and executable knowledge.
 
