@@ -1,5 +1,5 @@
 # We're separated the build from runtime stages. First, the build:
-FROM python:2.7 as MKDOCSSTAGE
+FROM python:slim as MKDOCSSTAGE
 # Install dependencies first for layer caching.
 RUN pip install mkdocs
 RUN pip install mkdocs-material

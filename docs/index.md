@@ -17,5 +17,8 @@ Historical ballot versions archived here are presented for historical context an
 
 | Version                    | Date       | Description |
 | -------------------------- | ---------- | ----------- |
+| 2 STU 2	| 2022 January	| Recommendations on analytics, billing, logging, and debugging integrations provided by telemetry collection services of downstream software runtime platforms. Refinements and guidance of computable product packaging and metadata model.  Guidance on compliance characteristics effecting operation of compatible Marketplace systems, such as policies related to patient data and legal boundaries between Marketplace operators and platform technologies.
+ Further specification of product license authorization types used in implementations that dynamically authorize specific products.
+ Recreation and inclusion of UML diagrams in computable format for local adaptation. Removal of old "HSPC" naming. |
 | 2 STU 1	| 2019 September	| Specification-wide renaming of "service" renamed to "product"; product aggregation; product-license relationship made many-to-many; digital rights management types; entitlement tracking and group support; channel partner "voucher" type; dynamic entitlement claim and authorization support.	|
 | 1.0		| 2019 January		| Initial release.
