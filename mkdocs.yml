@@ -17,7 +17,7 @@ nav:
     - Executive Summary : 'ballots/HL7_HSP_R2_STU2_2022JAN/executive_summary.md'
     - Core Concepts :  'ballots/HL7_HSP_R2_STU2_2022JAN/core_concepts.md'      
     - Digital Rights Management :  'ballots/HL7_HSP_R2_STU2_2022JAN/digital_rights_management.md'      
-    - Usage Metering : 'ballots/HL7_HSP_R2_STU2_2022JAN/usage_metering.md'  
+    - Runtime Telemetry : 'ballots/HL7_HSP_R2_STU2_2022JAN/runtime_telemetry.md'  
     - Product Packaging : 'ballots/HL7_HSP_R2_STU2_2022JAN/product_packaging.md'  
     - Functional Infrastructure Model : 'ballots/HL7_HSP_R2_STU2_2022JAN/functional_infrastructure_model.md'  
     - Reference implementation : 'ballots/HL7_HSP_R2_STU2_2022JAN/reference_implementation.md'

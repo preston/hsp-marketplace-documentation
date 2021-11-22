@@ -25,7 +25,7 @@ The top-level metadata schema applies at the _Product Build_ level, since every 
 
 ## Examples
 
-The below examples _are not real products_. We have included them as guidance for implementors and product developers as a concrete starting point.
+The below examples _are not real products_. We have included them as guidance for implementors and product developers as a concrete starting point. For local product development and build purposes, the file MUST be named `marketplace.json` and SHOULD be included at the root level of source code projects for compatible IDEs and editors.
 
  * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
  * [Content Product Build Example](../metadata/example/smart.product.build.json)
