@@ -99,11 +99,11 @@ In the exemplar reference implementation discussed in Supplementary Reference Im
 _Note that these supplemental materials are NOT part of the specification and are provided for convenience and further information. An example of fictitious on-premise Platform implementation is illustrated in Figure 1, below._
 
 ###Example on-premise Platform environment
-![Example on-premise Platform environment](Image1.png "Example on-premise Platform environment")
+![Example on-premise Platform environment](images/Image1.png "Example on-premise Platform environment")
 
 Note that while the reference implementation uses Docker, it intentionally refrains from using all proprietary functions. Real-world implementations should choose a mainstream management system if not already present.
 For Platform environments implemented using cloud resources, Figure 2 illustrates an equally compatible architecture using market-leading Amazon Web Services.
 
 ###Cloud-based Platform implementation using Amazon Web Services.
-![Cloud-based Platform implementation using Amazon Web Services](Image2.png "Cloud-based Platform implementation using Amazon Web Services")
+![Cloud-based Platform implementation using Amazon Web Services](images/Image2.png "Cloud-based Platform implementation using Amazon Web Services")
 
