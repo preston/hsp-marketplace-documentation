@@ -3,10 +3,12 @@
 
 | Standard/Convention	| Purpose                 |
 | ----------			|:-----	|
+| [OpenTelemetry](https://opentelemetry.io)	    | SOA profiling and tracability
+| [OpenTracing](https://opentracing.io)			| SOA profiling and tracability merged into OpenTelemetry
+| [OpenCensus](https://opencensus.io)			| SOA profiling and tracability merged into OpenTelemetry
+| [Open Container Initiative](https://www.opencontainers.org)	| Build containerization
 | [IETF SCIM 2](https://tools.ietf.org/html/rfc7644)				| User/Group provisioning
 | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)	| Date, time, and time zone standardization
-| [OpenTracing](https://opentracing.io)			| SOA profiling and tracability
-| [Open Container Initiative](https://www.opencontainers.org)	| Build containerization
 | [OAuth 2](https://oauth.net/2/)	| Authorization
 | [OpenID Connect](https://openid.net/connect/)	| Authentication
 | [FHIR](http://www.fhir.org)	| Health services and data
