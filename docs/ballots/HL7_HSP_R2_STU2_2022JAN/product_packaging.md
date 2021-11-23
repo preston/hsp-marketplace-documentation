@@ -21,12 +21,22 @@ This JSON metadata file is distributed alongside Product images to consumers, an
 
 The top-level metadata schema applies at the _Product Build_ level, since every product is expected to naturally evolve across each Build. The schema is available in [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
 
-[Marketplace JSON Schema](../metadata/schema/build.json)
+**[Marketplace JSON Schema](../metadata/schema/build.json)**
 
-## Examples
+## JSON Examples
 
 The below examples _are not real products_. We have included them as guidance for implementors and product developers as a concrete starting point. For local product development and build purposes, the file MUST be named `marketplace.json` and SHOULD be included at the root level of source code projects for compatible IDEs and editors.
 
  * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
  * [Content Product Build Example](../metadata/example/smart.product.build.json)
  * [CDS-Hooks Product Build Example](../metadata/example/cds-hooks.product.build.json)
+
+## Product/Build Label Visual Examples
+
+The below examples are for informational purposes only. They illustrate a way in which Marketplace operators may read a `marketplace.json` file and merge in information with known consumer capabilities to provide a clear, objective overview of the Product and Build.
+
+### Exemplar Product Label Concept
+![example-product-label](example-product-label-v13.png)
+
+### Exemplar Build Label Concept
+![example-build-label](example-build-label-v13.png)
