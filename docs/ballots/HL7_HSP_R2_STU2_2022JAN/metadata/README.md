@@ -3,7 +3,7 @@
 This repository contains the JSON schema definitions (and corresponding examples) for the Logica/HL7 Marketplace Product Packaging & Metadata specification. Publication of any health IT software product compliant with the Marketplace API _must_:
 
 1. Be packaged according to Marketplace standards and conventions
-1. Include a corresponding `build.json` file for each build of the product.
+1. Include a corresponding `marketplace.json` file for each build of the product.
 
 The technological portion of Marketplace-compliant "product packaging" boils down to the process of building applications in a more conventionalized manner than OCI-compliant images alone  (e.g. those already containerized) can produce, as the Marketplace specification requires:
 
