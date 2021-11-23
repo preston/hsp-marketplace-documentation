@@ -21,7 +21,16 @@ This JSON metadata file is distributed alongside Product images to consumers, an
 
 The top-level metadata schema applies at the _Product Build_ level, since every product is expected to naturally evolve across each Build. The schema is available in [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
 
-**[Marketplace JSON Schema](../metadata/schema/build.json)**
+Marketplace JSON Schemas
+
+>[Build Schema](../metadata/schema/build.json)
+
+>>[Label Schema](../metadata/schema/label.json)
+
+>>>[Dependency Schema](../metadata/schema/dependency.json)
+
+>>[Task Schema](../metadata/schema/task.json)
+
 
 ## JSON Examples
 
@@ -32,6 +41,7 @@ Note: While the schema permits flexible element ordering for readability, all cr
  * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
  * [Content Product Build Example](../metadata/example/smart.product.build.json)
  * [CDS-Hooks Product Build Example](../metadata/example/cds-hooks.product.build.json)
+ * [Opiod Smart-on-Fhir Product Build Example](../metadata/example/opiod.product.build.json)
 
 ## Product/Build Label Visual Examples
 

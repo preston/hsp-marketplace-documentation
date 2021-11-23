@@ -1,0 +1,256 @@
+@@startuml PIM
+skinparam backgroundcolor AntiqueWhite
+skinparam classBackgroundColor Wheat|CornflowerBlue
+
+
+
+title "PIM"
+
+class Group {
+    String id
+    String name
+    String description
+
+}
+Group <--o Appointment
+
+
+class Membership {
+    String id
+
+}
+Group  <--o  Membership
+User  <--o  Membership
+ 
+
+class Appointment {
+    String id
+
+}
+Role  o--> Appointment
+User  o-->  Appointment
+User o--> Entitlement
+
+
+class IdentityProvider {
+    String id
+    String name
+    String issuer
+    String client_id
+    String client_secret
+    String alternate_client_id
+    String Configuration
+    String public_keys
+
+}
+IdentityProvider   <--o   Identity
+
+class User {
+    String id
+    String family_name
+    String given_name
+    String email
+    String user_name
+
+}
+User o--> Identity 
+
+class Identity{
+    String id
+    String subject
+    String issued_at
+
+}
+
+User  <--o  Service
+Service <--* Build
+class Platform {
+    String id
+    String name
+    String agent_public_key
+}
+User  *-->  Platform
+
+User  o-->  Product
+
+class ProductInstance {
+    String id
+    String name
+}
+ProductInstance *--> Build
+ProductInstance *--> Product
+ProductInstance *--> Platform
+
+
+ 
+
+class Role {
+    String id
+    String name
+    String : permissions 1..* 
+}
+
+class Appointment
+
+class ProductLicense {
+    String id
+    }
+
+ProductLicense <--o Entitlement
+
+class Product {
+    String id
+    }
+
+class ProductProductLicense {
+    String id
+    }
+
+class Logo {
+    String id
+    }
+
+
+ 
+ProductProductLicense <--* Product
+Build <--* Product
+Surrogate <--* Product
+Logo <--* Product
+
+Product o--> Screenshot
+
+class Screenshot{
+    String id
+    }
+Service <--o Screenshot
+
+class Build {
+    String id
+    String software_version
+    String build_version
+    String container_repository
+    String container_tag
+    String validated_at
+    String published_at
+    String permissions
+    String release_notes
+}
+
+Build *-->  Configuration
+
+class Dependency {
+    String id  
+}
+
+Service <--o Dependency
+
+class Parameter  {
+    String id
+    String name
+    String required
+
+  
+}
+Parameter <--o Exposure
+
+class Configuration  {
+    String id
+    String name
+  
+}
+
+class Task  {
+    String id
+    String name
+    String minimum
+    String maximum
+    String memory
+  
+}
+Task <--*  Configuration
+
+class Instance 
+ {
+    String id
+    String launch_binding
+    String deployed_at
+
+  
+}
+Build *-->  Instance
+
+class Interface {
+    String id
+    String name
+    String uri
+    String version
+    String ordinal
+
+  
+}
+Interface <--o Surrogate
+Exposure <--o Interface
+Dependency <--o Interface
+
+class Surrogate   {
+    String id
+    String of_id
+    String for_id
+  
+}
+
+class Entitlement  {
+    String id
+  
+}
+Entitlement <--o Claim
+User <--o Claim
+Group <--o Claim
+
+class Claim {
+    String id
+  
+}
+Entitlement <--o Voucher
+class Voucher  {
+    String id
+  
+}
+
+class Attempt {
+    String id
+  
+}
+Attempt <--o User
+Attempt <--o Group
+
+
+class Authorization   {
+    String id
+  
+}
+Authorization <--o User
+Authorization <--o Group
+Authorization <--o Entitlement
+
+class Status {
+    String datetime
+    String sessionstatus
+}
+
+class Exposure  {
+    String id
+  
+}
+
+class Binding  {
+    String id
+    String of
+    String to
+  
+}
+Binding <--o Dependency
+
+
+@@enduml
+

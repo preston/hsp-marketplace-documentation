@@ -8,7 +8,7 @@ The Marketplace API is designed as a medium-weight, conventional specification t
 ## Platform Independent Model
 The core resources managed by the API are shown in the logical model illustrated in Figure 3, and will be discussed in subsequent subsections.
 
-![ Platform independent model (PIM)](Image5.png " Platform independent model (PIM)") 
+![ Platform independent model (PIM)](./images/PIM.png " Platform independent model (PIM)") 
 
 ## User Identity & Authentication
 
