@@ -7,34 +7,31 @@ Every Product submitted to a Marketplace implementation MUST be accompanied by a
  * Requirements of the Marketplace operator
  * Regulatory factors and policies of stakeholder locales
 
-This JSON metadata file is distributed alongside Product images to consumers, and is critical for marketplaces needing to:
+This JSON metadata file is distributed alongside Product images to consumers or platform Agents, and is critical for marketplaces needing to:
 
  * Render concise product labels
- * Summerize policy differences from official operator guidelines
+ * Summerize policy exemptions from official operator guidelines
  * Capture software chain of custody, cryptographic signing, provenence and audit trails between and vendor and consumers.
  * Detail licensing and pricing criteria, when applicable
  * Determine if a Product is compatible with a particular runtime platform
- * Provide remediation measures when runtime incompatibilities are known  
+ * Provide remediation measures when runtime incompatibilities are detected  
  * Automate Product deployments in conjunction with runtime service orchestrators
 
 ## JSON Schemas
 
-The top-level metadata schema applies at the _Product Build_ level, since every product is expected to naturally evolve across each Build. The schema is available in [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
+The top-level metadata schema applies at the _Build_ level. Every Product is expected to naturally evolve across each Build. We provide the schema in computable [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
 
-Marketplace JSON Schemas
+[`marketplace.json` JSON Schemas](../metadata/schema/build.json)
 
->[Build Schema](../metadata/schema/build.json)
-
->>[Label Schema](../metadata/schema/label.json)
-
->>>[Dependency Schema](../metadata/schema/dependency.json)
-
->>[Task Schema](../metadata/schema/task.json)
+Internally referenced schemas:
+ * [Label Schema](../metadata/schema/label.json)
+ * [Dependency Schema](../metadata/schema/dependency.json)
+ * [Task Schema](../metadata/schema/task.json)
 
 
 ## JSON Examples
 
-The below examples _are not real products_. We have included them as guidance for implementors and product developers as a concrete starting point. For local product development and build purposes, the file MUST be named `marketplace.json` and SHOULD be included at the root level of source code projects for compatible IDEs and editors.
+The below examples _are not real products_ and for illustrative use only. We have included them as guidance for implementors and product developers as a concrete starting point. For local product development and build purposes, the metadata file MUST be named `marketplace.json` and SHOULD be included at the root level of source code projects for compatible IDEs and editors. Marketplace operators may read a submitted `marketplace.json` file and merge in information with known consumer capabilities to provide a clear, objective overview of the Product and Build.
 
 Note: While the schema permits flexible element ordering for readability, all cryptographic signatures of a `marketplace.json` document MUST operate on the _canonical JSON_ form. Assure you have rendered to canonical JSON before computing any hashes!
 
@@ -45,7 +42,7 @@ Note: While the schema permits flexible element ordering for readability, all cr
 
 ## Product/Build Label Visual Examples
 
-The below examples are for informational purposes only. They illustrate a way in which Marketplace operators may read a `marketplace.json` file and merge in information with known consumer capabilities to provide a clear, objective overview of the Product and Build.
+Similarly to the JSON examples the below images _are not real products_ and for conceptual purposes only.
 
 ### Exemplar Product Label Concept
 ![example-product-label](images/example-product-label-v13.png)
