@@ -1,5 +1,3 @@
-Model Quick Reference
-
 The following table provides a quick overview of all persistent types supported by the Marketplace specification.
 
 ## Persistent Resources
