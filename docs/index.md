@@ -1,5 +1,5 @@
-<img style="float: left;padding-right: 5px;" src="/images/hl7-logo.png" height=80px" />
-<img style="float: left;padding-right: 5px;" src="/images/LOGICA LOGO COLOR.png" height=80px" />
+<img style="float: left;padding-right: 5px;" src="/images/hl7-logo.png" height="80px" />
+<img style="float: left;padding-right: 5px;" src="/images/LOGICA LOGO COLOR.png" height="80px" />
 
 
 # Health Services Platform Marketplace 
