@@ -22,7 +22,7 @@ The reference Marketplace UI is a web application written to the Marketplace API
 A demo environment is available at Logica by request.
 
 # Full Example Products
-Graphite Health has assembled a set of example products showcasing how different technology types can be packaged for marketplace publication. Contact them for details.
+Graphite Health has assembled a set of example products showcasing how different technology types can be packaged for marketplace publication, deployed to a runtime Platform, and integrated with OpenTelemetry-compatible collectors. Contact them for details.
 ## SMART-on-FHIR - "Bilirubin" Product
 
 A reimplementation of the bilirubin SMART-on-FHIR application originally developed by Logica Health, Graphite Health has developed an updated version for demonstrating `marketplace.json` metadata files and 12factor engineering principles necessary to automate distribution and deployment of such application software.
@@ -33,7 +33,7 @@ In 2021, [Yale piloted an opioid prescribing CDS project](https://oncprojectrack
 
 ## FHIR Resource Service - TBD
 
-Products exposing FHIR endpoints will be exlicitly supported by the `marketplace.json` schema, and presents unique challenges due to the way CapabilitiesStatement is designed to work. We are actively seeking feedback on the most appropriate means of declaring such API metadata in a static manner that can
+Products exposing FHIR endpoints will be exlicitly supported by the `marketplace.json` schema, and presents unique challenges due to the way CapabilitiesStatement is designed to work. We are actively seeking feedback on the most appropriate means of declaring service API compatibility metadata in a *static* manner that can be evaluated prior to running the Product.
 
 ## Metered Static Content - TBD
-Graphite Health is also actively working in this area to produce product packaging and metadata guidelines for static content types that require usage metering for licensing, billing, analytics or other purposes. 
+Graphite Health is also actively working in this area to produce product packaging and metadata guidelines for static content types that require usage metering for licensing, billing, analytics or other purposes.
