@@ -20,6 +20,27 @@
                 "type": "string",
                 "description": "An explicit build UUID that willproduct dependency."
             }
+        },   "id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "interfaceId": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "required": {
+            "type": "boolean"
+        },
+        "mappings": {
+            "type": "string"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }

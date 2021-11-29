@@ -1,0 +1,757 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://marketplace-schema.prestonlee.com/marketplaceSchema",
+    "definitions": {
+        "Interface": {
+            "type": "object",
+            "xml": {
+                "name": "Interface"
+            },
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "ordinal": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "xml": {
+                "name": "User"
+            },
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "familyName": {
+                    "type": "string"
+                },
+                "givenName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Role": {
+            "type": "object",
+            "xml": {
+                "name": "role"
+            },
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "permissions": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Group": {
+            "type": "object",
+            "xml": {
+                "name": "group"
+            },
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "License": {
+            "type": "object",
+            "xml": {
+                "name": "license"
+            },
+            "required": [
+                "name",
+                "license",
+                "terms"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "url"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "license": {
+                    "enum": [
+                        "Apache License 2.0 (Apache-2.0)",
+                        "3-clause BSD license (BSD-3-Clause)",
+                        "2-clause BSD license (BSD-2-Clause)",
+                        "Creative Commons license",
+                        "GNU General Public License (GPL)",
+                        "GNU Lesser General Public License (LGPL)",
+                        "MIT license (MIT)",
+                        "Mozilla Public License 2.0 (MPL-2.0)",
+                        "Common Development and Distribution License 1.0 (CDDL-1.0)",
+                        "Eclipse Public License 2.0 (EPL-2.0)"
+                    ]
+                },
+                "terms": {
+                    "type": "string"
+                }
+            }
+        },
+        "Product": {
+            "type": "object",
+            "xml": {
+                "name": "product"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "support": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "approved_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "visible_from": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "blob": {
+                    "type": "string",
+                    "format": "binary"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Build": {
+            "type": "object",
+            "xml": {
+                "name": "build"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "softwareVersion": {
+                    "type": "string"
+                },
+                "buildVersion": {
+                    "type": "string"
+                },
+                "containerRepository": {
+                    "type": "string"
+                },
+                "containerTag": {
+                    "type": "string"
+                },
+                "validatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "publishedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "permissions": {
+                    "type": "string"
+                },
+                "releaseNotes": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "IdentityProvider": {
+            "type": "object",
+            "xml": {
+                "name": "identityProvider"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "alternateClientId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "configuration": {
+                    "type": "string"
+                },
+                "publicKeys": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Identity": {
+            "type": "object",
+            "xml": {
+                "name": "identity"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "userId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "identityProviderId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "sub": {
+                    "type": "string"
+                },
+                "iat": {
+                    "type": "string"
+                },
+                "hd": {
+                    "type": "string"
+                },
+                "locale": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "jwt": {
+                    "type": "string"
+                },
+                "nofityViaEmail": {
+                    "type": "string"
+                },
+                "nofityViaSMS": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Platform": {
+            "type": "object",
+            "xml": {
+                "name": "platform"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "publicKey": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Logo": {
+            "type": "object",
+            "xml": {
+                "name": "logo"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "imageFileContent": {
+                    "type": "string",
+                    "format": "binary"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Screenshot": {
+            "type": "object",
+            "xml": {
+                "name": "Screenshot"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "productID": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "caption": {
+                    "type": "string"
+                },
+                "imageFileContent": {
+                    "type": "string",
+                    "format": "binary"
+                },
+                "imageFileSize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Configuration": {
+            "type": "object",
+            "xml": {
+                "name": "configuration"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "buildId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "DependencyDeprecate": {
+            "type": "object",
+            "xml": {
+                "name": "dependency"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "buildId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "interfaceId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "required": {
+                    "type": "boolean"
+                },
+                "mappings": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Exposure": {
+            "type": "object",
+            "xml": {
+                "name": "exposure"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "buildId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "interfaceId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "TaskDeprecate": {
+            "type": "object",
+            "xml": {
+                "name": "identityProvider"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "configurationID": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "maximum": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "memory": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Entitlement": {
+            "type": "object",
+            "xml": {
+                "name": "entitlement"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "userId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "productLicenseId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "validFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Attempt": {
+            "type": "object",
+            "xml": {
+                "name": "attempt"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "claimId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "claimantId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "claimantType": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Appointment": {
+            "type": "object",
+            "xml": {
+                "name": "appointment"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "entryId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "entryType": {
+                    "type": "string"
+                },
+                "roleId": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Claim": {
+            "type": "object",
+            "xml": {
+                "name": "claim"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "claimantId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "claimantType": {
+                    "type": "string"
+                },
+                "entitlementId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "authorizationCount": {
+                    "type": "string"
+                },
+                "authorizedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        }
+    }
+}
