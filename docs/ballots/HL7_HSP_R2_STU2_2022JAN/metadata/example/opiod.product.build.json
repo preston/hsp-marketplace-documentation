@@ -44,7 +44,7 @@
                     "terms": "None"
                 }
             ],
-            "technologyType": "CQL",
+            "technology_type": "CQL",
             "domain": [
                 "Clinical Decision Support",
                 "Prescribing Opioids"
@@ -112,6 +112,8 @@
     },
     "tasks": [
         {
+            "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
             "label": "Loading Content",
             "options": [
                 "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-terminology-bundle.json",
@@ -119,12 +121,16 @@
             ]
         },
         {
+            "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
             "label": "Logging",
             "options": [
                 "hapi.fhir.cql_logging_enabled=true"
             ]
         },
         {
+            "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
             "label": "Opioid Prescribing Support SMART on FHIR Application",
             "memory_minimum": 128,
             "memory_maximum": 256,

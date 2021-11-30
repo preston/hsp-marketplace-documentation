@@ -13,6 +13,8 @@
         }
     },
     "tasks": [{
+        "id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
+        "configuration_id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
         "label": "My CDS Hooks Service",
         "memory_minimum": 128,
         "memory_maximum": 256,

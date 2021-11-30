@@ -174,7 +174,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "licenseId",
+                        "name": "license_id",
                         "required": true,
                         "description": "Id of the license to retrieve",
                         "schema": {
@@ -218,7 +218,7 @@
                 }
             }
         },
-        "/licenses/{licenseId}": {
+        "/licenses/{license_id}": {
             "get": {
                 "tags": [
                     "License Services"
@@ -227,7 +227,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "licenseId",
+                        "name": "license_id",
                         "required": true,
                         "description": "Id of the license to retrieve",
                         "schema": {
@@ -275,7 +275,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "licenseId",
+                        "name": "license_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -429,7 +429,7 @@
                 }
             }
         },
-        "/products/{productId}/licenses": {
+        "/products/{product_id}/licenses": {
             "get": {
                 "tags": [
                     "Product License Services"
@@ -438,7 +438,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve",
                         "schema": {
@@ -495,7 +495,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve",
                         "schema": {
@@ -504,8 +504,8 @@
                     },
                     {
                         "in": "query",
-                        "name": "licenseId",
-                        "description": "licenseId",
+                        "name": "license_id",
+                        "description": "license_id",
                         "schema": {
                             "type": "string",
                             "format": "uuid"
@@ -529,7 +529,7 @@
                 }
             }
         },
-        "/products/{productId}": {
+        "/products/{product_id}": {
             "get": {
                 "tags": [
                     "Product Services"
@@ -538,7 +538,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve",
                         "schema": {
@@ -586,7 +586,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -612,7 +612,7 @@
                 }
             }
         },
-        "/products/{productId}/publish": {
+        "/products/{product_id}/publish": {
             "post": {
                 "tags": [
                     "Product Operations"
@@ -621,7 +621,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to publish",
                         "schema": {
@@ -638,7 +638,7 @@
                 }
             }
         },
-        "/products/{productId}/unpublish": {
+        "/products/{product_id}/unpublish": {
             "post": {
                 "tags": [
                     "Product Operations"
@@ -647,7 +647,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to unpublish",
                         "schema": {
@@ -676,7 +676,7 @@
                 }
             }
         },
-        "/products/{productId}/builds": {
+        "/products/{product_id}/builds": {
             "get": {
                 "tags": [
                     "Product Build Services"
@@ -685,7 +685,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -740,7 +740,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -798,7 +798,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update",
                         "schema": {
@@ -807,7 +807,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -850,7 +850,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}": {
+        "/products/{product_id}/builds/{build_id}": {
             "get": {
                 "tags": [
                     "Product Build Services"
@@ -859,7 +859,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -868,7 +868,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -916,7 +916,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -925,7 +925,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -1021,7 +1021,7 @@
                 }
             }
         },
-        "/interfaces/{interfaceId}": {
+        "/interfaces/{interface_id}": {
             "get": {
                 "tags": [
                     "Interface Services"
@@ -1030,7 +1030,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "interfaceId",
+                        "name": "interface_id",
                         "required": true,
                         "description": "Id of the interface to retrieve",
                         "schema": {
@@ -1078,7 +1078,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "interfaceId",
+                        "name": "interface_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -1190,7 +1190,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to update",
                         "schema": {
@@ -1219,7 +1219,7 @@
                 }
             }
         },
-        "/users/{userId}": {
+        "/users/{user_id}": {
             "get": {
                 "tags": [
                     "User Services"
@@ -1228,7 +1228,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to retrieve",
                         "schema": {
@@ -1276,7 +1276,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -1302,7 +1302,7 @@
                 }
             }
         },
-        "/users/{userId}/identities": {
+        "/users/{user_id}/identities": {
             "get": {
                 "tags": [
                     "User Services"
@@ -1311,7 +1311,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "returns a list of user identities",
                         "schema": {
@@ -1332,7 +1332,7 @@
                                         "$ref": "./metadata/schema/marketplace.json#/definitions/identity"
                                     },
                                     "xml": {
-                                        "name": "userIdentities"
+                                        "name": "user_identities"
                                     }
                                 }
                             },
@@ -1349,7 +1349,7 @@
                 }
             }
         },
-        "/users/{userId}/platforms": {
+        "/users/{user_id}/platforms": {
             "get": {
                 "tags": [
                     "Platform Services"
@@ -1358,7 +1358,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to update",
                         "schema": {
@@ -1413,7 +1413,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to update",
                         "schema": {
@@ -1422,7 +1422,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "platformId",
+                        "name": "platform_id",
                         "required": true,
                         "description": "Id of the platform to retrieve",
                         "schema": {
@@ -1458,7 +1458,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to update",
                         "schema": {
@@ -1467,7 +1467,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "platformId",
+                        "name": "platform_id",
                         "required": true,
                         "description": "Id of the platform to update",
                         "schema": {
@@ -1496,7 +1496,7 @@
                 }
             }
         },
-        "/users/{userId}/platforms/{platformId}": {
+        "/users/{user_id}/platforms/{platform_id}": {
             "get": {
                 "tags": [
                     "Platform Services"
@@ -1505,7 +1505,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the user to retrieve",
                         "schema": {
@@ -1514,7 +1514,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "platformId",
+                        "name": "platform_id",
                         "required": true,
                         "description": "Id of the platform to retrieve",
                         "schema": {
@@ -1562,7 +1562,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "userId",
+                        "name": "user_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -1571,7 +1571,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "platformId",
+                        "name": "platform_id",
                         "required": true,
                         "description": "Id of the platform to retrieve",
                         "schema": {
@@ -1619,13 +1619,13 @@
                 "operationId": "getIdentityProviders",
                 "responses": {
                     "200": {
-                        "description": "License",
+                        "description": "getIdentityProviders",
                         "content": {
                             "application/xml": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                                     },
                                     "xml": {
                                         "name": "indentityProviders"
@@ -1636,7 +1636,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                                     }
                                 }
                             }
@@ -1682,7 +1682,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "identityProviderId",
+                        "name": "identity_provider_id",
                         "required": true,
                         "description": "Id of the Identity Provider to update",
                         "schema": {
@@ -1711,7 +1711,7 @@
                 }
             }
         },
-        "/identity_providers/{identityProviderId}": {
+        "/identity_providers/{identity_provider_id}": {
             "get": {
                 "tags": [
                     "Identity Provider Services"
@@ -1720,7 +1720,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "identityProviderId",
+                        "name": "identity_provider_id",
                         "required": true,
                         "description": "Id of the Identity Provider to retrieve",
                         "schema": {
@@ -1748,12 +1748,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                                 }
                             }
                         }
@@ -1768,7 +1768,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "identityProviderId",
+                        "name": "identity_provider_id",
                         "required": true,
                         "description": "Id of the Identity Provider to delete",
                         "schema": {
@@ -1879,7 +1879,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "groupId",
+                        "name": "group_id",
                         "required": true,
                         "description": "Id of the license to update",
                         "schema": {
@@ -1908,7 +1908,7 @@
                 }
             }
         },
-        "/groups/{groupId}": {
+        "/groups/{group_id}": {
             "get": {
                 "tags": [
                     "Group Services"
@@ -1917,7 +1917,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "groupId",
+                        "name": "group_id",
                         "required": true,
                         "description": "Id of the group to retrieve",
                         "schema": {
@@ -1965,7 +1965,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "groupId",
+                        "name": "group_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -2076,7 +2076,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the license to update",
                         "schema": {
@@ -2105,7 +2105,7 @@
                 }
             }
         },
-        "/roles/{roleId}": {
+        "/roles/{role_id}": {
             "get": {
                 "tags": [
                     "Role Services"
@@ -2114,7 +2114,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the role to retrieve",
                         "schema": {
@@ -2162,7 +2162,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -2188,7 +2188,7 @@
                 }
             }
         },
-        "/products/{productId}/logos": {
+        "/products/{product_id}/logos": {
             "get": {
                 "tags": [
                     "Product Logo Services"
@@ -2197,7 +2197,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the license to retrieve",
                         "schema": {
@@ -2248,7 +2248,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the logo to retrieve",
                         "schema": {
@@ -2299,7 +2299,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product",
                         "schema": {
@@ -2340,7 +2340,7 @@
                 }
             }
         },
-        "/products/{productId}/logos/{logoId}": {
+        "/products/{product_id}/logos/{logoId}": {
             "get": {
                 "tags": [
                     "Product Logo Services"
@@ -2349,7 +2349,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve logos",
                         "schema": {
@@ -2406,7 +2406,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product",
                         "schema": {
@@ -2431,7 +2431,7 @@
                 }
             }
         },
-        "/products/{productId}/screenshots": {
+        "/products/{product_id}/screenshots": {
             "get": {
                 "tags": [
                     "Product Screenshot Services"
@@ -2440,7 +2440,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve screenshots from",
                         "schema": {
@@ -2491,7 +2491,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to retrieve",
                         "schema": {
@@ -2542,7 +2542,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the license to retrieve",
                         "schema": {
@@ -2551,7 +2551,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "screenshotId",
+                        "name": "screenshot_id",
                         "required": true,
                         "description": "Id of the screenshot to retrieve",
                         "schema": {
@@ -2592,7 +2592,7 @@
                 }
             }
         },
-        "/products/{productId}/screenshots/{screenshotId}": {
+        "/products/{product_id}/screenshots/{screenshot_id}": {
             "get": {
                 "tags": [
                     "Product Screenshot Services"
@@ -2601,7 +2601,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the license to retrieve",
                         "schema": {
@@ -2610,7 +2610,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "screenshotId",
+                        "name": "screenshot_id",
                         "required": true,
                         "description": "Id of the screenshot to retrieve",
                         "schema": {
@@ -2658,7 +2658,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the license to delete",
                         "schema": {
@@ -2667,7 +2667,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "screenshotId",
+                        "name": "screenshot_id",
                         "required": true,
                         "description": "Id of the screenshot to retrieve",
                         "schema": {
@@ -2692,7 +2692,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/configurations": {
+        "/products/{product_id}/builds/{build_id}/configurations": {
             "get": {
                 "tags": [
                     "Product Build Configuration Services"
@@ -2701,7 +2701,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -2710,7 +2710,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -2765,7 +2765,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -2774,7 +2774,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -2832,7 +2832,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update",
                         "schema": {
@@ -2841,7 +2841,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2850,7 +2850,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2893,7 +2893,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/configurations/{configurationId}": {
+        "/products/{product_id}/builds/{build_id}/configurations/{configuration_id}": {
             "get": {
                 "tags": [
                     "Product Build Configuration Services"
@@ -2902,7 +2902,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2911,7 +2911,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2920,7 +2920,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2968,7 +2968,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -2977,7 +2977,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -2986,7 +2986,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3012,7 +3012,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/configurations/{configurationId}/tasks": {
+        "/products/{product_id}/builds/{build_id}/configurations/{configuration_id}/tasks": {
             "get": {
                 "tags": [
                     "Product Build Configuration Task Services"
@@ -3021,7 +3021,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3030,7 +3030,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3039,7 +3039,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3094,7 +3094,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3103,7 +3103,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3112,7 +3112,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3170,7 +3170,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update",
                         "schema": {
@@ -3179,7 +3179,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3188,7 +3188,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3197,7 +3197,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "taskId",
+                        "name": "task_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3240,7 +3240,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/configurations/{configurationId}/task/{taskId}": {
+        "/products/{product_id}/builds/{build_id}/configurations/{configuration_id}/task/{task_id}": {
             "get": {
                 "tags": [
                     "Product Build Configuration Task Services"
@@ -3249,7 +3249,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3258,7 +3258,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3267,7 +3267,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3276,7 +3276,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "taskId",
+                        "name": "task_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3324,7 +3324,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -3333,7 +3333,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3342,7 +3342,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "configurationId",
+                        "name": "configuration_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3351,7 +3351,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "taskId",
+                        "name": "task_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3377,7 +3377,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/dependencies": {
+        "/products/{product_id}/builds/{build_id}/dependencies": {
             "get": {
                 "tags": [
                     "Product Build Dependency Services"
@@ -3386,7 +3386,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add dependency",
                         "schema": {
@@ -3395,7 +3395,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the build to add dependency",
                         "schema": {
@@ -3450,7 +3450,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update dependency",
                         "schema": {
@@ -3459,7 +3459,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the build to update dependency",
                         "schema": {
@@ -3517,7 +3517,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update dependency",
                         "schema": {
@@ -3526,7 +3526,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the build to update dependency",
                         "schema": {
@@ -3569,7 +3569,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/dependencies/{dependencyId}": {
+        "/products/{product_id}/builds/{build_id}/dependencies/{dependency_id}": {
             "get": {
                 "tags": [
                     "Product Build Dependency Services"
@@ -3578,7 +3578,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3587,7 +3587,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3596,7 +3596,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "dependencyId",
+                        "name": "dependency_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3644,7 +3644,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -3653,7 +3653,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3662,7 +3662,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "dependencyId",
+                        "name": "dependency_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3688,7 +3688,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/exposures": {
+        "/products/{product_id}/builds/{build_id}/exposures": {
             "get": {
                 "tags": [
                     "Product Build Exposure Services"
@@ -3697,7 +3697,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3706,7 +3706,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3761,7 +3761,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to add build to",
                         "schema": {
@@ -3770,7 +3770,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3828,7 +3828,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to update",
                         "schema": {
@@ -3837,7 +3837,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3889,7 +3889,7 @@
                 }
             }
         },
-        "/products/{productId}/builds/{buildId}/exposures/{exposureId}": {
+        "/products/{product_id}/builds/{build_id}/exposures/{exposureId}": {
             "get": {
                 "tags": [
                     "Product Build Exposure Services"
@@ -3898,7 +3898,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3907,7 +3907,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -3964,7 +3964,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "productId",
+                        "name": "product_id",
                         "required": true,
                         "description": "Id of the product to delete",
                         "schema": {
@@ -3973,7 +3973,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "buildId",
+                        "name": "build_id",
                         "required": true,
                         "description": "Id of the products to retrieve",
                         "schema": {
@@ -4092,7 +4092,7 @@
                 }
             }
         },
-        "/entitlements/{entitlementId}": {
+        "/entitlements/{entitlement_id}": {
             "get": {
                 "tags": [
                     "Entitlement Services"
@@ -4101,7 +4101,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the entitlement to retrieve",
                         "schema": {
@@ -4149,7 +4149,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the entitlement to retrieve",
                         "schema": {
@@ -4188,7 +4188,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the entitlement to delete",
                         "schema": {
@@ -4295,7 +4295,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "attemptId",
+                        "name": "attempt_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4339,7 +4339,7 @@
                 }
             }
         },
-        "/attempts/{attemptId}": {
+        "/attempts/{attempt_id}": {
             "get": {
                 "tags": [
                     "Attempt Services"
@@ -4348,7 +4348,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "attemptId",
+                        "name": "attempt_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4396,7 +4396,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "attemptId",
+                        "name": "attempt_id",
                         "required": true,
                         "description": "Id of the attempt to delete",
                         "schema": {
@@ -4503,7 +4503,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "voucherId",
+                        "name": "voucher_id",
                         "required": true,
                         "description": "Id of the voucher to retrieve",
                         "schema": {
@@ -4547,7 +4547,7 @@
                 }
             }
         },
-        "/vouchers/{voucherId}": {
+        "/vouchers/{voucher_id}": {
             "get": {
                 "tags": [
                     "Voucher Services"
@@ -4556,7 +4556,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "voucherId",
+                        "name": "voucher_id",
                         "required": true,
                         "description": "Id of the voucher to retrieve",
                         "schema": {
@@ -4604,7 +4604,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "voucherId",
+                        "name": "voucher_id",
                         "required": true,
                         "description": "Id of the voucher to delete",
                         "schema": {
@@ -4620,7 +4620,7 @@
                 }
             }
         },
-        "/roles/{roleId}/appointments": {
+        "/roles/{role_id}/appointments": {
             "get": {
                 "tags": [
                     "Role Appointment Services"
@@ -4629,7 +4629,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4684,7 +4684,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4731,7 +4731,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4740,7 +4740,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "appointmentId",
+                        "name": "appointment_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4772,7 +4772,7 @@
                 }
             }
         },
-        "/roles/{roleId}/appointments/{appointmentId}": {
+        "/roles/{role_id}/appointments/{appointment_id}": {
             "get": {
                 "tags": [
                     "Role Appointment Services"
@@ -4781,7 +4781,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4790,7 +4790,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "appointmentId",
+                        "name": "appointment_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4838,7 +4838,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "roleId",
+                        "name": "role_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4847,7 +4847,7 @@
                     },
                     {
                         "in": "path",
-                        "name": "appointmentId",
+                        "name": "appointment_id",
                         "required": true,
                         "description": "Id of the attempt to retrieve",
                         "schema": {
@@ -4863,7 +4863,7 @@
                 }
             }
         },
-        "/entitlements/{entitlementId}/claims": {
+        "/entitlements/{entitlement_id}/claims": {
             "get": {
                 "tags": [
                     "Entitlement Claim Services"
@@ -4872,7 +4872,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the claim to retrieve",
                         "schema": {
@@ -4927,7 +4927,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the claim to retrieve",
                         "schema": {
@@ -4974,7 +4974,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the claim to retrieve",
                         "schema": {
@@ -5015,7 +5015,7 @@
                 }
             }
         },
-        "/entitlements/{entitlementId}/claims/{claimId}": {
+        "/entitlements/{entitlement_id}/claims/{claimId}": {
             "get": {
                 "tags": [
                     "Entitlement Claim Services"
@@ -5024,7 +5024,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the claim to retrieve",
                         "schema": {
@@ -5081,7 +5081,7 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "entitlementId",
+                        "name": "entitlement_id",
                         "required": true,
                         "description": "Id of the claim to retrieve",
                         "schema": {
@@ -5208,12 +5208,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
                         }
                     }
                 },

@@ -97,7 +97,7 @@
                         "Licensing": {
                             "type": "array",
                             "items": [{
-                                "$ref": "./marketplace.json#/definitions/License"
+                                "$ref": "./marketplace.json#/definitions/license"
                             }]
 
                         },

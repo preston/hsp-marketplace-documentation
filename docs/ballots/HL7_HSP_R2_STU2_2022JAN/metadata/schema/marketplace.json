@@ -234,30 +234,30 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "softwareVersion": {
+                "software_version": {
                     "type": "string"
                 },
-                "buildVersion": {
+                "build_version": {
                     "type": "string"
                 },
-                "containerRepository": {
+                "container_repository": {
                     "type": "string"
                 },
-                "containerTag": {
+                "container_tag": {
                     "type": "string"
                 },
-                "validatedAt": {
+                "validated_at": {
                     "type": "string",
                     "format": "date-time"
                 },
-                "publishedAt": {
+                "published_at": {
                     "type": "string",
                     "format": "date-time"
                 },
                 "permissions": {
                     "type": "string"
                 },
-                "releaseNotes": {
+                "release_notes": {
                     "type": "string"
                 },
                 "created_at": {
@@ -270,7 +270,7 @@
                 }
             }
         },
-        "identityProvider": {
+        "identity_provider": {
             "type": "object",
             "xml": {
                 "name": "identityProvider"
@@ -286,14 +286,14 @@
                 "name": {
                     "type": "string"
                 },
-                "clientId": {
+                "client_id": {
                     "type": "string",
                     "format": "uuid"
                 },
                 "clientSecret": {
                     "type": "string"
                 },
-                "alternateClientId": {
+                "alternateClient_id": {
                     "type": "string",
                     "format": "uuid"
                 },
@@ -326,11 +326,11 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "userId": {
+                "user_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "identityProviderId": {
+                "identity_provider_id": {
                     "type": "string",
                     "format": "uuid"
                 },
@@ -384,11 +384,11 @@
                 "name": {
                     "type": "string"
                 },
-                "userId": {
+                "user_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "publicKey": {
+                "public_key": {
                     "type": "string"
                 },
                 "created_at": {
@@ -414,7 +414,7 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "imageFileContent": {
+                "image_file_content": {
                     "type": "string",
                     "format": "binary"
                 },
@@ -441,18 +441,18 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "productID": {
+                "product_id": {
                     "type": "string",
                     "format": "uuid"
                 },
                 "caption": {
                     "type": "string"
                 },
-                "imageFileContent": {
+                "image_file_content": {
                     "type": "string",
                     "format": "binary"
                 },
-                "imageFileSize": {
+                "image_file_size": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -482,7 +482,7 @@
                 "name": {
                     "type": "string"
                 },
-                "buildId": {
+                "build_id": {
                     "type": "string",
                     "format": "uuid"
                 },
@@ -496,7 +496,7 @@
                 }
             }
         },
-
+         
         "exposure": {
             "type": "object",
             "xml": {
@@ -510,11 +510,11 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "buildId": {
+                "build_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "interfaceId": {
+                "interface_id": {
                     "type": "string",
                     "format": "uuid"
                 },
@@ -527,7 +527,7 @@
                     "format": "date-time"
                 }
             }
-        },
+        } ,
         "entitlement": {
             "type": "object",
             "xml": {
@@ -541,15 +541,15 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "userId": {
+                "user_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "productLicenseId": {
+                "product_license_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "validFrom": {
+                "valid_from": {
                     "type": "string",
                     "format": "date-time"
                 },
@@ -576,18 +576,18 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "claimId": {
+                "claim_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "claimantId": {
+                "claimant_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "claimantType": {
+                "claimant_type": {
                     "type": "string"
                 },
-                "productId": {
+                "product_id": {
                     "type": "string",
                     "format": "uuid"
                 },
@@ -614,14 +614,14 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "entryId": {
+                "entry_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "entryType": {
+                "entry_type": {
                     "type": "string"
                 },
-                "roleId": {
+                "role_id": {
                     "type": "string"
                 },
                 "created_at": {
@@ -647,21 +647,21 @@
                     "type": "string",
                     "format": "uuid"
                 },
-                "claimantId": {
+                "claimant_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "claimantType": {
+                "claimant_type": {
                     "type": "string"
                 },
-                "entitlementId": {
+                "entitlement_id": {
                     "type": "string",
                     "format": "uuid"
                 },
-                "authorizationCount": {
+                "authorization_count": {
                     "type": "string"
                 },
-                "authorizedAt": {
+                "authorized_at": {
                     "type": "string",
                     "format": "date-time"
                 },
@@ -691,11 +691,11 @@
                 "token": {
                     "type": "string",
                     "format": "uuid"
-                },
-                "entitlementId": {
+                } ,
+                "entitlement_id": {
                     "type": "string",
                     "format": "uuid"
-                }
+                } 
             }
         }
     }

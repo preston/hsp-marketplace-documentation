@@ -13,6 +13,8 @@
         }
     },
     "tasks": [{
+        "id": "7d49a845-1f0b-4e87-82ee-d4523ff86a4d1",
+        "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a499",
         "label": "My SMART Application",
         "memory_minimum": 128,
         "memory_maximum": 256,

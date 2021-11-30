@@ -6,20 +6,15 @@
     "type": "object",
     "required": [
         "id",
-        "configurationID",
-        "label",
-        "memory_minimum",
-        "memory_maximum",
-        "instances_minimum",
-        "ports",
-        "environment"
+        "configuration_id",
+        "label"         
     ],
     "properties": {
         "id": {
             "type": "string",
             "format": "uuid"
         },
-        "configurationID": {
+        "configuration_id": {
             "type": "string",
             "format": "uuid"
         },
