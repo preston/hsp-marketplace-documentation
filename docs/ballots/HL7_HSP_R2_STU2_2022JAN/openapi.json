@@ -10,7 +10,8 @@
             "email": "preston.lee@logicahealth.org"
         }
     },
-    "tags": [{
+    "tags": [
+        {
             "name": "Product Services",
             "description": "A Product is a structured declaration of capabilities for a package of executable or consumable content, with release managed in a discrete lifecycle. A CDS Hooks or FHIR Terminology service “ExampleService” developed by vendor “ExampleSoft”, for example, would be declared to a Marketplace instance prior to actual release of the software to establish descriptive text, create screenshots, set standards-related declarations, and other fields."
         },
@@ -88,17 +89,19 @@
                     "License Services"
                 ],
                 "summary": "Returns the list of licenses available in the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getLicenses",
                 "responses": {
                     "200": {
@@ -108,7 +111,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     },
                                     "xml": {
                                         "name": "licenses"
@@ -119,7 +122,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     }
                                 }
                             }
@@ -168,7 +171,8 @@
                     "License Services"
                 ],
                 "summary": "Updates the license",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "licenseId",
                         "required": true,
@@ -194,12 +198,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                             }
                         }
                     },
@@ -220,7 +224,8 @@
                     "License Services"
                 ],
                 "summary": "Retrieves the license based on license id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "licenseId",
                         "required": true,
@@ -250,12 +255,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                 }
                             }
                         }
@@ -267,15 +272,17 @@
                     "License Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "licenseId",
-                    "required": true,
-                    "description": "Id of the license to delete",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "licenseId",
+                        "required": true,
+                        "description": "Id of the license to delete",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "operationId": "deleteLicense",
                 "responses": {
                     "200": {
@@ -290,17 +297,19 @@
                     "Product Services"
                 ],
                 "summary": "Returns the list of products available in marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getProducts",
                 "responses": {
                     "200": {
@@ -310,10 +319,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "products"
                                     }
                                 }
                             },
@@ -321,7 +330,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                                     }
                                 }
                             }
@@ -334,28 +343,30 @@
                     "Product Services"
                 ],
                 "summary": "Adds a new product to the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                             }
                         }
                     }
@@ -381,18 +392,20 @@
                     "Product Services"
                 ],
                 "summary": "Updates the product",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "description": "Update a product to the marketplace",
                 "requestBody": {
                     "content": {
@@ -422,7 +435,8 @@
                     "Product License Services"
                 ],
                 "summary": "Returns the list of licenses based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -454,7 +468,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     },
                                     "xml": {
                                         "name": "licenses"
@@ -465,7 +479,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     }
                                 }
                             }
@@ -478,7 +492,8 @@
                     "Product License Services"
                 ],
                 "summary": "Adds a new license based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -520,7 +535,8 @@
                     "Product Services"
                 ],
                 "summary": "Retrieves the product based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -550,12 +566,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                                 }
                             }
                         }
@@ -567,7 +583,8 @@
                     "Product Services"
                 ],
                 "summary": "Deletes the product based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -601,15 +618,17 @@
                     "Product Operations"
                 ],
                 "summary": "Publishes product based on product Id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "productId",
-                    "required": true,
-                    "description": "Id of the product to publish",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "productId",
+                        "required": true,
+                        "description": "Id of the product to publish",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "description": "Publishes product based on the product Id",
                 "operationId": "publishService",
                 "responses": {
@@ -625,7 +644,8 @@
                     "Product Operations"
                 ],
                 "summary": "Unpublishes the product base on the product Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -662,7 +682,8 @@
                     "Product Build Services"
                 ],
                 "summary": "Returns the list of builds based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -692,10 +713,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "builds"
                                     }
                                 }
                             },
@@ -703,7 +724,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                                     }
                                 }
                             }
@@ -716,7 +737,8 @@
                     "Product Build Services"
                 ],
                 "summary": "Adds a new build based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -773,7 +795,8 @@
                     "Product Build Services"
                 ],
                 "summary": "Updates the build based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -833,7 +856,8 @@
                     "Product Build Services"
                 ],
                 "summary": "Retrieves the build based on build and product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -872,12 +896,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Build"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/build"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Build"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/build"
                                 }
                             }
                         }
@@ -889,7 +913,8 @@
                     "Product Build Services"
                 ],
                 "summary": "Deletes the product based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -932,18 +957,20 @@
                     "Interface Services"
                 ],
                 "summary": "Adds a new interface to the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/Interface"
                 },
@@ -968,18 +995,20 @@
                     "Interface Services"
                 ],
                 "summary": "Updates the interface",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/Interface"
                 },
@@ -998,7 +1027,8 @@
                     "Interface Services"
                 ],
                 "summary": "Retrieves the interface based on interface id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "interfaceId",
                         "required": true,
@@ -1028,12 +1058,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Interface"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
                                 }
                             },
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Interface"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
                                 }
                             }
                         }
@@ -1045,7 +1075,8 @@
                     "Interface Services"
                 ],
                 "summary": "Deletes the interface based on interface id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "interfaceId",
                         "required": true,
@@ -1079,18 +1110,20 @@
                     "User Services"
                 ],
                 "summary": "Returns the list of users",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "description": "",
                 "operationId": "getUsers",
                 "responses": {
@@ -1099,12 +1132,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                                 }
                             }
                         }
@@ -1116,18 +1149,20 @@
                     "User Services"
                 ],
                 "summary": "Adds a new user",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/User"
                 },
@@ -1152,7 +1187,8 @@
                     "User Services"
                 ],
                 "summary": "Updates the user",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1189,7 +1225,8 @@
                     "User Services"
                 ],
                 "summary": "Retrieves the user based on user id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1219,12 +1256,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                                 }
                             }
                         }
@@ -1236,7 +1273,8 @@
                     "User Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1270,15 +1308,17 @@
                     "User Services"
                 ],
                 "summary": "Returns the list of identities based on user id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "userId",
-                    "required": true,
-                    "description": "returns a list of user identities",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "required": true,
+                        "description": "returns a list of user identities",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "description": "",
                 "operationId": "getUserIdentities",
                 "responses": {
@@ -1289,10 +1329,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Identity"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "userIdentities"
                                     }
                                 }
                             },
@@ -1300,7 +1340,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Identity"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity"
                                     }
                                 }
                             }
@@ -1315,7 +1355,8 @@
                     "Platform Services"
                 ],
                 "summary": "Returns the list of platforms based on user id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1345,10 +1386,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Platform"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "platforms"
                                     }
                                 }
                             },
@@ -1356,7 +1397,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Platform"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
                                     }
                                 }
                             }
@@ -1369,7 +1410,8 @@
                     "Platform Services"
                 ],
                 "summary": "Adds new platform based on user id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1413,7 +1455,8 @@
                     "Platform Services"
                 ],
                 "summary": "Updates the license",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1459,7 +1502,8 @@
                     "Platform Services"
                 ],
                 "summary": "Retrieves the platform based on user and platform id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1498,12 +1542,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Platform"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Platform"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
                                 }
                             }
                         }
@@ -1515,7 +1559,8 @@
                     "Platform Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "userId",
                         "required": true,
@@ -1558,17 +1603,19 @@
                     "Identity Provider Services"
                 ],
                 "summary": "Returns the list of Identity Providers currently available in marketplace marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getIdentityProviders",
                 "responses": {
                     "200": {
@@ -1578,10 +1625,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "indentityProviders"
                                     }
                                 }
                             },
@@ -1589,7 +1636,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                                     }
                                 }
                             }
@@ -1602,18 +1649,20 @@
                     "Identity Provider Services"
                 ],
                 "summary": "Adds a new Identity Provider to the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/IdentityProvider"
                 },
@@ -1630,7 +1679,8 @@
                     "Identity Provider Services"
                 ],
                 "summary": "Updates license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "identityProviderId",
                         "required": true,
@@ -1667,7 +1717,8 @@
                     "Identity Provider Services"
                 ],
                 "summary": "Retrieves the identity provider based on identity provider id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "identityProviderId",
                         "required": true,
@@ -1697,12 +1748,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                                 }
                             }
                         }
@@ -1714,7 +1765,8 @@
                     "Identity Provider Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "identityProviderId",
                         "required": true,
@@ -1748,17 +1800,19 @@
                     "Group Services"
                 ],
                 "summary": "Returns the list of groups currently available in the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getGroups",
                 "responses": {
                     "200": {
@@ -1768,10 +1822,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "groups"
                                     }
                                 }
                             },
@@ -1779,7 +1833,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                                     }
                                 }
                             }
@@ -1792,18 +1846,20 @@
                     "Group Services"
                 ],
                 "summary": "Adds a new group to the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/Group"
                 },
@@ -1820,7 +1876,8 @@
                     "Group Services"
                 ],
                 "summary": "Updates license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "groupId",
                         "required": true,
@@ -1857,7 +1914,8 @@
                     "Group Services"
                 ],
                 "summary": "Retrieves the group based on group id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "groupId",
                         "required": true,
@@ -1887,12 +1945,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                                 }
                             }
                         }
@@ -1904,7 +1962,8 @@
                     "Group Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "groupId",
                         "required": true,
@@ -1938,17 +1997,19 @@
                     "Role Services"
                 ],
                 "summary": "Returns the list of roles currently available in the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getRoles",
                 "responses": {
                     "200": {
@@ -1958,10 +2019,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                                     },
                                     "xml": {
-                                        "name": "licenses"
+                                        "name": "roles"
                                     }
                                 }
                             },
@@ -1969,7 +2030,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                                     }
                                 }
                             }
@@ -1982,18 +2043,20 @@
                     "Role Services"
                 ],
                 "summary": "Adds a new Role to the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "description": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "$ref": "#/components/requestBodies/Role"
                 },
@@ -2010,7 +2073,8 @@
                     "Role Services"
                 ],
                 "summary": "Updates license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -2047,7 +2111,8 @@
                     "Role Services"
                 ],
                 "summary": "Retrieves the role based on role id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -2077,12 +2142,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                                 }
                             }
                         }
@@ -2094,7 +2159,8 @@
                     "Role Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -2128,7 +2194,8 @@
                     "Product Logo Services"
                 ],
                 "summary": "Returns the list of logos based on the product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2158,10 +2225,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                                     },
                                     "xml": {
-                                        "name": "products"
+                                        "name": "logos"
                                     }
                                 }
                             },
@@ -2169,7 +2236,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                                     }
                                 }
                             }
@@ -2178,15 +2245,17 @@
                 }
             },
             "post": {
-                "parameters": [{
-                    "in": "path",
-                    "name": "productId",
-                    "required": true,
-                    "description": "Id of the logo to retrieve",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "productId",
+                        "required": true,
+                        "description": "Id of the logo to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "tags": [
                     "Product Logo Services"
                 ],
@@ -2227,7 +2296,8 @@
                     "Product Logo Services"
                 ],
                 "summary": "Updates logo by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2250,12 +2320,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                             }
                         }
                     },
@@ -2276,7 +2346,8 @@
                     "Product Logo Services"
                 ],
                 "summary": "Retrieves the logo based on product and logo id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2315,12 +2386,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                                 }
                             }
                         }
@@ -2332,7 +2403,8 @@
                     "Product Logo Services"
                 ],
                 "summary": "Deletes the logo by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2365,7 +2437,8 @@
                     "Product Screenshot Services"
                 ],
                 "summary": "Returns the list of screenshots based on product id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2395,10 +2468,10 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                                     },
                                     "xml": {
-                                        "name": "products"
+                                        "name": "screenshots"
                                     }
                                 }
                             },
@@ -2406,7 +2479,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                                     }
                                 }
                             }
@@ -2415,15 +2488,17 @@
                 }
             },
             "post": {
-                "parameters": [{
-                    "in": "path",
-                    "name": "productId",
-                    "required": true,
-                    "description": "Id of the product to retrieve",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "productId",
+                        "required": true,
+                        "description": "Id of the product to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "tags": [
                     "Product Screenshot Services"
                 ],
@@ -2464,7 +2539,8 @@
                     "Product Screenshot Services"
                 ],
                 "summary": "Updates license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2496,12 +2572,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                             }
                         }
                     },
@@ -2522,7 +2598,8 @@
                     "Product Screenshot Services"
                 ],
                 "summary": "Retrieves the screenshot based on product and screenshot id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2561,12 +2638,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                                 }
                             }
                         }
@@ -2578,7 +2655,8 @@
                     "Product Screenshot Services"
                 ],
                 "summary": "Deletes the license by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2620,7 +2698,8 @@
                     "Product Build Configuration Services"
                 ],
                 "summary": "Returns the list of configurations based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2659,7 +2738,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                                     },
                                     "xml": {
                                         "name": "configurations"
@@ -2670,7 +2749,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                                     }
                                 }
                             }
@@ -2683,7 +2762,8 @@
                     "Product Build Configuration Services"
                 ],
                 "summary": "Adds a new configuration based on prodcut and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2749,7 +2829,8 @@
                     "Product Build Configuration Services"
                 ],
                 "summary": "Updates product by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2818,7 +2899,8 @@
                     "Product Build Configuration Services"
                 ],
                 "summary": "Retrieves the configuration based on product, build, configuration id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2866,12 +2948,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                                 }
                             }
                         }
@@ -2883,7 +2965,8 @@
                     "Product Build Configuration Services"
                 ],
                 "summary": "Deletes the Configuration by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2935,7 +3018,8 @@
                     "Product Build Configuration Task Services"
                 ],
                 "summary": "Returns the list of tasks based on product, build, configuration id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -2986,7 +3070,7 @@
                                         "$ref": "./metadata/schema/task.json"
                                     },
                                     "xml": {
-                                        "name": "configurations"
+                                        "name": "tasks"
                                     }
                                 }
                             },
@@ -3007,7 +3091,8 @@
                     "Product Build Configuration Task Services"
                 ],
                 "summary": "Adds a new task based on product, build, and configuration id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3082,7 +3167,8 @@
                     "Product Build Configuration Task Services"
                 ],
                 "summary": "Updates product by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3160,7 +3246,8 @@
                     "Product Build Configuration Task Services"
                 ],
                 "summary": "Retrieves the task based on product, build, configuration, task id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3234,7 +3321,8 @@
                     "Product Build Configuration Task Services"
                 ],
                 "summary": "Deletes the Configuration by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3295,7 +3383,8 @@
                     "Product Build Dependency Services"
                 ],
                 "summary": "Returns the list of dependencies based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3358,7 +3447,8 @@
                     "Product Build Dependency Services"
                 ],
                 "summary": "Adds a new dependency based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3424,7 +3514,8 @@
                     "Product Build Dependency Services"
                 ],
                 "summary": "Updates dependency based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3484,7 +3575,8 @@
                     "Product Build Dependency Services"
                 ],
                 "summary": "Retrieves the dependency based on product, build and dependency id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3549,7 +3641,8 @@
                     "Product Build Dependency Services"
                 ],
                 "summary": "Deletes dependency based on product, build and dependency id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3601,7 +3694,8 @@
                     "Product Build Exposure Services"
                 ],
                 "summary": "Returns the list of exposures based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3640,7 +3734,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                                     },
                                     "xml": {
                                         "name": "exposures"
@@ -3651,7 +3745,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                                     }
                                 }
                             }
@@ -3664,7 +3758,8 @@
                     "Product Build Exposure Services"
                 ],
                 "summary": "Adds a new exposures based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3730,7 +3825,8 @@
                     "Product Build Exposure Services"
                 ],
                 "summary": "Updates product by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3799,7 +3895,8 @@
                     "Product Build Exposure Services"
                 ],
                 "summary": "Retrieves the exposure based on product and build id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3847,12 +3944,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                                 }
                             }
                         }
@@ -3864,7 +3961,8 @@
                     "Product Build Exposure Services"
                 ],
                 "summary": "Deletes the Dependency by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "productId",
                         "required": true,
@@ -3916,17 +4014,19 @@
                     "Entitlement Services"
                 ],
                 "summary": "Returns the list of entitlements currently available by the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getEntitlements",
                 "responses": {
                     "200": {
@@ -3936,7 +4036,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                                     },
                                     "xml": {
                                         "name": "entitlements"
@@ -3947,7 +4047,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                                     }
                                 }
                             }
@@ -3998,7 +4098,8 @@
                     "Entitlement Services"
                 ],
                 "summary": "Retrieves the entitlement based on entitlement id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "entitlementId",
                         "required": true,
@@ -4028,12 +4129,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                                 }
                             }
                         }
@@ -4045,25 +4146,27 @@
                     "Entitlement Services"
                 ],
                 "summary": "Updates entitlement by Id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "entitlementId",
-                    "required": true,
-                    "description": "Id of the entitlement to retrieve",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "entitlementId",
+                        "required": true,
+                        "description": "Id of the entitlement to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                             }
                         }
                     },
@@ -4082,15 +4185,17 @@
                     "Entitlement Services"
                 ],
                 "summary": "Deletes the entitlement by Id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "entitlementId",
-                    "required": true,
-                    "description": "Id of the entitlement to delete",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "entitlementId",
+                        "required": true,
+                        "description": "Id of the entitlement to delete",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "operationId": "deleteEntitlement",
                 "responses": {
                     "200": {
@@ -4105,17 +4210,19 @@
                     "Attempt Services"
                 ],
                 "summary": "Returns the list of attempts currently available in the marketplace",
-                "parameters": [{
-                    "in": "query",
-                    "name": "format",
-                    "schema": {
-                        "type": "string",
-                        "enum": [
-                            "xml",
-                            "json"
-                        ]
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
                     }
-                }],
+                ],
                 "operationId": "getAttempts",
                 "responses": {
                     "200": {
@@ -4125,7 +4232,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                                     },
                                     "xml": {
                                         "name": "attempts"
@@ -4136,7 +4243,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                                     }
                                 }
                             }
@@ -4185,7 +4292,8 @@
                     "Attempt Services"
                 ],
                 "summary": "Updates attempt by Id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "attemptId",
                         "required": true,
@@ -4211,12 +4319,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                             }
                         }
                     },
@@ -4237,7 +4345,8 @@
                     "Attempt Services"
                 ],
                 "summary": "Retrieves the attempt based on attempt id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "attemptId",
                         "required": true,
@@ -4267,12 +4376,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Attempt"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
                                 }
                             }
                         }
@@ -4284,16 +4393,226 @@
                     "Attempt Services"
                 ],
                 "summary": "Deletes the attempt by Id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "attemptId",
-                    "required": true,
-                    "description": "Id of the attempt to delete",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "attemptId",
+                        "required": true,
+                        "description": "Id of the attempt to delete",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "operationId": "deleteAttempt",
+                "responses": {
+                    "200": {
+                        "description": "True if delete was successful"
+                    }
+                }
+            }
+        },
+        "/vouchers": {
+            "get": {
+                "tags": [
+                    "Voucher Services"
+                ],
+                "summary": "Returns the list of vouchers currently available in the marketplace",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
+                    }
+                ],
+                "operationId": "getVouchers",
+                "responses": {
+                    "200": {
+                        "description": "Voucher",
+                        "content": {
+                            "application/xml": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                    },
+                                    "xml": {
+                                        "name": "vouchers"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Voucher Services"
+                ],
+                "summary": "Adds a new voucher to the marketplace",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/requestBodies/Voucher"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/requestBodies/Voucher"
+                            }
+                        }
+                    },
+                    "description": "Voucher to be added to the marketplace",
+                    "required": true
+                },
+                "operationId": "createVoucher",
+                "responses": {
+                    "200": {
+                        "description": "Add Voucher was succesful",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "245b3a76-9768-48ac-907f-0dc45174515f"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Voucher Services"
+                ],
+                "summary": "Updates voucher by Id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "voucherId",
+                        "required": true,
+                        "description": "Id of the voucher to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                            }
+                        }
+                    },
+                    "description": "Voucher to be added to the marketplace",
+                    "required": true
+                },
+                "operationId": "updateVoucher",
+                "responses": {
+                    "200": {
+                        "description": "True for updated\n\n- 'write:vouchers' - 'read:vouchers'"
+                    }
+                }
+            }
+        },
+        "/vouchers/{voucherId}": {
+            "get": {
+                "tags": [
+                    "Voucher Services"
+                ],
+                "summary": "Retrieves the voucher based on voucher id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "voucherId",
+                        "required": true,
+                        "description": "Id of the voucher to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "format",
+                        "description": "format",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "xml",
+                                "json"
+                            ]
+                        }
+                    }
+                ],
+                "description": "",
+                "operationId": "getVoucher",
+                "responses": {
+                    "200": {
+                        "description": "Voucher located using id",
+                        "content": {
+                            "application/xml": {
+                                "schema": {
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Voucher Services"
+                ],
+                "summary": "Deletes the voucher by Id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "voucherId",
+                        "required": true,
+                        "description": "Id of the voucher to delete",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "deleteVoucher",
                 "responses": {
                     "200": {
                         "description": "True if delete was successful"
@@ -4307,7 +4626,8 @@
                     "Role Appointment Services"
                 ],
                 "summary": "Returns the list of appointments based on role id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -4337,7 +4657,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                     },
                                     "xml": {
                                         "name": "appointments"
@@ -4348,7 +4668,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                     }
                                 }
                             }
@@ -4361,15 +4681,17 @@
                     "Role Appointment Services"
                 ],
                 "summary": "Adds a new appointments based on role id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "roleId",
-                    "required": true,
-                    "description": "Id of the attempt to retrieve",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "roleId",
+                        "required": true,
+                        "description": "Id of the attempt to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -4406,7 +4728,8 @@
                     "Role Appointment Services"
                 ],
                 "summary": "Updates appointment specified by role id and appointment id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -4429,12 +4752,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                             }
                         }
                     },
@@ -4455,7 +4778,8 @@
                     "Role Appointment Services"
                 ],
                 "summary": "Retrieves the appointment based on role and appointment id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -4494,12 +4818,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                 }
                             }
                         }
@@ -4511,7 +4835,8 @@
                     "Role Appointment Services"
                 ],
                 "summary": "Deletes the appointment specified by role id and appointment id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "roleId",
                         "required": true,
@@ -4544,7 +4869,8 @@
                     "Entitlement Claim Services"
                 ],
                 "summary": "Returns the list of claims based on entitlement id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "entitlementId",
                         "required": true,
@@ -4574,7 +4900,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                     },
                                     "xml": {
                                         "name": "claims"
@@ -4585,7 +4911,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                                     }
                                 }
                             }
@@ -4598,15 +4924,17 @@
                     "Entitlement Claim Services"
                 ],
                 "summary": "Adds a new claim based on entitlement id",
-                "parameters": [{
-                    "in": "path",
-                    "name": "entitlementId",
-                    "required": true,
-                    "description": "Id of the claim to retrieve",
-                    "schema": {
-                        "type": "string"
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "entitlementId",
+                        "required": true,
+                        "description": "Id of the claim to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
-                }],
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -4643,7 +4971,8 @@
                     "Entitlement Claim Services"
                 ],
                 "summary": "Updates claim specified by entitlement id and claim id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "entitlementId",
                         "required": true,
@@ -4666,12 +4995,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                                "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                             }
                         }
                     },
@@ -4692,7 +5021,8 @@
                     "Entitlement Claim Services"
                 ],
                 "summary": "Retrieves the claim based on entitlement and claim id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "entitlementId",
                         "required": true,
@@ -4731,12 +5061,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                                    "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                                 }
                             }
                         }
@@ -4748,7 +5078,8 @@
                     "Entitlement Claim Services"
                 ],
                 "summary": "Deletes claim specified by entitlement id and claim id",
-                "parameters": [{
+                "parameters": [
+                    {
                         "in": "path",
                         "name": "entitlementId",
                         "required": true,
@@ -4780,7 +5111,8 @@
         "description": "Find out more about Health Services Platform Marketplace",
         "url": "https://www.logicahealth.org"
     },
-    "servers": [{
+    "servers": [
+        {
             "url": "http://localhost:3000"
         },
         {
@@ -4796,12 +5128,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/License"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/license"
                         }
                     }
                 },
@@ -4812,12 +5144,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Product"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/product"
                         }
                     }
                 },
@@ -4828,12 +5160,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/User"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/user"
                         }
                     }
                 },
@@ -4844,12 +5176,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Build"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/build"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Build"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/build"
                         }
                     }
                 },
@@ -4860,12 +5192,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Interface"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Interface"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
                         }
                     }
                 },
@@ -4876,12 +5208,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/IdentityProvider"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/identityProvider"
                         }
                     }
                 },
@@ -4892,12 +5224,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Role"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/role"
                         }
                     }
                 },
@@ -4908,12 +5240,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Group"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/group"
                         }
                     }
                 },
@@ -4924,12 +5256,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Logo"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
                         }
                     }
                 },
@@ -4940,12 +5272,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Screenshot"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
                         }
                     }
                 },
@@ -4956,12 +5288,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Configuration"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
                         }
                     }
                 },
@@ -4988,12 +5320,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Exposure"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
                         }
                     }
                 },
@@ -5020,12 +5352,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                         }
                     }
                 },
@@ -5036,12 +5368,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Entitlement"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
                         }
                     }
                 },
@@ -5052,12 +5384,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Appointment"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
                         }
                     }
                 },
@@ -5068,16 +5400,32 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/Claim"
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
                         }
                     }
                 },
                 "description": "Claim",
+                "required": true
+            },
+            "Voucher": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                        }
+                    }
+                },
+                "description": "License",
                 "required": true
             }
         },
@@ -5111,6 +5459,6 @@
                 "name": "api_key",
                 "in": "header"
             }
-        } 
+        }
     }
 }

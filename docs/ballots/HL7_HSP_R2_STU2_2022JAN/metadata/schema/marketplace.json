@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://marketplace-schema.prestonlee.com/marketplaceSchema",
     "definitions": {
-        "Interface": {
+        "interface": {
             "type": "object",
             "xml": {
                 "name": "Interface"
@@ -35,7 +35,7 @@
                 }
             }
         },
-        "User": {
+        "user": {
             "type": "object",
             "xml": {
                 "name": "User"
@@ -65,7 +65,7 @@
                 }
             }
         },
-        "Role": {
+        "role": {
             "type": "object",
             "xml": {
                 "name": "role"
@@ -91,7 +91,7 @@
                 }
             }
         },
-        "Group": {
+        "group": {
             "type": "object",
             "xml": {
                 "name": "group"
@@ -117,7 +117,7 @@
                 }
             }
         },
-        "License": {
+        "license": {
             "type": "object",
             "xml": {
                 "name": "license"
@@ -169,7 +169,7 @@
                 }
             }
         },
-        "Product": {
+        "product": {
             "type": "object",
             "xml": {
                 "name": "product"
@@ -221,7 +221,7 @@
                 }
             }
         },
-        "Build": {
+        "build": {
             "type": "object",
             "xml": {
                 "name": "build"
@@ -270,7 +270,7 @@
                 }
             }
         },
-        "IdentityProvider": {
+        "identityProvider": {
             "type": "object",
             "xml": {
                 "name": "identityProvider"
@@ -313,7 +313,7 @@
                 }
             }
         },
-        "Identity": {
+        "identity": {
             "type": "object",
             "xml": {
                 "name": "identity"
@@ -368,7 +368,7 @@
                 }
             }
         },
-        "Platform": {
+        "platform": {
             "type": "object",
             "xml": {
                 "name": "platform"
@@ -401,7 +401,7 @@
                 }
             }
         },
-        "Logo": {
+        "logo": {
             "type": "object",
             "xml": {
                 "name": "logo"
@@ -428,7 +428,7 @@
                 }
             }
         },
-        "Screenshot": {
+        "screenshot": {
             "type": "object",
             "xml": {
                 "name": "Screenshot"
@@ -466,7 +466,7 @@
                 }
             }
         },
-        "Configuration": {
+        "configuration": {
             "type": "object",
             "xml": {
                 "name": "configuration"
@@ -496,44 +496,8 @@
                 }
             }
         },
-        "DependencyDeprecate": {
-            "type": "object",
-            "xml": {
-                "name": "dependency"
-            },
-            "required": [
-                "name"
-            ],
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "buildId": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "interfaceId": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "required": {
-                    "type": "boolean"
-                },
-                "mappings": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            }
-        },
-        "Exposure": {
+         
+        "exposure": {
             "type": "object",
             "xml": {
                 "name": "exposure"
@@ -563,50 +527,8 @@
                     "format": "date-time"
                 }
             }
-        },
-        "TaskDeprecate": {
-            "type": "object",
-            "xml": {
-                "name": "identityProvider"
-            },
-            "required": [
-                "name"
-            ],
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "configurationID": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "minimum": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "maximum": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "memory": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "created_at": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            }
-        },
-        "Entitlement": {
+        } ,
+        "entitlement": {
             "type": "object",
             "xml": {
                 "name": "entitlement"
@@ -641,7 +563,7 @@
                 }
             }
         },
-        "Attempt": {
+        "attempt": {
             "type": "object",
             "xml": {
                 "name": "attempt"
@@ -679,7 +601,7 @@
                 }
             }
         },
-        "Appointment": {
+        "appointment": {
             "type": "object",
             "xml": {
                 "name": "appointment"
@@ -712,7 +634,7 @@
                 }
             }
         },
-        "Claim": {
+        "claim": {
             "type": "object",
             "xml": {
                 "name": "claim"
@@ -751,6 +673,29 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            }
+        },
+        "voucher": {
+            "type": "object",
+            "xml": {
+                "name": "voucher"
+            },
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "token": {
+                    "type": "string",
+                    "format": "uuid"
+                } ,
+                "entitlementId": {
+                    "type": "string",
+                    "format": "uuid"
+                } 
             }
         }
     }

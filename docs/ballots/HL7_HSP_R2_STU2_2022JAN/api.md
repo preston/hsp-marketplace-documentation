@@ -3,7 +3,7 @@ The Marketplace API is designed as a medium-weight, conventional specification t
 
 ## Machine-Readable Format
 
-**Swagger API**: The following OpenAPI documents capture descriptions of the Marketplace APIs in machine-readable format: **[JSON](./openapi.json) [YML](./openapi.yml)**
+**Swagger API**: The following OpenAPI documents capture descriptions of the Marketplace APIs in machine-readable format: **[JSON](./openapi.json) [YML](./openapi.yaml)**
 
 ## Platform Independent Model
 The core resources managed by the API are shown in the logical model illustrated in Figure 3, and will be discussed in subsequent subsections.
