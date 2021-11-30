@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://marketplace-schema.prestonlee.com/dependency.json",
+    "$id": "https://marketplace-schema.logicahealth.org/dependency.json",
     "title": "Marketplace Product Build Metadata Schema for Applications and Content",
     "description": "The SoF product metadata file used by Graphite Marketplace and all marketplaces compliant with HL7 Marketplace product packaging specifications",
     "type": "object",
@@ -20,7 +20,8 @@
                 "type": "string",
                 "description": "An explicit build UUID that willproduct dependency."
             }
-        },   "id": {
+        },
+        "id": {
             "type": "string",
             "format": "uuid"
         },

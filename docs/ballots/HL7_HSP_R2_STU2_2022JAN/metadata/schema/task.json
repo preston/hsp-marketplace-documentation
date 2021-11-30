@@ -1,7 +1,6 @@
-
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://marketplace-schema.prestonlee.com/task.json",
+    "$id": "https://marketplace-schema.logicahealth.org/task.json",
     "title": "Runtime Task Schema for Marketplace Products",
     "description": "The schema file used by HL7 Marketplace-compliant products to declare injectable runtime configuration fields.",
     "type": "object",

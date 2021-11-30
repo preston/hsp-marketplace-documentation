@@ -7,10 +7,10 @@ Every Product submitted to a Marketplace implementation MUST be accompanied by a
  * Requirements of the Marketplace operator
  * Regulatory factors and policies of stakeholder locales
 
-This JSON metadata file is distributed alongside Product images to consumers or platform Agents, and is critical for marketplaces needing to:
+This JSON metadata file is distributed alongside Product Build images to consumers or platform Agents, and is critical for marketplaces needing to:
 
  * Render concise product labels
- * Summerize policy exemptions from official operator guidelines
+ * Summerize policy conformance to an operator's official guidelines
  * Capture software chain of custody, cryptographic signing, provenence and audit trails between and vendor and consumers.
  * Detail licensing and pricing criteria, when applicable
  * Determine if a Product is compatible with a particular runtime platform

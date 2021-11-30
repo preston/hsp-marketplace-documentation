@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://marketplace-schema.prestonlee.com/build.json",
-    "title": "Marketplace Product Build Metadata Schema for Applications and Content",
-    "description": "The SoF product metadata file used by Graphite Marketplace and all marketplaces compliant with HL7 Marketplace product packaging specifications",
+    "$id": "https://marketplace-schema.logicahealth.org/build.json",
+    "title": "Marketplace Product Build Metadata Schema for Applications and Computable Content",
+    "description": "The product metadata file used by Graphite Marketplace and all marketplaces compliant with HL7 Marketplace specification.",
     "type": "object",
     "required": [
         "marketplace_url",

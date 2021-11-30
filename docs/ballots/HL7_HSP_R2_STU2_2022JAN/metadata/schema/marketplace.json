@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://marketplace-schema.prestonlee.com/marketplaceSchema",
+    "id": "https://marketplace-schema.logicahealth.org/marketplace",
     "definitions": {
         "interface": {
             "type": "object",
@@ -496,7 +496,7 @@
                 }
             }
         },
-         
+
         "exposure": {
             "type": "object",
             "xml": {
@@ -527,7 +527,7 @@
                     "format": "date-time"
                 }
             }
-        } ,
+        },
         "entitlement": {
             "type": "object",
             "xml": {
@@ -691,11 +691,11 @@
                 "token": {
                     "type": "string",
                     "format": "uuid"
-                } ,
+                },
                 "entitlementId": {
                     "type": "string",
                     "format": "uuid"
-                } 
+                }
             }
         }
     }
