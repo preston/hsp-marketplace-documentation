@@ -21,9 +21,10 @@ This JSON metadata file is distributed alongside Product Build images to consume
 
 The top-level metadata schema applies at the _Build_ level. Every Product is expected to naturally evolve across each Build. We provide the schema in computable [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
 
-[`marketplace.json` JSON Schemas](../metadata/schema/build.json)
+[`marketplace.json` JSON Schema](../metadata/schema/build.json)
 
 Internally referenced schemas:
+
  * [Label Schema](../metadata/schema/label.json)
  * [Dependency Schema](../metadata/schema/dependency.json)
  * [Task Schema](../metadata/schema/task.json)
