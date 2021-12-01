@@ -55,6 +55,10 @@
                 "type": "number"
             }
         },
+        "chron": {
+            "type": "string",
+            "description": "CHRON script for starting task"
+        },
         "environment": {
             "type": "array",
             "items": {
