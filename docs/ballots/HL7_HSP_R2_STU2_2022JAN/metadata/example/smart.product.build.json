@@ -76,5 +76,9 @@
             }
         ]
     }],
-    "provenance": [{ "datetime": "2021-11-30 15:18:37.743234 -0700", "attribution": "Vicky Vickerson", "remark": "Submitted for review" }]
+    "provenance": [{
+        "datetime": "2021-11-30 15:18:37.743234 -0700",
+        "attribution": "Vicky Vickerson",
+        "remark": "Submitted for review"
+    }]
 }

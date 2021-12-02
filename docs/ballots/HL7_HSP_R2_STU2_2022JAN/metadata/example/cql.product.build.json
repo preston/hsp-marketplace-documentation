@@ -27,7 +27,11 @@
                 }
             ],
             "data_access": [],
-            "customer_service": [{ "service": "email", "terms": "Example Only", "url": "mailto:support@example.com" }],
+            "customer_service": [{
+                "service": "email",
+                "terms": "Example Only",
+                "url": "mailto:support@example.com"
+            }],
             "runtime_dependencies": [],
             "networking": [],
             "organization": [{
@@ -65,5 +69,10 @@
             "required": true,
             "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
         }]
+    }],
+    "provenance": [{
+        "datetime": "2021-11-30 15:18:37.743234 -0700",
+        "attribution": "Vicky Vickerson",
+        "remark": "Submitted for review"
     }]
 }

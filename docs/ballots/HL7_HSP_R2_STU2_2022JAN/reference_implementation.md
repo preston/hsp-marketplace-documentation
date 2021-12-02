@@ -3,12 +3,10 @@
 In drafting this specification, several reference implemention projects were created as a means of vetting core use cases and modeling decisions. None of these projects should be considered part of the specification proper, but are useful in evaluation and planning. They are subject to change without notice and are expected to do so from ongoing feedback.
 
 ## Marketplace Service
-The author(s) maintain a conceptual demonstration of the API, including a basic bi-directional WebSocket mechanism for Agent automation. At time of this writing a demo environment consistent with the original _Automated Injection of Curated Knowledge Into Real-Time Clinical Systems_ dissertation prototypes is available by request from Preston Lee.
-The reference implementation provides a platform-specific model (PSM) for PostgreSQL, and itself is built to be distributable as a Product by an instance of itself. The demo further demonstrates the principle of self-bootstrapping an underlying, external database into the correct state without human intervention, and implements the same 12-Factor configuration injection and other principles required of all Products.
+The author(s) maintain a conceptual demonstration of the API, including a basic bi-directional WebSocket mechanism for Agent automation. At time of this writing a demo environment consistent with the original _Automated Injection of Curated Knowledge Into Real-Time Clinical Systems_ dissertation prototypes is available by request from Preston Lee, including a platform-specific model (PSM) for PostgreSQL and ability to resolve real product use authorizations. It implements the same 12-Factor configuration injection and other principles required of all Products.
 
 ### Platform-Specific Model (PSM)
 
-![ Reference Marketplace Service Platform-Specific Model](images/Image4.png " Reference Marketplace Service Platform-Specific Model")
 
 The reference implementation further provides an integrated WebSockets-based pub/sub mechanism at the /websockets endpoint, implemented using the space_elevator library (https://github.com/preston/space_elevator) to receive Platform-instance-specific messages over a stateful Marketplace server connection to demonstrate support for the automated point-and-click deployments envisioned of production environments.
 ### Platform Integration Agent

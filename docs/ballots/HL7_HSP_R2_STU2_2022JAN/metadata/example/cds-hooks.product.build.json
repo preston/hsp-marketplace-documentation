@@ -36,23 +36,24 @@
                 "url": "https://github.com/cqframework/opioid-cds/blob/master/LICENSE.md"
             }],
             "pricing": [{
-                "name": "Evaluation",
-                "kind": "trial",
-                "rate": "0",
-                "measure": "invocation"
-            }, {
-
-                "name": "Upfront Purchase",
-                "kind": "upfront",
-                "rate": "10000",
-                "measure": "access"
-            }, {
-
-                "name": "Maintenance",
-                "kind": "maintenance",
-                "rate": "2000",
-                "measure": "access"
-            }],
+                    "name": "Evaluation",
+                    "kind": "trial",
+                    "rate": "0",
+                    "measure": "invocation"
+                },
+                {
+                    "name": "Upfront Purchase",
+                    "kind": "upfront",
+                    "rate": "10000",
+                    "measure": "access"
+                },
+                {
+                    "name": "Maintenance",
+                    "kind": "maintenance",
+                    "rate": "2000",
+                    "measure": "access"
+                }
+            ],
             "technology_mime_type": "CQL",
             "domain": [
                 "Clinical Decision Support",
@@ -170,5 +171,9 @@
             ]
         }
     ],
-    "provenance": [{ "datetime": "2021-11-30 15:18:37.743234 -0700", "attribution": "Vicky Vickerson", "remark": "Submitted for review" }]
+    "provenance": [{
+        "datetime": "2021-11-30 15:18:37.743234 -0700",
+        "attribution": "Vicky Vickerson",
+        "remark": "Submitted for review"
+    }]
 }
