@@ -94,14 +94,14 @@
                                 }
                             ]
                         },
-                        "Licensing": {
+                        "licensing": {
                             "type": "array",
                             "items": [{
                                 "$ref": "./marketplace.json#/definitions/license"
                             }]
 
                         },
-                        "Usage Terms": {
+                        "usage_terms": {
                             "type": "array",
                             "items": [{
                                 "type": "object",
@@ -123,7 +123,8 @@
                                             "gpu_core",
                                             "ram_gib",
                                             "invocation",
-                                            "hour,count"
+                                            "hour",
+                                            "count"
                                         ]
                                     }
                                 },
@@ -143,7 +144,7 @@
                                 }]
                             }]
                         },
-                        "technologyType": {
+                        "technology_type": {
                             "type": "string"
                         },
                         "domain": {
@@ -174,7 +175,7 @@
                                 ]
                             }]
                         },
-                        "customerService": {
+                        "customer_service": {
                             "type": "array",
                             "items": [{
                                 "type": "object",
@@ -196,7 +197,7 @@
                                 ]
                             }]
                         },
-                        "dataAccess": {
+                        "data_access": {
                             "type": "array",
                             "items": [{
                                 "type": "object",
@@ -215,7 +216,7 @@
                                 ]
                             }]
                         },
-                        "identifyAndAccessManagement": {
+                        "identify_and_access_management": {
                             "type": "array",
                             "items": [{
                                 "type": "object",
@@ -229,7 +230,7 @@
                                 ]
                             }]
                         },
-                        "runtimeDependency": {
+                        "runtime_dependency": {
                             "type": "array",
                             "description": "Optional set of runtime dependencies.",
                             "items": {
@@ -259,14 +260,14 @@
                         "name",
                         "company",
                         "stewards",
-                        "Licensing",
-                        "technologyType",
+                        "licensing",
+                        "technology_type",
                         "domain",
                         "cybersecurity",
-                        "customerService",
-                        "dataAccess",
-                        "identifyAndAccessManagement",
-                        "runtimeDependencies",
+                        "customer_service",
+                        "data_access",
+                        "identify_and_access_management",
+                        "runtime_dependencies",
                         "networking"
                     ]
                 }
@@ -278,10 +279,5 @@
             ]
         }
 
-    },
-    "required": [
-        "marketplace_url",
-        "product",
-        "tasks"
-    ]
+    }
 }

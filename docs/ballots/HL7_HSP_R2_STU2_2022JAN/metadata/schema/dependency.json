@@ -25,7 +25,7 @@
             "type": "string",
             "format": "uuid"
         },
-        "interfaceId": {
+        "interface_id": {
             "type": "string",
             "format": "uuid"
         },

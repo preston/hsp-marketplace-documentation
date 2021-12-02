@@ -7,7 +7,7 @@
             "uuid": "5d49a845-1f0b-4e87-82ee-d4511186a4d1",
             "binary": {
                 "registry": "https://index.docker.io/v1/",
-                "image": "p3000/opiod-product-build-example:latest"
+                "image": "p3000/marketplace-product-build-example-cds-hooks:latest"
             },
             "dependency": []
         },
@@ -26,11 +26,11 @@
                     "role": "endorsement"
                 }
             ],
-            "Licensing": [{
+            "licensing": [{
                 "license": "Creative Commons license",
                 "terms": "https://github.com/cqframework/opioid-cds/blob/master/LICENSE.md"
             }],
-            "Usage Terms": [{
+            "usage_terms": [{
                     "usage": "Usage Charge",
                     "terms": "None",
                     "unit": "invocation"
@@ -49,11 +49,11 @@
                 "type": "cybersecuritytype1",
                 "terms": "securityterms1"
             }],
-            "customerService": [{
+            "customer_service": [{
                 "service": "listserve",
                 "terms": "https://chat.fhir.org/#narrow/stream/179220-cql"
             }],
-            "dataAccess": [{
+            "data_access": [{
                     "label": "FHIR R4",
                     "uri": "https://hl7.org/fhir/R4/"
 
@@ -83,10 +83,10 @@
                     "label": "Terminologies ValueSet Value sets referenced by the CQL in the Opioid Logic recommendations"
                 }
             ],
-            "identifyAndAccessManagement": [{
+            "identify_and_access_management": [{
                 "name": "Firebase"
             }],
-            "runtimeDependencies": [{
+            "runtime_dependencies": [{
                 "name": "cqf-ruler"
             }],
             "networking": [{
@@ -133,7 +133,7 @@
         "ports": [
             80
         ],
-        "chron": "At 00:00",
+        "cron": "At 00:00",
         "environment": [{
                 "key": "LOGGING",
                 "required": false,

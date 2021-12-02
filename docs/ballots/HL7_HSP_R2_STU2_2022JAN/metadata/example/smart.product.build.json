@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema/build.json",
+    "$schema": "https://marketplace-documentation.logicahealth.org/ballots/HL7_HSP_R2_STU2_2022JAN/metadata/schema/label.json",
     "marketplace_url": "https://marketplace-server.logicahealth.org",
     "product": {
         "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b477b8",

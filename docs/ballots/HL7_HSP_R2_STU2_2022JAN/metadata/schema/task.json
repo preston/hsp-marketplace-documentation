@@ -7,7 +7,7 @@
     "required": [
         "id",
         "configuration_id",
-        "label"         
+        "label"
     ],
     "properties": {
         "id": {
@@ -55,9 +55,9 @@
                 "type": "number"
             }
         },
-        "chron": {
+        "cron": {
             "type": "string",
-            "description": "CHRON script for starting task"
+            "description": "cron schedule in `* * * * *` format for periodic tasks. See https://codebeautify.org/crontab-format for syntax"
         },
         "environment": {
             "type": "array",
