@@ -152,6 +152,7 @@
                 },
                 "license": {
                     "enum": [
+                        "Commercial",
                         "Apache License 2.0 (Apache-2.0)",
                         "3-clause BSD license (BSD-3-Clause)",
                         "2-clause BSD license (BSD-2-Clause)",
@@ -496,7 +497,7 @@
                 }
             }
         },
-         
+
         "exposure": {
             "type": "object",
             "xml": {
@@ -527,7 +528,7 @@
                     "format": "date-time"
                 }
             }
-        } ,
+        },
         "entitlement": {
             "type": "object",
             "xml": {
@@ -691,11 +692,11 @@
                 "token": {
                     "type": "string",
                     "format": "uuid"
-                } ,
+                },
                 "entitlement_id": {
                     "type": "string",
                     "format": "uuid"
-                } 
+                }
             }
         }
     }

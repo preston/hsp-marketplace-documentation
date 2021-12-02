@@ -41,7 +41,7 @@
                         "dependency"
                     ]
                 },
-                "ProductFacts": {
+                "product_facts": {
                     "type": "object",
                     "properties": {
                         "name": {
@@ -274,7 +274,7 @@
             "required": [
                 "uuid",
                 "build",
-                "ProductFacts"
+                "product_facts"
             ]
         }
 
