@@ -32,7 +32,7 @@
         "memory_maximum": 256,
         "instances_minimum": 1,
         "ports": [
-            80
+            80 
         ],
         "environment": [{
                 "key": "OPENTELEMETRY_COLLECTOR_URL",

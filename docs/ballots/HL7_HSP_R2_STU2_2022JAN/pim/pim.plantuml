@@ -2,255 +2,269 @@
 skinparam backgroundcolor AntiqueWhite
 skinparam classBackgroundColor Wheat|CornflowerBlue
 
-
-
 title "PIM"
 
 class Group {
-    String id
+    UUID id
     String name
     String description
-
 }
-Group <--o Appointment
+
+Group <--* Appointment
 
 
 class Membership {
-    String id
-
+    UUID id
+    String user_id
+    String group_id
 }
-Group  <--o  Membership
-User  <--o  Membership
- 
-
-class Appointment {
-    String id
-
-}
-Role  o--> Appointment
-User  o-->  Appointment
-User o--> Entitlement
-
+Membership <--* Group
+Membership <--* User
 
 class IdentityProvider {
-    String id
+    UUID id
     String name
     String issuer
     String client_id
     String client_secret
     String alternate_client_id
-    String Configuration
-    String public_keys
-
+    JSON configuration
+    JSON public_keys
 }
-IdentityProvider   <--o   Identity
+IdentityProvider   *-->   Identity
 
 class User {
-    String id
+    UUID id
     String family_name
     String given_name
     String email
-    String user_name
-
 }
-User o--> Identity 
+
+User *--> Identity 
+User  *-->  Platform
+User  o-->  Product
 
 class Identity{
-    String id
+    UUID id
+    UUID user_id
+    UUID provider_id
     String subject
     String issued_at
 
 }
 
-User  <--o  Service
-Service <--* Build
 class Platform {
-    String id
+    UUID id
     String name
     String agent_public_key
 }
-User  *-->  Platform
 
-User  o-->  Product
-
-class ProductInstance {
-    String id
-    String name
+class Instance {
+    UUID id
+    UUID platform_id
+    UUID build_id
+    JSON launch_bindings
+    DateTime deployed_at
 }
-ProductInstance *--> Build
-ProductInstance *--> Product
-ProductInstance *--> Platform
-
-
- 
+Instance <--* Build
+Instance <--* Platform
 
 class Role {
-    String id
+    UUID id
     String name
-    String : permissions 1..* 
+    JSON permissions 
 }
 
-class Appointment
+class Appointment {
+    UUID id
+    UUID role_id
+    UUID entity_id
+    String entity_type
+}
+Role  *--> Appointment
+User  *-->  Appointment
+User *--> Entitlement
+
+class License {
+    UUID id
+    String name
+    String description
+    String url
+    Integer expiry
+    DateTime expires_at
+    Integer days_valid
+    Integer uses
+}
 
 class ProductLicense {
-    String id
-    }
+    UUID id
+    UUID product_id
+    UUID license_id
+}
 
-ProductLicense <--o Entitlement
+ProductLicense <--* Product
+ProductLicense <--* License
+ProductLicense *--> Entitlement
 
 class Product {
-    String id
-    }
+    UUID id
+    String name
+    String description
+    URI uri
+    URL support_url
+    UUID license_id
+    DateTime approved_at
+    DateTime visible_from
+    Binary logo
+}
 
-class ProductProductLicense {
-    String id
-    }
+class SubProduct {
+    UUID id
+    UUID parent_id
+    UUID child_id
+}
 
-class Logo {
-    String id
-    }
+Product *--> SubProduct
+Product *--> SubProduct
 
-
- 
-ProductProductLicense <--* Product
 Build <--* Product
-Surrogate <--* Product
-Logo <--* Product
-
-Product o--> Screenshot
 
 class Screenshot{
-    String id
-    }
-Service <--o Screenshot
+    UUID id
+    String caption
+    String mime_type
+    Binary data
+}
+Product *--> Screenshot
 
 class Build {
-    String id
+    UUID id
     String software_version
     String build_version
     String container_repository
     String container_tag
-    String validated_at
-    String published_at
-    String permissions
+    DateTime validated_at
+    DateTime published_at
+    JSON permissions
     String release_notes
 }
 
 Build *-->  Configuration
 
 class Dependency {
-    String id  
+    UUID id  
+    UUID build_id
+    UUID interface_id
 }
 
-Service <--o Dependency
+Product *--> Dependency
 
 class Parameter  {
-    String id
+    UUID id
+    UUID exposure_id
     String name
-    String required
-
-  
+    Boolean required
 }
-Parameter <--o Exposure
+Parameter <--* Exposure
 
 class Configuration  {
-    String id
+    UUID id
+    UUID build_id
     String name
-  
 }
 
 class Task  {
-    String id
+    UUID id
     String name
-    String minimum
-    String maximum
-    String memory
-  
+    Integer minimum
+    Integer maximum
+    Integer memory_minimum
+    Integer memory_maximum  
 }
 Task <--*  Configuration
 
 class Instance 
  {
-    String id
+    UUID id
     String launch_binding
     String deployed_at
 
   
 }
-Build *-->  Instance
 
 class Interface {
-    String id
+    UUID id
     String name
-    String uri
+    URL uri
     String version
-    String ordinal
-
-  
+    Integer ordinal
 }
 Interface <--o Surrogate
+Interface <--o Surrogate
+Exposure <--* Product
 Exposure <--o Interface
 Dependency <--o Interface
 
 class Surrogate   {
-    String id
-    String of_id
-    String for_id
-  
+    UUID id
+    UUID of_id
+    UUID for_id
 }
 
 class Entitlement  {
-    String id
-  
+    UUID id
+    UUID product_license_id
+    UUID user_id
+    DateTime valid_from
 }
 Entitlement <--o Claim
 User <--o Claim
 Group <--o Claim
 
 class Claim {
-    String id
-  
+    UUID id
+    UUID claimant_id
+    String claimant_type
+    UUID entitlement_id
+    Integer authorization_count
+    DateTime authorized_at
 }
-Entitlement <--o Voucher
+
+Entitlement o--> Voucher
+
 class Voucher  {
-    String id
-  
+    UUID id
+    UUID product_license_id
+    String code
+    UUID entitlement_id
+    DateTime issued_at
+    DateTime redeemed_at
+    UUID redeemed_by
+    
 }
 
 class Attempt {
-    String id
-  
+    UUID id
+    UUID product_id
+    UUID claimant_id
+    String claimant_type
 }
 Attempt <--o User
 Attempt <--o Group
 
-
-class Authorization   {
-    String id
-  
-}
-Authorization <--o User
-Authorization <--o Group
-Authorization <--o Entitlement
-
-class Status {
-    String datetime
-    String sessionstatus
-}
-
 class Exposure  {
-    String id
-  
+    UUID id
+    UUID build_id
+    UUID interface_id
 }
 
 class Binding  {
-    String id
+    UUID id
+    UUID dependency_id
     String of
     String to
   
 }
-Binding <--o Dependency
-
+Binding <--* Dependency
 
 @@enduml
-
