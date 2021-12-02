@@ -11,18 +11,43 @@
             },
             "dependency": []
         },
-        "facts": { "data_access": [],
-            "customer_service": [],
+        "facts": {
+            "name": "Example Commercial CQL library.",
+            "pricing": [{
+                    "name": "Evaluation Only",
+                    "kind": "trial",
+                    "rate": "0",
+                    "measure": "access"
+                },
+                {
+                    "name": "Production Use",
+                    "kind": "meter",
+                    "rate": "999.99",
+                    "measure": ""
+                }
+            ],
+            "data_access": [],
+            "customer_service": [{ "service": "email", "terms": "Example Only", "url": "mailto:support@example.com" }],
             "runtime_dependencies": [],
             "networking": [],
-            "name": "",
-            "organization": [],
+            "organization": [{
+                "name": "Graphite Health",
+                "contact": "Preston Lee"
+            }],
             "stewards": [],
-            "licensing": [],
-            "technology_type": "",
+            "licensing": [{
+                "name": "Graphite Developer Program License",
+                "terms": "See URL",
+                "url": "https://www.graphitehealth.io"
+            }],
+            "technology_mime_type": "application/cql.v1.5.1+zip",
             "domain": [],
-            "cybersecurity": [],
-            "identify_and_access_management": []}
+            "cybersecurity": [{
+                "control": "graphite://cybersecurity/controls/d45fff86a4d1",
+                "remark": "Connects to CDN for static data assets."
+            }],
+            "identify_and_access_management": []
+        }
     },
     "tasks": [{
         "id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",

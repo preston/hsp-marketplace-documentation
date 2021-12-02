@@ -4,20 +4,40 @@
     "product": {
         "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b477b8",
         "facts": {
-            "customer_service": [],
+            "name": "Graphite Bilirubin Visualizer",
+            "organization": [{
+                "name": "Graphite Health"
+            }],
+            "technology_mime_type": "application/smart.v1",
+            "domain": [
+                "Clinical Decision Support",
+                "Prescribing Opioids"
+            ],
+            "cybersecurity": [{
+                "control": "graphite://cybersecurity/controls/29823-2dae0977-fd135",
+                "remark": "requirement waived"
+            }],
+            "customer_service": [{
+                "service": "forum",
+                "url": "https://chat.fhir.org/#narrow/stream/179220-cql",
+                "terms": "as available"
+            }],
+            "data_access": [{
+                    "label": "FHIR R4",
+                    "uri": "https://hl7.org/fhir/R4/"
+                },
+                {
+                    "label": "OMTKData Library Opioid Management Terminology Knowledge (OMTK) Data Library",
+                    "uri": "graphite://interfaces/data/bc0e9854-7de2-48a7-9de2-f1b481b99998"
+                }
+            ],
+            "identify_and_access_management": [{
+                "name": "CDS Hooks authn/authz protocols"
+            }],
             "runtime_dependencies": [],
             "networking": [],
-            "name": "",
-            "organization": [],
             "stewards": [],
-            "licensing": [],
-            "technology_type": "",
-            "domain": [],
-            "cybersecurity": [],
-            "identify_and_access_management": [],
-            "data_access": [
-                
-              ]
+            "licensing": []
         },
         "build": {
             "uuid": "5d49a845-1f0b-4e87-82ee-d45fff86a4d1",
@@ -36,7 +56,7 @@
         "memory_maximum": 256,
         "instances_minimum": 1,
         "ports": [
-            80 
+            80
         ],
         "environment": [{
                 "key": "OPENTELEMETRY_COLLECTOR_URL",
@@ -55,5 +75,6 @@
                 "description": "OAuth 2 client ID scopes for SMART fine-grained authorization."
             }
         ]
-    }]
+    }],
+    "provenance": [{ "datetime": "2021-11-30 15:18:37.743234 -0700", "attribution": "Vicky Vickerson", "remark": "Submitted for review" }]
 }

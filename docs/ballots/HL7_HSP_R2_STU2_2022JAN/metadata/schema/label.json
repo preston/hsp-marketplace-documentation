@@ -144,7 +144,7 @@
                                 }]
                             }]
                         },
-                        "technology_type": {
+                        "technology_mime_type": {
                             "type": "string"
                         },
                         "domain": {
@@ -261,7 +261,7 @@
                         "organization",
                         "stewards",
                         "licensing",
-                        "technology_type",
+                        "technology_mime_type",
                         "domain",
                         "cybersecurity",
                         "customer_service",

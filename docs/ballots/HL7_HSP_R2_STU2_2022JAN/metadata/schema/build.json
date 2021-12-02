@@ -7,7 +7,8 @@
     "required": [
         "marketplace_url",
         "product",
-        "tasks"
+        "tasks",
+        "provenance"
     ],
     "properties": {
         "marketplace_url": {
@@ -66,127 +67,107 @@
                         },
                         "organization": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "contact": {
-                                            "type": "string"
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
                                     },
-                                    "required": [
-                                        "name" 
-                                    ]
-                                }
-                            ]
+                                    "contact": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ]
+                            }]
                         },
                         "stewards": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "role": {
-                                            "enum": [
-                                                "endorsement",
-                                                "curator"
-                                            ]
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
                                     },
-                                    "required": [
-                                        "name",
-                                        "role"
-                                    ]
-                                }
-                            ]
+                                    "role": {
+                                        "enum": [
+                                            "endorser",
+                                            "curator"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "role"
+                                ]
+                            }]
                         },
                         "licensing": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "xml": {
-                                        "name": "license"
+                            "items": [{
+                                "type": "object",
+                                "xml": {
+                                    "name": "license"
+                                },
+                                "required": [
+                                    "name",
+                                    "url"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
                                     },
-                                    "required": [
-                                        "name",
-                                        "terms"
-                                    ],
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string",
-                                            "format": "url"
-                                        },
-                                        "terms": {
-                                            "type": "string"
-                                        }
+                                    "url": {
+                                        "type": "string",
+                                        "format": "url"
                                     }
                                 }
-                            ]
+                            }]
                         },
                         "pricing": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "usage": {
-                                            "enum": [
-                                                "Trial Use",
-                                                "Upfront Charge",
-                                                "Usage Charge",
-                                                "Maintainence"
-                                            ]
-                                        },
-                                        "terms": {
-                                            "type": "string"
-                                        },
-                                        "unit": {
-                                            "enum": [
-                                                "cpu_core",
-                                                "gpu_core",
-                                                "ram_gib",
-                                                "invocation",
-                                                "hour",
-                                                "count"
-                                            ]
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "kind": {
+                                        "enum": [
+                                            "trial",
+                                            "upfront",
+                                            "meter",
+                                            "maintainence"
+                                        ]
                                     },
-                                    "required": [
-                                        "usage",
-                                        "terms"
-                                    ],
-                                    "anyOf": [
-                                        {
-                                            "properties": {
-                                                "name": {
-                                                    "const": "Usage Charge"
-                                                }
-                                            },
-                                            "required": [
-                                                "unit"
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                                    "rate": {
+                                        "type": "string"
+                                    },
+                                    "measure": {
+                                        "enum": [
+                                            "cpu_core",
+                                            "gpu_core",
+                                            "ram_gib",
+                                            "invocation",
+                                            "access",
+                                            "hour",
+                                            "custom"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "kind",
+                                    "rate",
+                                    "measure"
+                                ]
+                            }]
                         },
-                        "technology_type": {
+                        "technology_mime_type": {
                             "type": "string"
                         },
                         "domain": {
                             "type": "array",
-                            "items": [
-                                {
+                            "items": [{
                                     "type": "string"
                                 },
                                 {
@@ -196,84 +177,84 @@
                         },
                         "cybersecurity": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "type": {
-                                            "type": "string"
-                                        },
-                                        "terms": {
-                                            "type": "string"
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "control": {
+                                        "type": "string",
+                                        "format": "url",
+                                        "description": "URI of a relevant cybersecurity control identifier."
                                     },
-                                    "required": [
-                                        "type",
-                                        "terms"
-                                    ]
-                                }
-                            ]
+                                    "remark": {
+                                        "type": "string",
+                                        "description": "Notes relevant to compliance with the given contrel identifier."
+                                    }
+                                },
+                                "required": [
+                                    "control",
+                                    "remark"
+                                ]
+                            }]
                         },
                         "customer_service": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "service": {
-                                            "enum": [
-                                                "phone",
-                                                "email",
-                                                "listserve"
-                                            ]
-                                        },
-                                        "terms": {
-                                            "type": "string"
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "service": {
+                                        "enum": [
+                                            "phone",
+                                            "email",
+                                            "forum"
+                                        ]
                                     },
-                                    "required": [
-                                        "service",
-                                        "terms"
-                                    ]
-                                }
-                            ]
+                                    "url": {
+                                        "type": "string",
+                                        "format": "url"
+                                    },
+                                    "terms": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "service",
+                                    "url",
+                                    "terms"
+                                ]
+                            }]
                         },
                         "data_access": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "label": {
-                                            "type": "string"
-                                        },
-                                        "uri": {
-                                            "type": "string",
-                                            "format": "uri"
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "label": {
+                                        "type": "string"
                                     },
-                                    "required": [
-                                        "label",
-                                        "uri"
-                                    ]
-                                }
-                            ]
+                                    "uri": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    }
+                                },
+                                "required": [
+                                    "label",
+                                    "uri"
+                                ]
+                            }]
                         },
                         "identify_and_access_management": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "name"
-                                    ]
-                                }
-                            ]
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ]
+                            }]
                         },
                         "runtime_dependencies": {
                             "type": "array",
@@ -312,23 +293,22 @@
                         },
                         "networking": {
                             "type": "array",
-                            "items": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "url": {
-                                            "type": "string"
-                                        }
+                            "items": [{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
                                     },
-                                    "required": [
-                                        "name",
-                                        "url"
-                                    ]
-                                }
-                            ]
+                                    "uri": {
+                                        "type": "string",
+                                        "format": "url"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "uri"
+                                ]
+                            }]
                         }
                     },
                     "required": [
@@ -336,7 +316,7 @@
                         "organization",
                         "stewards",
                         "licensing",
-                        "technology_type",
+                        "technology_mime_type",
                         "domain",
                         "cybersecurity",
                         "customer_service",
@@ -356,7 +336,6 @@
                 "type": "object",
                 "required": [
                     "id",
-                    "configuration_id",
                     "label"
                 ],
                 "properties": {
@@ -425,13 +404,39 @@
                                 },
                                 "default": {
                                     "type": "string"
+                                },
+                                "pattern": {
+                                    "type": "string"
                                 }
                             }
                         }
                     }
                 }
             }
+        },
+        "provenance": {
+            "type": "array",
+            "description": "Historical records of ownership and transfer.",
+            "minItems": 0,
+            "items": {
+                "required": [
+                    "datetime",
+                    "remark",
+                    "attribution"
+                ],
+                "properties": {
+                    "datetime": {
+                        "type": "string",
+                        "format": "datetime"
+                    },
+                    "remark": {
+                        "type": "string"
+                    },
+                    "attribution": {
+                        "type": "string"
+                    }
+                }
+            }
         }
-    },
-    "definitions": {}
+    }
 }
