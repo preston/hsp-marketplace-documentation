@@ -111,7 +111,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     },
                                     "xml": {
                                         "name": "licenses"
@@ -122,7 +122,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     }
                                 }
                             }
@@ -198,12 +198,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                "$ref": "#/components/schemas/license"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                "$ref": "#/components/schemas/license"
                             }
                         }
                     },
@@ -255,12 +255,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                    "$ref": "#/components/schemas/license"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                    "$ref": "#/components/schemas/license"
                                 }
                             }
                         }
@@ -319,7 +319,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                        "$ref": "#/components/schemas/product"
                                     },
                                     "xml": {
                                         "name": "products"
@@ -330,7 +330,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                        "$ref": "#/components/schemas/product"
                                     }
                                 }
                             }
@@ -361,12 +361,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                "$ref": "#/components/schemas/product"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                "$ref": "#/components/schemas/product"
                             }
                         }
                     }
@@ -468,7 +468,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     },
                                     "xml": {
                                         "name": "licenses"
@@ -479,7 +479,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     }
                                 }
                             }
@@ -566,12 +566,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                    "$ref": "#/components/schemas/product"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                                    "$ref": "#/components/schemas/product"
                                 }
                             }
                         }
@@ -713,7 +713,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     },
                                     "xml": {
                                         "name": "builds"
@@ -724,7 +724,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                                        "$ref": "#/components/schemas/license"
                                     }
                                 }
                             }
@@ -896,12 +896,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/build"
+                                    "$ref": "#/components/schemas/build"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/build"
+                                    "$ref": "#/components/schemas/build"
                                 }
                             }
                         }
@@ -1058,12 +1058,12 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
+                                    "$ref": "#/components/schemas/interface"
                                 }
                             },
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
+                                    "$ref": "#/components/schemas/interface"
                                 }
                             }
                         }
@@ -1132,12 +1132,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                                    "$ref": "#/components/schemas/user"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                                    "$ref": "#/components/schemas/user"
                                 }
                             }
                         }
@@ -1256,12 +1256,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                                    "$ref": "#/components/schemas/user"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                                    "$ref": "#/components/schemas/user"
                                 }
                             }
                         }
@@ -1329,7 +1329,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity"
+                                        "$ref": "#/components/schemas/identity"
                                     },
                                     "xml": {
                                         "name": "user_identities"
@@ -1340,7 +1340,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity"
+                                        "$ref": "#/components/schemas/identity"
                                     }
                                 }
                             }
@@ -1386,7 +1386,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
+                                        "$ref": "#/components/schemas/platform"
                                     },
                                     "xml": {
                                         "name": "platforms"
@@ -1397,7 +1397,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
+                                        "$ref": "#/components/schemas/platform"
                                     }
                                 }
                             }
@@ -1542,12 +1542,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
+                                    "$ref": "#/components/schemas/platform"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/platform"
+                                    "$ref": "#/components/schemas/platform"
                                 }
                             }
                         }
@@ -1625,7 +1625,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                                        "$ref": "#/components/schemas/identity_provider"
                                     },
                                     "xml": {
                                         "name": "indentityProviders"
@@ -1636,7 +1636,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                                        "$ref": "#/components/schemas/identity_provider"
                                     }
                                 }
                             }
@@ -1748,12 +1748,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                                    "$ref": "#/components/schemas/identity_provider"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                                    "$ref": "#/components/schemas/identity_provider"
                                 }
                             }
                         }
@@ -1822,7 +1822,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                                        "$ref": "#/components/schemas/group"
                                     },
                                     "xml": {
                                         "name": "groups"
@@ -1833,7 +1833,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                                        "$ref": "#/components/schemas/group"
                                     }
                                 }
                             }
@@ -1945,12 +1945,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                                    "$ref": "#/components/schemas/group"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                                    "$ref": "#/components/schemas/group"
                                 }
                             }
                         }
@@ -2019,7 +2019,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                                        "$ref": "#/components/schemas/role"
                                     },
                                     "xml": {
                                         "name": "roles"
@@ -2030,7 +2030,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                                        "$ref": "#/components/schemas/role"
                                     }
                                 }
                             }
@@ -2142,12 +2142,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                                    "$ref": "#/components/schemas/role"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                                    "$ref": "#/components/schemas/role"
                                 }
                             }
                         }
@@ -2225,7 +2225,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                        "$ref": "#/components/schemas/logo"
                                     },
                                     "xml": {
                                         "name": "logos"
@@ -2236,7 +2236,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                        "$ref": "#/components/schemas/logo"
                                     }
                                 }
                             }
@@ -2320,12 +2320,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                "$ref": "#/components/schemas/logo"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                "$ref": "#/components/schemas/logo"
                             }
                         }
                     },
@@ -2386,12 +2386,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                    "$ref": "#/components/schemas/logo"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                                    "$ref": "#/components/schemas/logo"
                                 }
                             }
                         }
@@ -2468,7 +2468,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                        "$ref": "#/components/schemas/screenshot"
                                     },
                                     "xml": {
                                         "name": "screenshots"
@@ -2479,7 +2479,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                        "$ref": "#/components/schemas/screenshot"
                                     }
                                 }
                             }
@@ -2572,12 +2572,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                "$ref": "#/components/schemas/screenshot"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                "$ref": "#/components/schemas/screenshot"
                             }
                         }
                     },
@@ -2638,12 +2638,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                    "$ref": "#/components/schemas/screenshot"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                                    "$ref": "#/components/schemas/screenshot"
                                 }
                             }
                         }
@@ -2738,7 +2738,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                                        "$ref": "#/components/schemas/configuration"
                                     },
                                     "xml": {
                                         "name": "configurations"
@@ -2749,7 +2749,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                                        "$ref": "#/components/schemas/configuration"
                                     }
                                 }
                             }
@@ -2948,12 +2948,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                                    "$ref": "#/components/schemas/configuration"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                                    "$ref": "#/components/schemas/configuration"
                                 }
                             }
                         }
@@ -3067,7 +3067,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/task.json"
+                                        "$ref": "#/components/schemas/task"
                                     },
                                     "xml": {
                                         "name": "tasks"
@@ -3078,7 +3078,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/task.json"
+                                        "$ref": "#/components/schemas/task"
                                     }
                                 }
                             }
@@ -3304,12 +3304,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/task.json"
+                                    "$ref": "#/components/schemas/task"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/task.json"
+                                    "$ref": "#/components/schemas/task"
                                 }
                             }
                         }
@@ -3423,7 +3423,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/dependency.json"
+                                        "$ref": "#/components/schemas/dependency"
                                     },
                                     "xml": {
                                         "name": "dependencies"
@@ -3434,7 +3434,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/dependency.json"
+                                        "$ref": "#/components/schemas/dependency"
                                     }
                                 }
                             }
@@ -3624,12 +3624,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/dependency.json"
+                                    "$ref": "#/components/schemas/dependency"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/dependency.json"
+                                    "$ref": "#/components/schemas/dependency"
                                 }
                             }
                         }
@@ -3734,7 +3734,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                                        "$ref": "#/components/schemas/exposure"
                                     },
                                     "xml": {
                                         "name": "exposures"
@@ -3745,7 +3745,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                                        "$ref": "#/components/schemas/exposure"
                                     }
                                 }
                             }
@@ -3944,12 +3944,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                                    "$ref": "#/components/schemas/exposure"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                                    "$ref": "#/components/schemas/exposure"
                                 }
                             }
                         }
@@ -4036,7 +4036,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                        "$ref": "#/components/schemas/entitlement"
                                     },
                                     "xml": {
                                         "name": "entitlements"
@@ -4047,7 +4047,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                        "$ref": "#/components/schemas/entitlement"
                                     }
                                 }
                             }
@@ -4129,12 +4129,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                    "$ref": "#/components/schemas/entitlement"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                    "$ref": "#/components/schemas/entitlement"
                                 }
                             }
                         }
@@ -4161,12 +4161,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                "$ref": "#/components/schemas/entitlement"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                                "$ref": "#/components/schemas/entitlement"
                             }
                         }
                     },
@@ -4232,7 +4232,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                        "$ref": "#/components/schemas/attempt"
                                     },
                                     "xml": {
                                         "name": "attempts"
@@ -4243,7 +4243,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                        "$ref": "#/components/schemas/attempt"
                                     }
                                 }
                             }
@@ -4319,12 +4319,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                "$ref": "#/components/schemas/attempt"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                "$ref": "#/components/schemas/attempt"
                             }
                         }
                     },
@@ -4376,12 +4376,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                    "$ref": "#/components/schemas/attempt"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/attempt"
+                                    "$ref": "#/components/schemas/attempt"
                                 }
                             }
                         }
@@ -4440,7 +4440,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                        "$ref": "#/components/schemas/voucher"
                                     },
                                     "xml": {
                                         "name": "vouchers"
@@ -4451,7 +4451,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                        "$ref": "#/components/schemas/voucher"
                                     }
                                 }
                             }
@@ -4527,12 +4527,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                "$ref": "#/components/schemas/voucher"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                "$ref": "#/components/schemas/voucher"
                             }
                         }
                     },
@@ -4584,12 +4584,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                    "$ref": "#/components/schemas/voucher"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                                    "$ref": "#/components/schemas/voucher"
                                 }
                             }
                         }
@@ -4657,7 +4657,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                        "$ref": "#/components/schemas/appointment"
                                     },
                                     "xml": {
                                         "name": "appointments"
@@ -4668,7 +4668,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                        "$ref": "#/components/schemas/appointment"
                                     }
                                 }
                             }
@@ -4752,12 +4752,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                "$ref": "#/components/schemas/appointment"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                "$ref": "#/components/schemas/appointment"
                             }
                         }
                     },
@@ -4818,12 +4818,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                    "$ref": "#/components/schemas/appointment"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                    "$ref": "#/components/schemas/appointment"
                                 }
                             }
                         }
@@ -4900,7 +4900,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                        "$ref": "#/components/schemas/appointment"
                                     },
                                     "xml": {
                                         "name": "claims"
@@ -4911,7 +4911,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                                        "$ref": "#/components/schemas/appointment"
                                     }
                                 }
                             }
@@ -4995,12 +4995,12 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                                "$ref": "#/components/schemas/claim"
                             }
                         },
                         "application/xml": {
                             "schema": {
-                                "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                                "$ref": "#/components/schemas/claim"
                             }
                         }
                     },
@@ -5061,12 +5061,12 @@
                         "content": {
                             "application/xml": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                                    "$ref": "#/components/schemas/claim"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                                    "$ref": "#/components/schemas/claim"
                                 }
                             }
                         }
@@ -5128,12 +5128,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                            "$ref": "#/components/schemas/license"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/license"
+                            "$ref": "#/components/schemas/license"
                         }
                     }
                 },
@@ -5144,12 +5144,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                            "$ref": "#/components/schemas/product"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/product"
+                            "$ref": "#/components/schemas/product"
                         }
                     }
                 },
@@ -5160,12 +5160,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                            "$ref": "#/components/schemas/user"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/user"
+                            "$ref": "#/components/schemas/user"
                         }
                     }
                 },
@@ -5176,12 +5176,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/build"
+                            "$ref": "#/components/schemas/build"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/build"
+                            "$ref": "#/components/schemas/build"
                         }
                     }
                 },
@@ -5192,12 +5192,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
+                            "$ref": "#/components/schemas/interface"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/interface"
+                            "$ref": "#/components/schemas/interface"
                         }
                     }
                 },
@@ -5208,12 +5208,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                            "$ref": "#/components/schemas/identity_provider"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/identity_provider"
+                            "$ref": "#/components/schemas/identity_provider"
                         }
                     }
                 },
@@ -5224,12 +5224,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                            "$ref": "#/components/schemas/role"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/role"
+                            "$ref": "#/components/schemas/role"
                         }
                     }
                 },
@@ -5240,12 +5240,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                            "$ref": "#/components/schemas/group"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/group"
+                            "$ref": "#/components/schemas/group"
                         }
                     }
                 },
@@ -5256,12 +5256,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                            "$ref": "#/components/schemas/logo"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/logo"
+                            "$ref": "#/components/schemas/logo"
                         }
                     }
                 },
@@ -5272,12 +5272,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                            "$ref": "#/components/schemas/screenshot"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/screenshot"
+                            "$ref": "#/components/schemas/screenshot"
                         }
                     }
                 },
@@ -5288,12 +5288,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                            "$ref": "#/components/schemas/configuration"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/configuration"
+                            "$ref": "#/components/schemas/configuration"
                         }
                     }
                 },
@@ -5304,12 +5304,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/dependency.json"
+                            "$ref": "#/components/schemas/dependency"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/dependency.json"
+                            "$ref": "#/components/schemas/dependency"
                         }
                     }
                 },
@@ -5320,12 +5320,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                            "$ref": "#/components/schemas/exposure"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/exposure"
+                            "$ref": "#/components/schemas/exposure"
                         }
                     }
                 },
@@ -5336,12 +5336,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/task.json"
+                            "$ref": "#/components/schemas/task"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/task.json"
+                            "$ref": "#/components/schemas/task"
                         }
                     }
                 },
@@ -5352,12 +5352,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                            "$ref": "#/components/schemas/entitlement"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                            "$ref": "#/components/schemas/entitlement"
                         }
                     }
                 },
@@ -5368,12 +5368,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                            "$ref": "#/components/schemas/entitlement"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/entitlement"
+                            "$ref": "#/components/schemas/entitlement"
                         }
                     }
                 },
@@ -5384,12 +5384,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                            "$ref": "#/components/schemas/appointment"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/appointment"
+                            "$ref": "#/components/schemas/appointment"
                         }
                     }
                 },
@@ -5400,12 +5400,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                            "$ref": "#/components/schemas/claim"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/claim"
+                            "$ref": "#/components/schemas/claim"
                         }
                     }
                 },
@@ -5416,12 +5416,12 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                            "$ref": "#/components/schemas/voucher"
                         }
                     },
                     "application/xml": {
                         "schema": {
-                            "$ref": "./metadata/schema/marketplace.json#/definitions/voucher"
+                            "$ref": "#/components/schemas/voucher"
                         }
                     }
                 },
@@ -5459,6 +5459,818 @@
                 "name": "api_key",
                 "in": "header"
             }
+        },
+        "schemas": {
+            "interface": {
+                "type": "object",
+                "xml": {
+                    "name": "Interface"
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "ordinal": {
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "user": {
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                },
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "familyName": {
+                        "type": "string"
+                    },
+                    "givenName": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "role": {
+                "type": "object",
+                "xml": {
+                    "name": "role"
+                },
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "group": {
+                "type": "object",
+                "xml": {
+                    "name": "group"
+                },
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "license": {
+                "type": "object",
+                "xml": {
+                    "name": "license"
+                },
+                "required": [
+                    "name",
+                    "license",
+                    "terms"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "license": {
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "terms": {
+                        "type": "string"
+                    }
+                }
+            },
+            "product": {
+                "type": "object",
+                "xml": {
+                    "name": "product"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "uri": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "support": {
+                        "type": "string"
+                    },
+                    "license": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "approved_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "visible_from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "blob": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "build": {
+                "type": "object",
+                "xml": {
+                    "name": "build"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "software_version": {
+                        "type": "string"
+                    },
+                    "build_version": {
+                        "type": "string"
+                    },
+                    "container_repository": {
+                        "type": "string"
+                    },
+                    "container_tag": {
+                        "type": "string"
+                    },
+                    "validated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "published_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "permissions": {
+                        "type": "string"
+                    },
+                    "release_notes": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "identity_provider": {
+                "type": "object",
+                "xml": {
+                    "name": "identityProvider"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "clientSecret": {
+                        "type": "string"
+                    },
+                    "alternateClient_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "configuration": {
+                        "type": "string"
+                    },
+                    "publicKeys": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "identity": {
+                "type": "object",
+                "xml": {
+                    "name": "identity"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "identity_provider_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "sub": {
+                        "type": "string"
+                    },
+                    "iat": {
+                        "type": "string"
+                    },
+                    "hd": {
+                        "type": "string"
+                    },
+                    "locale": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "jwt": {
+                        "type": "string"
+                    },
+                    "nofityViaEmail": {
+                        "type": "string"
+                    },
+                    "nofityViaSMS": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "platform": {
+                "type": "object",
+                "xml": {
+                    "name": "platform"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "public_key": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "logo": {
+                "type": "object",
+                "xml": {
+                    "name": "logo"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "image_file_content": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "screenshot": {
+                "type": "object",
+                "xml": {
+                    "name": "Screenshot"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "caption": {
+                        "type": "string"
+                    },
+                    "image_file_content": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "image_file_size": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "configuration": {
+                "type": "object",
+                "xml": {
+                    "name": "configuration"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "build_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "exposure": {
+                "type": "object",
+                "xml": {
+                    "name": "exposure"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "build_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "interface_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "entitlement": {
+                "type": "object",
+                "xml": {
+                    "name": "entitlement"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "product_license_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "valid_from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "attempt": {
+                "type": "object",
+                "xml": {
+                    "name": "attempt"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "claim_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "claimant_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "claimant_type": {
+                        "type": "string"
+                    },
+                    "product_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "appointment": {
+                "type": "object",
+                "xml": {
+                    "name": "appointment"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "entry_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "entry_type": {
+                        "type": "string"
+                    },
+                    "role_id": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "claim": {
+                "type": "object",
+                "xml": {
+                    "name": "claim"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "claimant_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "claimant_type": {
+                        "type": "string"
+                    },
+                    "entitlement_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "authorization_count": {
+                        "type": "string"
+                    },
+                    "authorized_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "voucher": {
+                "type": "object",
+                "xml": {
+                    "name": "voucher"
+                },
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "token": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "entitlement_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "dependency": {
+                "type": "object",
+                "required": [
+                    "uuid",
+                    "build"
+                ],
+                "properties": {
+                    "uuid": {
+                        "description": "Product UUID of the thing this is dependent upon.",
+                        "type": "string"
+                    },
+                    "build": {
+                        "type": "array",
+                        "description": "Permitted set of build UUIDs that will satisfy the dependency.",
+                        "items": {
+                            "type": "string",
+                            "description": "An explicit build UUID that willproduct dependency."
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "interface_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
+                    "mappings": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "task": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "configuration_id",
+                    "label"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "configuration_id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Human-readable name used for user presentation."
+                    },
+                    "memory_minimum": {
+                        "type": "number",
+                        "description": "Minimum memory (in MiB) required for the task to function at runtime.",
+                        "minimum": 1
+                    },
+                    "memory_maximum": {
+                        "type": "number",
+                        "description": "Maximum memory (in MiB) the task may allocate at runtime.",
+                        "minimum": 1
+                    },
+                    "instances_minimum": {
+                        "type": "number",
+                        "description": "The fewest instances (inclusive) of the task required at runtime.",
+                        "minimum": 0
+                    },
+                    "instances_maximum": {
+                        "type": "number",
+                        "description": "The largest allowable number of instances (inclusive) of the task allowed at runtime. Default: unlimited",
+                        "minimum": 0
+                    },
+                    "options": {
+                        "type": "array",
+                        "description": "Static parameters passed into the task at runtime. E.g. ['--mode', 'production']",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ports": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "cron": {
+                        "type": "string",
+                        "description": "cron schedule in `* * * * *` format for periodic tasks. See https://codebeautify.org/crontab-format for syntax"
+                    },
+                    "environment": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "key",
+                                "description"
+                            ],
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "required": {
+                                    "type": "boolean"
+                                },
+                                "default": {
+                                    "type": "string"
+                                }
+                            }
+                        }}
+                    }
+                }
+            }
         }
     }
-}
