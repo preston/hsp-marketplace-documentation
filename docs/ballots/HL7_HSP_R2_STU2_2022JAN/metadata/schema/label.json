@@ -47,7 +47,7 @@
                         "name": {
                             "type": "string"
                         },
-                        "company": {
+                        "organization": {
                             "type": "array",
                             "items": [{
                                     "type": "string"
@@ -258,7 +258,7 @@
                     },
                     "required": [
                         "name",
-                        "company",
+                        "organization",
                         "stewards",
                         "licensing",
                         "technology_type",
