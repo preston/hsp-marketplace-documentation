@@ -101,7 +101,7 @@
                             }]
 
                         },
-                        "usage_terms": {
+                        "pricing": {
                             "type": "array",
                             "items": [{
                                 "type": "object",

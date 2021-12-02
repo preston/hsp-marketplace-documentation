@@ -37,9 +37,9 @@ The below examples _are not real products_ and are only for illustrative use on 
 Note: While the schema permits flexible element ordering for readability, all cryptographic signatures of a `marketplace.json` document MUST operate on the _canonical JSON_ form. Assure you have rendered to canonical JSON before computing any hashes!
 
  * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
- * [Content Product Build Example](../metadata/example/smart.product.build.json)
+ * [Content Product Build Example](../metadata/example/content.product.build.json)
  * [CDS-Hooks Product Build Example](../metadata/example/cds-hooks.product.build.json)
- * [Opiod Smart-on-Fhir Product Build Example](../metadata/example/opiod.product.build.json)
+ * [CQL Product Build Example](../metadata/example/cql.product.build.json)
 
 ## Product/Build Label Visual Examples
 

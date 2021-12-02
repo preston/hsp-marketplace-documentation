@@ -30,7 +30,7 @@
                 "license": "Creative Commons license",
                 "terms": "https://github.com/cqframework/opioid-cds/blob/master/LICENSE.md"
             }],
-            "usage_terms": [{
+            "pricing": [{
                     "usage": "Usage Charge",
                     "terms": "None",
                     "unit": "invocation"
