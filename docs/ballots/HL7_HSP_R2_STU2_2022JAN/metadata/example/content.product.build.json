@@ -26,21 +26,24 @@
             "identify_and_access_management": []
         }
     },
-    "tasks": [{
-        "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
-        "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
-        "label": "My Content Service",
-        "memory_minimum": 128,
-        "memory_maximum": 256,
-        "instances_minimum": 1,
-        "options": [],
-        "ports": [
-            80
-        ],
-        "environment": [{
-            "key": "OPENTELEMETRY_COLLECTOR_URL",
-            "required": true,
-            "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
+    "configuration": [{
+        "default": true,
+        "task": [{
+            "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "label": "My Content Service",
+            "memory_minimum": 128,
+            "memory_maximum": 256,
+            "instances_minimum": 1,
+            "options": [],
+            "ports": [
+                80
+            ],
+            "environment": [{
+                "key": "OPENTELEMETRY_COLLECTOR_URL",
+                "required": true,
+                "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
+            }]
         }]
     }],
     "provenance": [{

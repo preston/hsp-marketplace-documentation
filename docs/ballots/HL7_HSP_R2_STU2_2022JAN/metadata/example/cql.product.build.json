@@ -53,21 +53,24 @@
             "identify_and_access_management": []
         }
     },
-    "tasks": [{
-        "id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
-        "configuration_id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
-        "label": "My CDS Hooks Service",
-        "memory_minimum": 128,
-        "memory_maximum": 256,
-        "instances_minimum": 1,
-        "options": [],
-        "ports": [
-            80
-        ],
-        "environment": [{
-            "key": "OPENTELEMETRY_COLLECTOR_URL",
-            "required": true,
-            "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
+    "configuration": [{
+        "default": true,
+        "task": [{
+            "id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
+            "configuration_id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
+            "label": "My CDS Hooks Service",
+            "memory_minimum": 128,
+            "memory_maximum": 256,
+            "instances_minimum": 1,
+            "options": [],
+            "ports": [
+                80
+            ],
+            "environment": [{
+                "key": "OPENTELEMETRY_COLLECTOR_URL",
+                "required": true,
+                "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
+            }]
         }]
     }],
     "provenance": [{

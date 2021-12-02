@@ -113,64 +113,67 @@
             }]
         }
     },
-    "tasks": [{
-            "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
-            "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
-            "label": "Opioid Prescribing Support SMART on FHIR Application",
-            "memory_minimum": 128,
-            "memory_maximum": 256,
-            "instances_minimum": 1,
-            "options": [],
-            "ports": [
-                80
-            ],
-            "environment": [{
-                    "key": "OPENTELEMETRY_COLLECTOR_URL",
-                    "required": true,
-                    "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement.",
-                    "pattern": "https?:\/\/.+"
-                },
-                {
-                    "key": "LOGGING",
-                    "required": false,
-                    "description": "hapi.fhir.cql_logging_enabled=true"
-                },
-                {
-                    "key": "FIREBASE",
-                    "required": false,
-                    "description": "firebaseconfigurations"
-                }
-            ]
-        },
-        {
-            "id": "7d49a845-1f0b-4e87-82ee-d45fff890a4d1",
-            "label": "Opioid Prescribing Restart",
-            "memory_minimum": 128,
-            "memory_maximum": 256,
-            "instances_minimum": 1,
-            "options": [],
-            "ports": [
-                80
-            ],
-            "cron": "At 00:00",
-            "environment": [{
-                    "key": "LOGGING",
-                    "required": false,
-                    "description": "hapi.fhir.cql_logging_enabled=true"
-                },
-                {
-                    "key": "CQLTERMINOLOGY",
-                    "required": false,
-                    "description": "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-terminology-bundle.json"
-                },
-                {
-                    "key": "CQLCONTENTY",
-                    "required": false,
-                    "description": "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-content-bundle.json"
-                }
-            ]
-        }
-    ],
+    "configuration": [{
+        "default": true,
+        "task": [{
+                "id": "7d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+                "configuration_id": "5d43a845-1f0b-4e87-82ee-d45fff86a4d1",
+                "label": "Opioid Prescribing Support SMART on FHIR Application",
+                "memory_minimum": 128,
+                "memory_maximum": 256,
+                "instances_minimum": 1,
+                "options": [],
+                "ports": [
+                    80
+                ],
+                "environment": [{
+                        "key": "OPENTELEMETRY_COLLECTOR_URL",
+                        "required": true,
+                        "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement.",
+                        "pattern": "https?:\/\/.+"
+                    },
+                    {
+                        "key": "LOGGING",
+                        "required": false,
+                        "description": "hapi.fhir.cql_logging_enabled=true"
+                    },
+                    {
+                        "key": "FIREBASE",
+                        "required": false,
+                        "description": "firebaseconfigurations"
+                    }
+                ]
+            },
+            {
+                "id": "7d49a845-1f0b-4e87-82ee-d45fff890a4d1",
+                "label": "Opioid Prescribing Restart",
+                "memory_minimum": 128,
+                "memory_maximum": 256,
+                "instances_minimum": 1,
+                "options": [],
+                "ports": [
+                    80
+                ],
+                "cron": "At 00:00",
+                "environment": [{
+                        "key": "LOGGING",
+                        "required": false,
+                        "description": "hapi.fhir.cql_logging_enabled=true"
+                    },
+                    {
+                        "key": "CQLTERMINOLOGY",
+                        "required": false,
+                        "description": "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-terminology-bundle.json"
+                    },
+                    {
+                        "key": "CQLCONTENTY",
+                        "required": false,
+                        "description": "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-content-bundle.json"
+                    }
+                ]
+            }
+        ]
+    }],
     "provenance": [{
         "datetime": "2021-11-30 15:18:37.743234 -0700",
         "attribution": "Vicky Vickerson",

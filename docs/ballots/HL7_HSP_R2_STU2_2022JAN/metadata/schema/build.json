@@ -7,7 +7,7 @@
     "required": [
         "marketplace_url",
         "product",
-        "tasks",
+        "configuration",
         "provenance"
     ],
     "properties": {
@@ -130,7 +130,9 @@
                             "items": [{
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
+                                    "name": {
+                                        "type": "string"
+                                    },
                                     "kind": {
                                         "enum": [
                                             "trial",
@@ -328,91 +330,108 @@
                 }
             }
         },
-        "tasks": {
+        "configuration": {
             "type": "array",
             "description": "Set of runtime tasks necessary to run this product build.",
             "minItems": 1,
             "items": {
-                "type": "object",
                 "required": [
-                    "id",
-                    "label"
+                    "default",
+                    "task"
                 ],
                 "properties": {
-                    "configuration_id": {
-                        "type": "string",
-                        "format": "uuid"
+                    "default": {
+                        "type": "boolean"
                     },
-                    "label": {
-                        "type": "string",
-                        "description": "Human-readable name used for user presentation."
-                    },
-                    "memory_minimum": {
-                        "type": "number",
-                        "description": "Minimum memory (in MiB) required for the task to function at runtime.",
-                        "minimum": 1
-                    },
-                    "memory_maximum": {
-                        "type": "number",
-                        "description": "Maximum memory (in MiB) the task may allocate at runtime.",
-                        "minimum": 1
-                    },
-                    "instances_minimum": {
-                        "type": "number",
-                        "description": "The fewest instances (inclusive) of the task required at runtime.",
-                        "minimum": 0
-                    },
-                    "instances_maximum": {
-                        "type": "number",
-                        "description": "The largest allowable number of instances (inclusive) of the task allowed at runtime. Default: unlimited",
-                        "minimum": 0
-                    },
-                    "options": {
+                    "task": {
                         "type": "array",
-                        "description": "Static parameters passed into the task at runtime. E.g. ['--mode', 'production']",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "ports": {
-                        "type": "array",
-                        "items": {
-                            "type": "number"
-                        }
-                    },
-                    "cron": {
-                        "type": "string",
-                        "description": "cron schedule in `* * * * *` format for periodic tasks. See https://codebeautify.org/crontab-format for syntax"
-                    },
-                    "environment": {
-                        "type": "array",
+                        "description": "Specific set of runtime tasks necessary to run a configuration.",
+                        "minItems": 1,
                         "items": {
                             "type": "object",
                             "required": [
-                                "key",
-                                "description"
+                                "id",
+                                "label"
                             ],
                             "properties": {
-                                "key": {
-                                    "type": "string"
+                                "configuration_id": {
+                                    "type": "string",
+                                    "format": "uuid"
                                 },
-                                "description": {
-                                    "type": "string"
+                                "label": {
+                                    "type": "string",
+                                    "description": "Human-readable name used for user presentation."
                                 },
-                                "required": {
-                                    "type": "boolean"
+                                "memory_minimum": {
+                                    "type": "number",
+                                    "description": "Minimum memory (in MiB) required for the task to function at runtime.",
+                                    "minimum": 1
                                 },
-                                "default": {
-                                    "type": "string"
+                                "memory_maximum": {
+                                    "type": "number",
+                                    "description": "Maximum memory (in MiB) the task may allocate at runtime.",
+                                    "minimum": 1
                                 },
-                                "pattern": {
-                                    "type": "string"
+                                "instances_minimum": {
+                                    "type": "number",
+                                    "description": "The fewest instances (inclusive) of the task required at runtime.",
+                                    "minimum": 0
+                                },
+                                "instances_maximum": {
+                                    "type": "number",
+                                    "description": "The largest allowable number of instances (inclusive) of the task allowed at runtime. Default: unlimited",
+                                    "minimum": 0
+                                },
+                                "options": {
+                                    "type": "array",
+                                    "description": "Static parameters passed into the task at runtime. E.g. ['--mode', 'production']",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "ports": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    }
+                                },
+                                "cron": {
+                                    "type": "string",
+                                    "description": "cron schedule in `* * * * *` format for periodic tasks. See https://codebeautify.org/crontab-format for syntax"
+                                },
+                                "environment": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "key",
+                                            "description"
+                                        ],
+                                        "properties": {
+                                            "key": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "required": {
+                                                "type": "boolean"
+                                            },
+                                            "default": {
+                                                "type": "string"
+                                            },
+                                            "pattern": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
+
         },
         "provenance": {
             "type": "array",
