@@ -17,19 +17,6 @@ This JSON metadata file is distributed alongside Product Build images to consume
  * Provide remediation measures when runtime incompatibilities are detected  
  * Automate Product deployments in conjunction with runtime service orchestrators
 
-## JSON Schemas
-
-The top-level metadata schema applies at the _Build_ level. Every Product is expected to naturally evolve across each Build. We provide the schema in computable [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
-
-[`marketplace.json` JSON Schema](../metadata/schema/build.json)
-
-Internally referenced schemas:
-
- * [Label Schema](../metadata/schema/label.json)
- * [Dependency Schema](../metadata/schema/dependency.json)
- * [Task Schema](../metadata/schema/task.json)
-
-
 ## JSON Examples
 
 The below examples _are not real products_ and are only for illustrative use on how `marketplace.json` metadata may be combined with known user information to improve consumer awareness of individual Products. We include them as directional guidance for implementors and product developers as a concrete starting point. For local product development and build purposes, the metadata file MUST be named `marketplace.json` and SHOULD be included at the root level of source code projects for compatible IDEs and editors. Marketplace operators may read a submitted `marketplace.json` file and merge in information with known consumer capabilities to provide a clear, objective overview of the Product and Build.
@@ -40,6 +27,12 @@ Note: While the schema permits flexible element ordering for readability, all cr
  * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
  * [CQL Product Build Example](../metadata/example/cql.product.build.json)
  * [Content Product Build Example](../metadata/example/content.product.build.json)
+
+## JSON Schemas
+
+The top-level metadata schema applies at the _Build_ level. Every Product is expected to naturally evolve across each Build. We provide the schema in computable [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
+
+[`marketplace.json` JSON Schema](../metadata/schema/build.json)
 
 ## Product/Build Label Visual Examples
 
