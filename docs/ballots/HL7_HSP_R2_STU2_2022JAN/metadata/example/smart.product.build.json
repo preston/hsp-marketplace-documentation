@@ -4,16 +4,20 @@
     "product": {
         "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b477b8",
         "facts": {
-            "company": [],
             "customer_service": [],
-            "cybersecurity": [],
-            "data_access": [],
-            "domain": [],
-            "licensing": [],
+            "runtime_dependencies": [],
             "networking": [],
-            "runtime_dependency": [],
-            "identity_and_access_management": [],
-            "technology_type": "aoeu"
+            "name": "",
+            "organization": [],
+            "stewards": [],
+            "licensing": [],
+            "technology_type": "",
+            "domain": [],
+            "cybersecurity": [],
+            "identify_and_access_management": [],
+            "data_access": [
+                
+              ]
         },
         "build": {
             "uuid": "5d49a845-1f0b-4e87-82ee-d45fff86a4d1",

@@ -1,6 +1,6 @@
 {
     "$schema": "../schema/build.json",
-    "marketplace_url": "https://marketplace-server.logicahealth.org",
+    "marketplace_url": "https://marketplace-server.logicahealth.org",    
     "product": {
         "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b99998",
         "build": {
@@ -27,6 +27,7 @@
                 }
             ],
             "licensing": [{
+                "name" : "Creative Commons license",
                 "license": "Creative Commons license",
                 "terms": "https://github.com/cqframework/opioid-cds/blob/master/LICENSE.md"
             }],
@@ -87,6 +88,8 @@
                 "name": "Firebase"
             }],
             "runtime_dependencies": [{
+                "uuid": "",
+                "build": [],
                 "name": "cqf-ruler"
             }],
             "networking": [{

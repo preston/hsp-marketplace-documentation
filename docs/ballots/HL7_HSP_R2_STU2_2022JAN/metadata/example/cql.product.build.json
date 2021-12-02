@@ -10,7 +10,19 @@
                 "image": "p3000/marketplace-product-build-example-cql:latest"
             },
             "dependency": []
-        }
+        },
+        "facts": { "data_access": [],
+            "customer_service": [],
+            "runtime_dependencies": [],
+            "networking": [],
+            "name": "",
+            "organization": [],
+            "stewards": [],
+            "licensing": [],
+            "technology_type": "",
+            "domain": [],
+            "cybersecurity": [],
+            "identify_and_access_management": []}
     },
     "tasks": [{
         "id": "deadbeef-7de2-48a7-9de2-f1b481b477b8",
