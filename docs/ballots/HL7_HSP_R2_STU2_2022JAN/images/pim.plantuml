@@ -1,4 +1,4 @@
-@@startuml PIM
+@@startuml pim
 skinparam backgroundcolor AntiqueWhite
 skinparam classBackgroundColor Wheat|CornflowerBlue
 
