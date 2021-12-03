@@ -21,7 +21,7 @@ nav:
   - Runtime Telemetry : 'ballots/HL7_HSP_R2_STU2_2022JAN/runtime_telemetry.md'  
   - Functional Infrastructure Model : 'ballots/HL7_HSP_R2_STU2_2022JAN/functional_infrastructure_model.md'  
   - Model Quick Reference : 'ballots/HL7_HSP_R2_STU2_2022JAN/model_quick_reference.md'        
-  - API : 'ballots/HL7_HSP_R2_STU2_2022JAN/api.md'
+  - API &amp; PIM : 'ballots/HL7_HSP_R2_STU2_2022JAN/api.md'
   - Reference implementation : 'ballots/HL7_HSP_R2_STU2_2022JAN/reference_implementation.md'
   - Reference Standards : 'ballots/HL7_HSP_R2_STU2_2022JAN/reference_standards.md'   
   # - 2 STU1: 

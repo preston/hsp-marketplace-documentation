@@ -5,8 +5,7 @@ In drafting this specification, several reference implemention projects were cre
 ## Marketplace Service
 The author(s) maintain a conceptual demonstration of the API, including a basic bi-directional WebSocket mechanism for Agent automation. At time of this writing a demo environment consistent with the original _Automated Injection of Curated Knowledge Into Real-Time Clinical Systems_ dissertation prototypes is available by request from Preston Lee, including a platform-specific model (PSM) for PostgreSQL and ability to resolve real product use authorizations. It implements the same 12-Factor configuration injection and other principles required of all Products.
 
-### Platform-Specific Model (PSM)
-
+### Platform-Specific Models (PSMs)
 
 The reference implementation further provides an integrated WebSockets-based pub/sub mechanism at the /websockets endpoint, implemented using the space_elevator library (https://github.com/preston/space_elevator) to receive Platform-instance-specific messages over a stateful Marketplace server connection to demonstrate support for the automated point-and-click deployments envisioned of production environments.
 ### Platform Integration Agent

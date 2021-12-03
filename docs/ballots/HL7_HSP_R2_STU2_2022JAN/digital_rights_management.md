@@ -14,6 +14,7 @@ Marketplace 2 introduces a new concept of Product _Entitlement_: an acquired ins
 
 ## Product Families
 Products are often released in functional collections, e.g.:
+
  * hierarchical “families”,
  * promotional groupings,
  * domain bundles, or
