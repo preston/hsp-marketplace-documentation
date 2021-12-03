@@ -1,20 +1,21 @@
 # Health Services Platform (HSP) Marketplace Documentation
 
-This repository contains content and build configuration for the Health Services Platform Marketplace specification as co-developed by Logica Health and HL7, formally balloted by HL7. The computable version of the Marketplace is included in OpenAPI format.
+This repository contains content and build configuration for the Health Services Platform Marketplace specification as co-developed by Logica Health and HL7, formally balloted by HL7. Product metadata schemas are provided in JSON Schema and a computable version of the Marketplace API is included in OpenAPI format.
 
-If you plan on editing the computable OpenAPI documents, we recommend using [Swagger Editor](https://swagger.io/tools/swagger-editor/). Compatible alternatives are available, as well.
+If you plan on editing the computable OpenAPI documents, we recommend using [Swagger Editor](https://swagger.io/tools/swagger-editor/) or similar. Compatible alternatives are available, as well.
 
 ## Building
 
-The official official build is distributed as a Docker image. To build your own:
+Official builds are distributed by Logica Health as Docker images.
 
-	docker build -t p3000/marketplace-documentation:latest .
+	docker run -it --rm --name marketplace-documentation -p 8080:80 logicahealth/marketplace-documentation:latest
 
-To run your image:
+Or to build your own:
 
-	docker run -it --rm --name marketplace-documentation -p 8080:80 p3000/marketplace-documentation:latest
+	docker build -t logicahealth/marketplace-documentation:latest .
 
-This will start serving the static HTML site at `http://localhost:8080`.
+
+This will build and serve a static HTML site at `http://localhost:8080`.
 
 
 ## Building Manually
@@ -22,13 +23,15 @@ This will start serving the static HTML site at `http://localhost:8080`.
 
 Install MkDocs
 
-pip install mkdocs
+	pip install mkdocs
 
 Install Material
 
-pip install mkdocs-material
+	pip install mkdocs-material
 
-Run 'mkdocs serve' in project directory
+Build and serve the project
 
-Serving on http://127.0.0.1:8000
+	mkdocs serve
+
+The project be available at http://127.0.0.1:8000
 
