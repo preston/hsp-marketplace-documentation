@@ -2,7 +2,7 @@
 skinparam backgroundcolor AntiqueWhite
 skinparam classBackgroundColor Wheat|CornflowerBlue
 
-title "PIM"
+title "Platform Independent Model (PIM)"
 
 class Group {
     UUID id
