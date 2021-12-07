@@ -23,16 +23,16 @@ The below examples _are not real products_ and are only for illustrative use on 
 
 Note: While the schema permits flexible element ordering for readability, all cryptographic signatures of a `marketplace.json` document MUST operate on the _canonical JSON_ form. Assure you have rendered to canonical JSON before computing any hashes!
 
- * [CDS-Hooks Product Build Example](../metadata/example/cds-hooks.product.build.json)
- * [SMART-on-FHIR Product Build Example](../metadata/example/smart.product.build.json)
- * [CQL Product Build Example](../metadata/example/cql.product.build.json)
- * [Content Product Build Example](../metadata/example/content.product.build.json)
+ * [CDS-Hooks Product Build Example](metadata/example/cds-hooks.product.build.json)
+ * [SMART-on-FHIR Product Build Example](metadata/example/smart.product.build.json)
+ * [CQL Product Build Example](metadata/example/cql.product.build.json)
+ * [Content Product Build Example](metadata/example/content.product.build.json)
 
 ## JSON Schemas
 
 The top-level metadata schema applies at the _Build_ level. Every Product is expected to naturally evolve across each Build. We provide the schema in computable [JSON Schema](https://json-schema.org) format with inline documentation that can be viewed manually or by many supported editors.
 
-[`marketplace.json` JSON Schema](../metadata/schema/build.json)
+[`marketplace.json` JSON Schema](metadata/schema/build.json)
 
 ## Product/Build Label Visual Examples
 

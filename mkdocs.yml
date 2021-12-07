@@ -1,5 +1,7 @@
 site_name: Health Services Platform (HSP) Marketplace
 
+use_directory_urls : false
+
 theme:
   name: 'material'
   logo: 'images/LOGICA_MARK_NOBCKGRND.png'
