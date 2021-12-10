@@ -39,4 +39,4 @@ nav:
     - API : './ballots/HL7_HSP_R2_STU1_2019SEP/api.md'
   - 1.0 Informative: './ballots/HL7_V3_HSP_R1_I1_2019JAN/index-r1.md'
 
-copyright: © 2019-2022 HL7 & Logica <p>  <img width="60px" align="left" alt="HL7 International" src="/images/hl7-logo.png" />&nbsp;<img width="60px" align="left" alt="Logica Health" src="/images/LOGICA LOGO COLOR 2.png" /> </p><br/> 
+copyright: © 2019-2022 HL7 & Logica <p>  <img width="60px" align="left" alt="HL7 International" src="images/hl7-logo.png" />&nbsp;<img width="60px" align="left" alt="Logica Health" src="images/LOGICA LOGO COLOR 2.png" /> </p><br/> 
