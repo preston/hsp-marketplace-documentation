@@ -13,7 +13,7 @@ theme:
 nav:
 - Home: './index.md'
 - Current Snapshot (Unballoted):
-  - Health Services Platform Marketplace : './ballots/latest/index-r2stu2.md'
+  - Health Services Platform Marketplace : './ballots/latest/index-r3.md'
   - License Information : './ballots/latest/license.md'
   - API &amp; PIM : './ballots/latest/api.md'
   - Executive Summary : './ballots/latest/executive_summary.md'
