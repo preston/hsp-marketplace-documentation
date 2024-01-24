@@ -6,7 +6,11 @@ If you plan on editing the computable OpenAPI documents, we recommend using [Swa
 
 ## Building
 
-Official builds are distributed by Logica Health as Docker images.
+A multi-platform build can be created with `docker`, `podman` etc as follows:
+
+```docker buildx build --platform linux/arm64,linux/amd64 -t logicahealth/marketplace-documentation:latest . --push```
+
+Official builds are distributed by Logica Health as OCI (Docker) images.
 
 	docker run -it --rm --name marketplace-documentation -p 8080:80 logicahealth/marketplace-documentation:latest
 
@@ -23,11 +27,11 @@ This will build and serve a static HTML site at `http://localhost:8080`.
 
 Install MkDocs
 
-	pip install mkdocs
+	`pip install mkdocs`
 
 Install Material
 
-	pip install mkdocs-material
+	`pip install mkdocs-material`
 
 Build and serve the project
 
@@ -35,3 +39,6 @@ Build and serve the project
 
 The project be available at http://127.0.0.1:8000
 
+## Attribution
+
+Preston Lee (GitHub: @preston)
