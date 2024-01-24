@@ -12,20 +12,33 @@ theme:
 
 nav:
 - Home: './index.md'
-- Release 2 STU2 (Current):
-  - Health Services Platform Marketplace : './ballots/HL7_HSP_R2_STU2_2022JAN/index-r2stu2.md'
-  - License Information : './ballots/HL7_HSP_R2_STU2_2022JAN/license.md'
-  - API &amp; PIM : './ballots/HL7_HSP_R2_STU2_2022JAN/api.md'
-  - Executive Summary : './ballots/HL7_HSP_R2_STU2_2022JAN/executive_summary.md'
-  - Core Concepts :  './ballots/HL7_HSP_R2_STU2_2022JAN/core_concepts.md'
-  - Digital Rights Management :  './ballots/HL7_HSP_R2_STU2_2022JAN/digital_rights_management.md'
-  - Product Packaging : './ballots/HL7_HSP_R2_STU2_2022JAN/product_packaging.md'
-  - Runtime Telemetry : './ballots/HL7_HSP_R2_STU2_2022JAN/runtime_telemetry.md'
-  - Functional Infrastructure Model : './ballots/HL7_HSP_R2_STU2_2022JAN/functional_infrastructure_model.md'
-  - Model Quick Reference : './ballots/HL7_HSP_R2_STU2_2022JAN/model_quick_reference.md'
-  - Reference implementation : './ballots/HL7_HSP_R2_STU2_2022JAN/reference_implementation.md'
-  - Reference Standards : './ballots/HL7_HSP_R2_STU2_2022JAN/reference_standards.md'
-- Previous Releases:
+- Current Snapshot (Unballoted):
+  - Health Services Platform Marketplace : './ballots/latest/index-r2stu2.md'
+  - License Information : './ballots/latest/license.md'
+  - API &amp; PIM : './ballots/latest/api.md'
+  - Executive Summary : './ballots/latest/executive_summary.md'
+  - Core Concepts :  './ballots/latest/core_concepts.md'
+  - Digital Rights Management :  './ballots/latest/digital_rights_management.md'
+  - Product Packaging : './ballots/latest/product_packaging.md'
+  - Runtime Telemetry : './ballots/latest/runtime_telemetry.md'
+  - Functional Infrastructure Model : './ballots/latest/functional_infrastructure_model.md'
+  - Model Quick Reference : './ballots/latest/model_quick_reference.md'
+  - Reference implementation : './ballots/latest/reference_implementation.md'
+  - Reference Standards : './ballots/latest/reference_standards.md'
+- Balloted Releases:
+  - Release 2 STU2:
+    - Health Services Platform Marketplace : './ballots/HL7_HSP_R2_STU2_2022JAN/index-r2stu2.md'
+    - License Information : './ballots/HL7_HSP_R2_STU2_2022JAN/license.md'
+    - API &amp; PIM : './ballots/HL7_HSP_R2_STU2_2022JAN/api.md'
+    - Executive Summary : './ballots/HL7_HSP_R2_STU2_2022JAN/executive_summary.md'
+    - Core Concepts :  './ballots/HL7_HSP_R2_STU2_2022JAN/core_concepts.md'
+    - Digital Rights Management :  './ballots/HL7_HSP_R2_STU2_2022JAN/digital_rights_management.md'
+    - Product Packaging : './ballots/HL7_HSP_R2_STU2_2022JAN/product_packaging.md'
+    - Runtime Telemetry : './ballots/HL7_HSP_R2_STU2_2022JAN/runtime_telemetry.md'
+    - Functional Infrastructure Model : './ballots/HL7_HSP_R2_STU2_2022JAN/functional_infrastructure_model.md'
+    - Model Quick Reference : './ballots/HL7_HSP_R2_STU2_2022JAN/model_quick_reference.md'
+    - Reference implementation : './ballots/HL7_HSP_R2_STU2_2022JAN/reference_implementation.md'
+    - Reference Standards : './ballots/HL7_HSP_R2_STU2_2022JAN/reference_standards.md'
   - Release 2 STU1:
     - Health Services Platform Marketplace : './ballots/HL7_HSP_R2_STU1_2019SEP/index-r2stu1.md'
     - License Information : './ballots/HL7_HSP_R2_STU1_2019SEP/license.md'
